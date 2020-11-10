@@ -85,7 +85,7 @@
             this.tablaRuteo.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaRuteo.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaRuteo.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleCenter;
             dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
             dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gainsboro;
@@ -93,7 +93,7 @@
             dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
             this.tablaRuteo.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.tablaRuteo.ColumnHeadersHeight = 50;
+            this.tablaRuteo.ColumnHeadersHeight = 66;
             this.tablaRuteo.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.ServerName,
             this.ServerType,
@@ -105,7 +105,7 @@
             dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
             dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             dataGridViewCellStyle6.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
+            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
             dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.White;
             dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
             this.tablaRuteo.DefaultCellStyle = dataGridViewCellStyle6;
@@ -140,7 +140,7 @@
             // 
             dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.ServerType.DefaultCellStyle = dataGridViewCellStyle3;
-            this.ServerType.HeaderText = "Tipo de Conexión del Remitente";
+            this.ServerType.HeaderText = "Conexión del Remitente";
             this.ServerType.Name = "ServerType";
             // 
             // ModemName
@@ -177,14 +177,14 @@
             this.cbConeccionS.BackColor = System.Drawing.Color.White;
             this.cbConeccionS.Cursor = System.Windows.Forms.Cursors.Default;
             this.cbConeccionS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbConeccionS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbConeccionS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbConeccionS.FormattingEnabled = true;
             this.cbConeccionS.Items.AddRange(new object[] {
             "TCP",
             "UDP"});
             this.cbConeccionS.Location = new System.Drawing.Point(257, 49);
             this.cbConeccionS.Name = "cbConeccionS";
-            this.cbConeccionS.Size = new System.Drawing.Size(119, 25);
+            this.cbConeccionS.Size = new System.Drawing.Size(119, 24);
             this.cbConeccionS.TabIndex = 2;
             this.cbConeccionS.SelectedIndexChanged += new System.EventHandler(this.cbConeccionS_SelectedIndexChanged);
             // 
@@ -192,14 +192,14 @@
             // 
             this.cbTypeS.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbTypeS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTypeS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTypeS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTypeS.FormattingEnabled = true;
             this.cbTypeS.Items.AddRange(new object[] {
             "CLIENTE",
             "SERVIDOR"});
             this.cbTypeS.Location = new System.Drawing.Point(406, 48);
             this.cbTypeS.Name = "cbTypeS";
-            this.cbTypeS.Size = new System.Drawing.Size(86, 25);
+            this.cbTypeS.Size = new System.Drawing.Size(86, 24);
             this.cbTypeS.TabIndex = 3;
             this.cbTypeS.SelectedIndexChanged += new System.EventHandler(this.cbTypeS_SelectedIndexChanged);
             // 
@@ -207,36 +207,36 @@
             // 
             this.cbNameS.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbNameS.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNameS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNameS.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNameS.FormattingEnabled = true;
             this.cbNameS.Location = new System.Drawing.Point(521, 48);
             this.cbNameS.Name = "cbNameS";
-            this.cbNameS.Size = new System.Drawing.Size(86, 25);
+            this.cbNameS.Size = new System.Drawing.Size(86, 24);
             this.cbNameS.TabIndex = 4;
             // 
             // cbNameM
             // 
             this.cbNameM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbNameM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbNameM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbNameM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbNameM.FormattingEnabled = true;
             this.cbNameM.Location = new System.Drawing.Point(521, 140);
             this.cbNameM.Name = "cbNameM";
-            this.cbNameM.Size = new System.Drawing.Size(86, 25);
+            this.cbNameM.Size = new System.Drawing.Size(86, 24);
             this.cbNameM.TabIndex = 7;
             // 
             // cbTypeM
             // 
             this.cbTypeM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbTypeM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbTypeM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbTypeM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbTypeM.FormattingEnabled = true;
             this.cbTypeM.Items.AddRange(new object[] {
             "CLIENTE",
             "SERVIDOR"});
             this.cbTypeM.Location = new System.Drawing.Point(406, 140);
             this.cbTypeM.Name = "cbTypeM";
-            this.cbTypeM.Size = new System.Drawing.Size(86, 25);
+            this.cbTypeM.Size = new System.Drawing.Size(86, 24);
             this.cbTypeM.TabIndex = 6;
             this.cbTypeM.SelectedIndexChanged += new System.EventHandler(this.cbTypeM_SelectedIndexChanged);
             // 
@@ -244,14 +244,14 @@
             // 
             this.cbConeccionM.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.cbConeccionM.DropDownStyle = System.Windows.Forms.ComboBoxStyle.DropDownList;
-            this.cbConeccionM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.cbConeccionM.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.cbConeccionM.FormattingEnabled = true;
             this.cbConeccionM.Items.AddRange(new object[] {
             "TCP",
             "UDP"});
             this.cbConeccionM.Location = new System.Drawing.Point(257, 140);
             this.cbConeccionM.Name = "cbConeccionM";
-            this.cbConeccionM.Size = new System.Drawing.Size(89, 25);
+            this.cbConeccionM.Size = new System.Drawing.Size(89, 24);
             this.cbConeccionM.TabIndex = 5;
             this.cbConeccionM.SelectedIndexChanged += new System.EventHandler(this.cbConeccionM_SelectedIndexChanged);
             // 
@@ -450,7 +450,7 @@
             // txtIdModem
             // 
             this.txtIdModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtIdModem.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdModem.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdModem.Location = new System.Drawing.Point(628, 140);
             this.txtIdModem.Name = "txtIdModem";
             this.txtIdModem.Size = new System.Drawing.Size(100, 26);
@@ -460,7 +460,7 @@
             // txtIdServer
             // 
             this.txtIdServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.txtIdServer.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtIdServer.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtIdServer.Location = new System.Drawing.Point(631, 48);
             this.txtIdServer.Name = "txtIdServer";
             this.txtIdServer.Size = new System.Drawing.Size(100, 26);
@@ -525,7 +525,7 @@
             this.Controls.Add(this.cbConeccionS);
             this.Controls.Add(this.tablaRuteo);
             this.Name = "FormRuteo";
-            this.Text = "FormRuteo";
+            this.Text = "Ruteo";
             this.Load += new System.EventHandler(this.FormRuteo_Load);
             this.Resize += new System.EventHandler(this.FormRuteo_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.tablaRuteo)).EndInit();
@@ -563,13 +563,13 @@
         private System.Windows.Forms.Label label8;
         private System.Windows.Forms.TextBox txtIdModem;
         private System.Windows.Forms.TextBox txtIdServer;
+        private System.Windows.Forms.Label lblIdServer;
+        private System.Windows.Forms.Label lblIdModem;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServerName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ServerType;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModemName;
         private System.Windows.Forms.DataGridViewTextBoxColumn ModemType;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdServer;
         private System.Windows.Forms.DataGridViewTextBoxColumn IdModem;
-        private System.Windows.Forms.Label lblIdServer;
-        private System.Windows.Forms.Label lblIdModem;
     }
 }

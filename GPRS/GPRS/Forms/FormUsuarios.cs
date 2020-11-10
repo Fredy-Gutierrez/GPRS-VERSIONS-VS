@@ -1,14 +1,10 @@
 ﻿using GPRS.Clases;
+using GPRS.Clases.Models;
 using GPRS.Forms.Messages;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
 using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -42,6 +38,14 @@ namespace GPRS.Forms
             int x = this.Width;
 
             tablaUsuarios.Width =  x-430;
+
+            double y = this.Height / 2.5;
+
+            
+
+            tablaUsuarios.Height =(int) y;
+
+            btnDelete.Location = new Point(btnDelete.Location.X, tablaUsuarios.Location.Y + tablaUsuarios.Height + 10);
         }
 
         private void FormUsuarios_Load(object sender, EventArgs e)
@@ -95,37 +99,49 @@ namespace GPRS.Forms
             if (pass.Equals(confirmpass))
             {
 
-                if (this.user._FindNodo(Seguridad.Encriptar(user)))
+                /*if (this.user._FindNodo(Seguridad.Encriptar(user)))
                 {
                     new Information("¡Este usuario ya esta registrado!").ShowDialog();
                 }
                 else
+                {*/
+
+                //this.user._Add(Seguridad.Encriptar(name), Seguridad.Encriptar(email), Seguridad.Encriptar(user), Seguridad.Encriptar(pass));
+
+                UsersModel usersModel = new UsersModel();
+
+                if (!usersModel.FindUser(user))
                 {
+                    if (usersModel.InsertUser(name, email, user, Seguridad.Encriptar(pass)))
+                    {
+                        Alerts.ShowSuccess("Guardado correctamente");
 
-                    this.user._Add(Seguridad.Encriptar(name), Seguridad.Encriptar(email), Seguridad.Encriptar(user), Seguridad.Encriptar(pass));
+                        txtName.Text = String.Empty;
+                        txtEmail.Text = String.Empty;
+                        txtUser.Text = String.Empty;
+                        txtPass.Text = String.Empty;
+                        txtPassConfirm.Text = String.Empty;
 
-                    new Success("Guardado correctamente").ShowDialog();
+                        tablaUsuarios.Rows.Clear();
+                        chargeTable();
 
-
-                    txtName.Text = String.Empty;
-                    txtEmail.Text = String.Empty;
-                    txtUser.Text = String.Empty;
-                    txtPass.Text = String.Empty;
-                    txtPassConfirm.Text = String.Empty;
-
-                    tablaUsuarios.Rows.Clear();
-                    chargeTable();
+                    }
                 }
+                else
+                {
+                    Alerts.ShowInformation("¡Este usuario ya esta registrado!\nIntente con uno nuevo");
+                }
+                //}
             }
             else
             {
-                new Information("La contraseña y confirmacion no concuerdan").ShowDialog();
+                Alerts.ShowInformation("La contraseña y confirmacion no concuerdan");
             }
         }
 
         private void chargeTable()
         {
-            XmlNodeList route = this.user._ReadXml();
+            /*XmlNodeList route = this.user._ReadXml();
 
             XmlNode list;
 
@@ -137,7 +153,18 @@ namespace GPRS.Forms
                 string suser = list.SelectSingleNode("UserName").InnerText;
 
                 tablaUsuarios.Rows.Add(Seguridad.DesEncriptar(sname), Seguridad.DesEncriptar(suser));
+            }*/
+
+            UsersModel users = new UsersModel();
+
+            DataTable data = users.getAllUsers();
+            
+            for (int i = 0; i < data.Rows.Count; i++)
+            {
+                tablaUsuarios.Rows.Add(data.Rows[i]["id"].ToString(),data.Rows[i]["name"].ToString(), data.Rows[i]["username"].ToString());
             }
+
+            
         }
 
         private void btnDelete_Click(object sender, EventArgs e)
@@ -146,29 +173,38 @@ namespace GPRS.Forms
             {
                 try
                 {
-                    //if (MessageBox.Show("¿Seguro deseas eliminar esta fila?, ¡se eliminará completamente!", "Eliminar", MessageBoxButtons.YesNo) == DialogResult.Yes)
-                    if (new Warning("¿Seguro deseas eliminar esta fila ?").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar este usuario?"))
                     {
-                        string name = tablaUsuarios.Rows[tablaUsuarios.CurrentRow.Index].Cells["Nombre"].Value.ToString();
+                        string id = tablaUsuarios.Rows[tablaUsuarios.CurrentRow.Index].Cells["Id"].Value.ToString();
+                        /*string name = tablaUsuarios.Rows[tablaUsuarios.CurrentRow.Index].Cells["Nombre"].Value.ToString();
                         string user = tablaUsuarios.Rows[tablaUsuarios.CurrentRow.Index].Cells["Usuario"].Value.ToString();
 
                         if (this.user._FindNodo(Seguridad.Encriptar(user)))
                         {
                             this.user._DeleteNodo(Seguridad.Encriptar(user));
                             new Success("Se ha borrado correctamente").ShowDialog();
+                        }*/
+
+                        UsersModel usersModel = new UsersModel();
+
+                        if (usersModel.deleteUser(id))
+                        {
+                            Alerts.ShowSuccess("Se ha borrado correctamente");
+                            tablaUsuarios.Rows.Remove(tablaUsuarios.CurrentRow);
                         }
-                        tablaUsuarios.Rows.Remove(tablaUsuarios.CurrentRow);
+
+                        
                     }
                 }
                 catch (XmlException xe)
                 {
                     Console.WriteLine(xe.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 

@@ -1,4 +1,6 @@
-﻿using GPRS.Forms.Messages;
+﻿using GPRS.Clases.Models;
+using GPRS.Clases.Xml.SocketsMessages;
+using GPRS.Forms.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -18,6 +20,7 @@ namespace GPRS.Clases
         public Int32 port;
         public string type;
         public DriverMaster driverMaster;
+        TcpClientMessagesModel tcpClientMessagesModel = new TcpClientMessagesModel();
 
         TcpClient client;
         NetworkStream stream;
@@ -29,14 +32,16 @@ namespace GPRS.Clases
 
         Boolean serveractive = false;
 
-        public TcpClients(DriverMaster driverMaster,string name,string ip,string port,string type)
+        Configurations c;
+
+        public TcpClients(DriverMaster driverMaster,string name,string ip,string port,string type, Configurations c)
         {
             this.driverMaster = driverMaster;
             this.name = name;
             this.ip = ip;
             this.port = Convert.ToInt32(port);
             this.type = type;
-
+            this.c = c;
         }
           
         public Boolean beginTcp()
@@ -47,6 +52,7 @@ namespace GPRS.Clases
                 stream = client.GetStream();
 
                 Console.WriteLine();
+
                 TcpRead = new BackgroundWorker();
                 TcpRead.DoWork += Read;
                 TcpRead.RunWorkerAsync();
@@ -64,7 +70,7 @@ namespace GPRS.Clases
             catch (SocketException ex)
             {
                 Console.WriteLine(ex.Message.ToString());
-                new Error("El servidor " + ip + " no responde,\npuede que no se encuentre activo").ShowDialog();
+                Alerts.ShowError("El servidor " + ip + " no responde,\npuede que no se encuentre activo");
                 serveractive = false;
                 return serveractive;
             }
@@ -75,11 +81,14 @@ namespace GPRS.Clases
             if (serveractive)
             {
                 TcpRead.CancelAsync();
+                c._UpdateTcpClient(name, ip, Convert.ToString(port), type, "Inactivo");
                 client.Close();
                 stream.Close();
+
             }
         }
         Boolean active= true;
+        bool newMessage = true;
         private void Read(object s, DoWorkEventArgs e)
         {
             Byte[] msgReceived = new Byte[256];
@@ -88,13 +97,44 @@ namespace GPRS.Clases
                 active = true;
                 while (active)
                 {
-                    if(stream.Read(msgReceived, 0, msgReceived.Length) != 0)
+                    int byteread;
+                    if((byteread = stream.Read( msgReceived, 0, msgReceived.Length)) != 0)
                     {
-                        sendRecived(msgReceived);
-                    //sender.Receive(msgReceived);
+
+                        Byte[] newbyte = new Byte[byteread];
+
+                        Buffer.BlockCopy(msgReceived, 0, newbyte, 0, byteread);
                         
-                        //send(msgReceived);
-                        Console.WriteLine(Encoding.UTF8.GetString(msgReceived));
+                        string receivedText = Encoding.UTF8.GetString(msgReceived, 0, byteread);
+                        
+                        Console.WriteLine(Encoding.UTF8.GetString(msgReceived,0,byteread));
+
+                        string hour = DateTime.Now.ToString("hh:mm:ss");
+
+                        DateTime fechaHoy = DateTime.Now;
+
+                        string date = fechaHoy.ToString("d");
+                        
+                        try {
+
+                            Task.Run(() =>
+                            {
+                                sendRecived(newbyte, "[" + date + "   " + hour + "]");
+                                
+                                tcpClientMessagesModel.InsertMessage(this.name, receivedText, this.ip, date, hour, this.type);
+
+                                if (newMessage)
+                                {
+                                    c._UpdateTcpClient(this.name, this.ip, Convert.ToString(this.port), this.type, "En comunicación");
+                                    newMessage = false;
+                                }
+                            });
+                            
+                        }
+                        catch (Exception ex)
+                        {
+                            Console.WriteLine("Xml Exception: " + ex.Message.ToString());
+                        }
                     }
                     else
                     {
@@ -108,6 +148,7 @@ namespace GPRS.Clases
             catch(Exception se)
             {
                 Console.WriteLine(se.Message.ToString());
+                active = false;
                 TcpRead.CancelAsync();
                 //MessageBox.Show("Ocurrió un error, el servidor no responde");
             }
@@ -119,10 +160,34 @@ namespace GPRS.Clases
             TcpWrite.CancelAsync();
         }
 
+        private void WriteRun(byte[] msg)
+        {
+            try
+            {
+               stream.Write(msg, 0, msg.Length);
+               //Console.WriteLine("Sended by TCP" + BitConverter.ToString(text));
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine("Ocurrio un error" + ex.Message.ToString());
+            }
+        }
+
         public void send(Byte [] msg)
         {
             this.msgToSend = msg;
-            TcpWrite.RunWorkerAsync();
+            /*try
+            {
+                TcpWrite.RunWorkerAsync();
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
+            }*/
+            Task.Run(() =>
+            {
+                WriteRun(msg);
+            });
         }
 
         public string getName()
@@ -130,15 +195,15 @@ namespace GPRS.Clases
             return name;
         }
 
-        public void sendRecived(Byte[] msg)
+        public void sendRecived(Byte[] msg,string fecha)
         {
             if (type.Equals("Servers"))
             {
-                driverMaster.reciveToSendServer(msg, name, "TcpClient");
+                driverMaster.reciveToSendServer(msg, name, "TcpClient",fecha);
             }
             else if (type.Equals("Modems"))
             {
-                driverMaster.reciveToSendModem(msg, name, "TcpClient");
+                driverMaster.reciveToSendModem(msg, name, "TcpClient", fecha);
             }
         }
 

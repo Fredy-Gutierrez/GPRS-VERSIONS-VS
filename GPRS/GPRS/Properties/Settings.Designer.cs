@@ -25,12 +25,13 @@ namespace GPRS.Properties {
         
         [global::System.Configuration.UserScopedSettingAttribute()]
         [global::System.Diagnostics.DebuggerNonUserCodeAttribute()]
-        public global::System.Collections.Specialized.StringCollection Valor {
+        [global::System.Configuration.DefaultSettingValueAttribute("6")]
+        public int maxWindows {
             get {
-                return ((global::System.Collections.Specialized.StringCollection)(this["Valor"]));
+                return ((int)(this["maxWindows"]));
             }
             set {
-                this["Valor"] = value;
+                this["maxWindows"] = value;
             }
         }
     }

@@ -1,4 +1,6 @@
-﻿using GPRS.Forms.Messages;
+﻿using GPRS.Clases.Models;
+using GPRS.Clases.Xml.SocketsMessages;
+using GPRS.Forms.Messages;
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -19,14 +21,18 @@ namespace GPRS.Clases
         public string type;
         UdpClient Server;
 
+        Configurations c;
+        UdpServerMessagesModel udpServerMessagesModel = new UdpServerMessagesModel();
 
-        public Udp(DriverMaster driverMaster, string name, string enlaceport, string destinationport,string type)
+
+        public Udp(DriverMaster driverMaster, string name, string enlaceport, string destinationport,string type, Configurations c)
         {
             this.driverMaster = driverMaster;
             this.name = name;
             this.enlaceport = int.Parse(enlaceport);
             this.destinationport = int.Parse(destinationport);
             this.type = type;
+            this.c = c;
         }
 
         public void beginServer()
@@ -40,7 +46,7 @@ namespace GPRS.Clases
             }
             catch (SocketException se)
             {
-                new Error("Imposible crear el socket,\n puede que el puerto no este liberado").ShowDialog();
+                Alerts.ShowError("Imposible crear el socket,\n puede que el puerto no este liberado");
                 Console.WriteLine(se.Message.ToString());
             }
         }
@@ -54,14 +60,40 @@ namespace GPRS.Clases
                 RemoteIPSE = new IPEndPoint(IPAddress.Any, enlaceport);
                 byte[] recibido = Server.EndReceive(result, ref RemoteIPSE);
 
-                String data = Encoding.UTF8.GetString(recibido);
+                String data = BitConverter.ToString(recibido).Replace("-", " ");
 
                 Console.WriteLine("Msg"+ RemoteIPSE.Address.ToString() + ": "+destinationport+": " + data);
+
                 
+
                 //*Dirección de destino del mensaje recibido*//
                 DireccionDestinoSE = RemoteIPSE.Address.ToString();
 
-                sendRecived(recibido);
+                string hour = DateTime.Now.ToString("hh:mm:ss");
+
+                DateTime fechaHoy = DateTime.Now;
+
+                string date = fechaHoy.ToString("d");
+
+                try
+                {
+                    Task.Run(() =>
+                    {
+                        sendRecived(recibido, "[" + date + "   " + hour + "]");
+
+                        udpServerMessagesModel.InsertMessage(name, data, DireccionDestinoSE, date, hour, type);
+
+                        if (!x)
+                        {
+                            c._UpdateUdpServer(name, Convert.ToString(enlaceport), Convert.ToString(destinationport), type, "En comunicación");
+                        }
+                    });
+                    
+                }
+                catch (Exception ex)
+                {
+                    Console.WriteLine("Xml error: " + ex.Message.ToString());
+                }
 
                 x = true;
 
@@ -119,17 +151,20 @@ namespace GPRS.Clases
         public void CloseUdp()
         {
             Server.Close();
+         
+            c._UpdateUdpServer(name, Convert.ToString(enlaceport), Convert.ToString(destinationport), type, "Inactivo");
+            Console.WriteLine("Socket cerrado");
         }
 
-        public void sendRecived(Byte [] msg)
+        public void sendRecived(byte[] msg,string fecha)
         {
             if (type.Equals("Servers"))
             {
-                driverMaster.reciveToSendServer(msg, name,"UdpServer");
+                driverMaster.reciveToSendServer(msg, name,"UdpServer",fecha);
             }
             else if (type.Equals("Modems"))
             {
-                driverMaster.reciveToSendModem(msg, name, "UdpServer");
+                driverMaster.reciveToSendModem(msg, name, "UdpServer", fecha);
             }
         }
 

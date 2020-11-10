@@ -42,13 +42,14 @@
             // brnUserDA
             // 
             this.brnUserDA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.brnUserDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.brnUserDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.brnUserDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.brnUserDA.FlatAppearance.BorderSize = 0;
             this.brnUserDA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.brnUserDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.brnUserDA.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.brnUserDA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.brnUserDA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.brnUserDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
             this.brnUserDA.IconChar = FontAwesome.Sharp.IconChar.Users;
             this.brnUserDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(127)))), ((int)(((byte)(230)))));
             this.brnUserDA.IconSize = 35;
@@ -66,13 +67,14 @@
             // btnConfigDA
             // 
             this.btnConfigDA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnConfigDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnConfigDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnConfigDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnConfigDA.FlatAppearance.BorderSize = 0;
             this.btnConfigDA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.btnConfigDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnConfigDA.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.btnConfigDA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnConfigDA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnConfigDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(254)))), ((int)(((byte)(131)))), ((int)(((byte)(193)))));
             this.btnConfigDA.IconChar = FontAwesome.Sharp.IconChar.Toolbox;
             this.btnConfigDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(192)))), ((int)(((byte)(39)))), ((int)(((byte)(116)))));
             this.btnConfigDA.IconSize = 35;
@@ -91,13 +93,14 @@
             // btnRouteDA
             // 
             this.btnRouteDA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnRouteDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnRouteDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnRouteDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnRouteDA.FlatAppearance.BorderSize = 0;
             this.btnRouteDA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.btnRouteDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnRouteDA.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.btnRouteDA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnRouteDA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnRouteDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(173)))), ((int)(((byte)(255)))), ((int)(((byte)(154)))));
             this.btnRouteDA.IconChar = FontAwesome.Sharp.IconChar.Wifi;
             this.btnRouteDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(201)))), ((int)(((byte)(31)))));
             this.btnRouteDA.IconSize = 35;
@@ -116,15 +119,16 @@
             // btnAccountDA
             // 
             this.btnAccountDA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnAccountDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnAccountDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnAccountDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnAccountDA.FlatAppearance.BorderSize = 0;
             this.btnAccountDA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.btnAccountDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnAccountDA.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.btnAccountDA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAccountDA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnAccountDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(250)))), ((int)(((byte)(191)))));
             this.btnAccountDA.IconChar = FontAwesome.Sharp.IconChar.UserCircle;
-            this.btnAccountDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(251)))), ((int)(((byte)(148)))), ((int)(((byte)(196)))));
+            this.btnAccountDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(208)))), ((int)(((byte)(201)))), ((int)(((byte)(52)))));
             this.btnAccountDA.IconSize = 35;
             this.btnAccountDA.Location = new System.Drawing.Point(592, 372);
             this.btnAccountDA.Name = "btnAccountDA";
@@ -140,13 +144,14 @@
             // btnServerDA
             // 
             this.btnServerDA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnServerDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnServerDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnServerDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnServerDA.FlatAppearance.BorderSize = 0;
             this.btnServerDA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.btnServerDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnServerDA.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.btnServerDA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnServerDA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnServerDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(253)))), ((int)(((byte)(216)))), ((int)(((byte)(212)))));
             this.btnServerDA.IconChar = FontAwesome.Sharp.IconChar.Server;
             this.btnServerDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(247)))), ((int)(((byte)(150)))), ((int)(((byte)(139)))));
             this.btnServerDA.IconSize = 35;
@@ -165,13 +170,14 @@
             // btnBeginDA
             // 
             this.btnBeginDA.Anchor = System.Windows.Forms.AnchorStyles.None;
-            this.btnBeginDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(70)))), ((int)(((byte)(70)))));
+            this.btnBeginDA.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.btnBeginDA.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnBeginDA.FlatAppearance.BorderSize = 0;
             this.btnBeginDA.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(114)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
             this.btnBeginDA.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnBeginDA.Flip = FontAwesome.Sharp.FlipOrientation.Horizontal;
             this.btnBeginDA.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnBeginDA.ForeColor = System.Drawing.Color.Gainsboro;
+            this.btnBeginDA.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(205)))), ((int)(((byte)(202)))), ((int)(((byte)(255)))));
             this.btnBeginDA.IconChar = FontAwesome.Sharp.IconChar.HouseUser;
             this.btnBeginDA.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(127)))), ((int)(((byte)(120)))), ((int)(((byte)(231)))));
             this.btnBeginDA.IconSize = 35;
@@ -189,9 +195,9 @@
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.None;
+            this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.Image = ((System.Drawing.Image)(resources.GetObject("pictureBox1.Image")));
-            this.pictureBox1.Location = new System.Drawing.Point(283, 25);
+            this.pictureBox1.Location = new System.Drawing.Point(283, 34);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(287, 192);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;

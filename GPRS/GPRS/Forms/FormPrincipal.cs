@@ -4,8 +4,10 @@ using System.Linq;
 using System.Runtime.InteropServices;
 using System.Windows.Forms;
 using FontAwesome.Sharp;
+using GPRS.Clases;
 using GPRS.Forms;
 using GPRS.Forms.Messages;
+using GPRS.Forms.Sockets;
 
 namespace GPRS
 {
@@ -17,22 +19,28 @@ namespace GPRS
 
         public static FormPrincipal formPrincipal;
 
+        public FormServidor formServidor = null;
+        public FormLogIn formLogIn = new FormLogIn();
+
+        public DriverMaster driverMaster;
+
         public FormPrincipal()
         {
-
             InitializeComponent();
             formPrincipal = this;
+            driverMaster = new DriverMaster();
+            driverMaster.setInactive();
+            driverMaster.beginAllSockets();
             leftBorderBtn = new Panel();
             leftBorderBtn.Size = new Size(7, 66);
             panelMenu.Controls.Add(leftBorderBtn);
-            //Form
             this.Text = string.Empty;
             this.ControlBox = false;
             this.DoubleBuffered = true;
             this.MaximizedBounds = Screen.FromHandle(this.Handle).WorkingArea;
         }
 
-        private struct RGBColors{
+        public struct RGBColors{
             public static Color color1 = Color.FromArgb(0, 210, 210);
             public static Color color2 = Color.FromArgb(196, 145, 235);
             public static Color color3 = Color.FromArgb(249, 118, 176);
@@ -62,6 +70,7 @@ namespace GPRS
                 iconCurrentChildForm.IconChar = currentBtn.IconChar;
                 iconCurrentChildForm.IconColor = color;
                 lblTitleChildForm.Text = currentBtn.Text;
+                lblTitleChildForm.ForeColor = color;
             }
         }
 
@@ -70,7 +79,7 @@ namespace GPRS
             if(currentBtn != null)
             {
                 currentBtn.BackColor = Color.FromArgb(50, 50, 50);
-                currentBtn.ForeColor = Color.Gainsboro;
+                currentBtn.ForeColor = Color.FromArgb(180, 255, 227);
                 currentBtn.TextAlign = ContentAlignment.MiddleLeft;
                 //25, 170, 115
                 currentBtn.IconColor = Color.FromArgb(25, 170, 115);
@@ -79,7 +88,7 @@ namespace GPRS
             }
         }
 
-        public void OpenChildForm<MiForm>() where MiForm : Form, new()
+ /*       public void OpenChildForm<MiForm>() where MiForm : Form, new()
         {
 
             currentChildForm = panelDesktop.Controls.OfType<MiForm>().FirstOrDefault();//Busca en la colecion el formulario
@@ -100,6 +109,28 @@ namespace GPRS
                 currentChildForm.BringToFront();
             }
 
+        }*/
+
+        public void OpenChildForm(Form childForm)
+        {
+            if (formServidor == null && childForm.Text.Equals("Servidor"))
+            {
+                formServidor = new FormServidor();
+            }
+
+            if (currentChildForm != null && currentChildForm != formServidor)
+            {
+                currentChildForm.Close();
+            }
+            currentChildForm = childForm;
+            currentChildForm.TopLevel = false;
+            currentChildForm.FormBorderStyle = FormBorderStyle.None;
+            currentChildForm.Dock = DockStyle.Fill;
+            panelDesktop.Controls.Add(currentChildForm);
+            panelDesktop.Tag = currentChildForm;
+            currentChildForm.Show();
+            currentChildForm.BringToFront();
+            lblTitleChildForm.Text = currentChildForm.Text;
         }
 
         private void FormPrincipal_Load(object sender, EventArgs e)
@@ -110,23 +141,19 @@ namespace GPRS
 
         private void btnHome_Click(object sender, EventArgs e)
         {
-            currentChildForm = new FormInicio(this);
-            currentChildForm.TopLevel = false;
-            currentChildForm.FormBorderStyle = FormBorderStyle.None;
-            currentChildForm.Dock = DockStyle.Fill;
-            panelDesktop.Controls.Add(currentChildForm);
-            panelDesktop.Tag = currentChildForm;
-            currentChildForm.Show();
-            currentChildForm.BringToFront();
+            //ActivateButton(sender, RGBColors.color1);
+            ActivateButton(btnInicio, RGBColors.color1);
+            OpenChildForm(new FormInicio());
         }
 
-        private void Reset()
+        public void Reset()
         {
             DisableButton();
             leftBorderBtn.Visible = false;
             iconCurrentChildForm.IconChar = IconChar.Home;
             iconCurrentChildForm.IconColor = Color.Cyan;
             lblTitleChildForm.Text = "Inicio";
+            lblTitleChildForm.ForeColor = RGBColors.color1;
         }
 
 
@@ -145,16 +172,17 @@ namespace GPRS
         private void btnInicio_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormInicio());
             //OpenChildForm(new FormInicio());
 
-            currentChildForm = new FormInicio(this);
+            /*currentChildForm = new FormInicio(this);
             currentChildForm.TopLevel = false;
             currentChildForm.FormBorderStyle = FormBorderStyle.None;
             currentChildForm.Dock = DockStyle.Fill;
             panelDesktop.Controls.Add(currentChildForm);
             panelDesktop.Tag = currentChildForm;
             currentChildForm.Show();
-            currentChildForm.BringToFront();
+            currentChildForm.BringToFront();*/
 
             //OpenChildForm<FormInicio>();
         }
@@ -162,7 +190,16 @@ namespace GPRS
         private void btnServidor_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color2);
-            OpenChildForm<FormServidor>();
+            if (formServidor != null)
+            {
+                OpenChildForm(formServidor);
+            }
+            else
+            {
+                formServidor = new FormServidor();
+                OpenChildForm(formServidor);
+            }
+            
         }
 
         /**/
@@ -170,27 +207,38 @@ namespace GPRS
         private void btnUsuario_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color3);
-            OpenChildForm<FormUsuarios>();
+            OpenChildForm(new FormUsuarios());
         }
 
         private void btnConfiguracion_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color4);
-            OpenChildForm<FormConfiguraciones>();
+            OpenChildForm(new FormConfiguraciones());
         }
 
         private void btnCerrarSesion_Click(object sender, EventArgs e)
         {
-            ActivateButton(sender, RGBColors.color5);
-            OpenChildForm<FormCuenta>();
+            if (!Session.user.Equals(""))
+            {
+                ActivateButton(sender, RGBColors.color5);
+                OpenChildForm(new FormCuenta());
+            }
+            else
+            {
+                if (formLogIn == null) {
+                    formLogIn = new FormLogIn();
+                }
+                
+                formLogIn.Show();
+            }
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (new Warning("¿Seguro desea cerrar el Programa?").ShowDialog() == DialogResult.OK)
-            {
-                Application.Exit();
-            }
+
+            //Application.Exit();
+              this.Close();
+            
         }
 
         private void btnMaximizar_Click(object sender, EventArgs e)
@@ -213,51 +261,82 @@ namespace GPRS
         private void btnRuteo_Click(object sender, EventArgs e)
         {
             ActivateButton(sender, RGBColors.color6);
-            OpenChildForm<FormRuteo>();
+            OpenChildForm(new FormRuteo());
         }
 
         private void btnBeginDA_Click(object sender, EventArgs e)
         {
             ActivateButton(btnInicio, RGBColors.color1);
             //OpenChildForm(new FormInicio());
-            currentChildForm = new FormInicio(this);
-            currentChildForm.TopLevel = false;
-            currentChildForm.FormBorderStyle = FormBorderStyle.None;
-            currentChildForm.Dock = DockStyle.Fill;
-            panelDesktop.Controls.Add(currentChildForm);
-            panelDesktop.Tag = currentChildForm;
-            currentChildForm.Show();
-            currentChildForm.BringToFront();
+            //ActivateButton(sender, RGBColors.color1);
+            OpenChildForm(new FormInicio());
         }
 
         private void btnServerDA_Click(object sender, EventArgs e)
         {
             ActivateButton(btnServidor, RGBColors.color2);
-            OpenChildForm<FormServidor>();
+            if (formServidor != null)
+            {
+                OpenChildForm(formServidor);
+            }
+            else
+            {
+                formServidor = new FormServidor();
+                OpenChildForm(formServidor);
+            }
         }
 
         private void brnUserDA_Click(object sender, EventArgs e)
         {
             ActivateButton(btnUsuario, RGBColors.color3);
-            OpenChildForm<FormUsuarios>();
+            OpenChildForm(new FormUsuarios());
         }
 
         private void btnRouteDA_Click(object sender, EventArgs e)
         {
             ActivateButton(btnRuteo, RGBColors.color6);
-            OpenChildForm<FormRuteo>();
+            OpenChildForm(new FormRuteo());
         }
 
         private void btnConfigDA_Click(object sender, EventArgs e)
         {
             ActivateButton(btnConfiguracion, RGBColors.color4);
-            OpenChildForm<FormConfiguraciones>();
+            OpenChildForm(new FormConfiguraciones());
         }
 
         private void btnAccountDA_Click(object sender, EventArgs e)
         {
-            ActivateButton(btnCerrarSesion, RGBColors.color5);
-            OpenChildForm<FormCuenta>();
+            if (!Session.user.Equals(""))
+            {
+                ActivateButton(btnCerrarSesion, RGBColors.color5);
+                OpenChildForm(new FormCuenta());
+            }
+            else
+            {
+                if (formLogIn == null)
+                {
+                    formLogIn = new FormLogIn();
+                }
+                formLogIn.Show();
+            }
+        }
+
+        private void panelDesktop_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
+
+        private void FormPrincipal_FormClosing(object sender, FormClosingEventArgs e)
+        {
+            if (Alerts.ShowWarning("¿Seguro desea cerrar el Programa?"))
+            {
+                driverMaster.setInactive();
+                e.Cancel = false;
+            }
+            else
+            {
+                e.Cancel = true;
+            }
         }
     }
 }

@@ -1,17 +1,8 @@
 ﻿using GPRS.Clases;
 using GPRS.Forms.Messages;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
 using System.Drawing.Drawing2D;
-using System.IO;
-using System.Linq;
-using System.Net;
-using System.Net.Sockets;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -24,6 +15,10 @@ namespace GPRS.Forms
         public FormConfiguraciones()
         {
             InitializeComponent();
+            this.toolTipInformation.SetToolTip(pictureInformation,"Para ver los cambios en los sockets agregados\n" +
+                                                                  "detenga la ejecución del los sockets (Solo de\n" +
+                                                                  "los afectados con la nueva configuración) e inicie\n" +
+                                                                  "nuevamente los sockets, ahora estan listos para usarse");
         }
 
         private void FormConfiguraciones_Load(object sender, EventArgs e)
@@ -36,8 +31,7 @@ namespace GPRS.Forms
         }
 
         private void panelTitleBar_Paint(object sender, PaintEventArgs e)
-        {    /*90F degradado vertical
-             *45F degradado Horizontal*/
+        {
             LinearGradientBrush linearGradientBrush = new LinearGradientBrush(panelTitleBar.ClientRectangle, Color.FromArgb(20,20,20), Color.Gray, 90F);
 
             e.Graphics.FillRectangle(linearGradientBrush, panelTitleBar.ClientRectangle);
@@ -48,14 +42,58 @@ namespace GPRS.Forms
             int ancho = Size.Width;
             panel1.Width =  ancho / 2;
 
-            Rectangle r = panel1.ClientRectangle;
+            /*CENTRA UN OBJETO DE VISTA*/
+            //Rectangle r = panel1.ClientRectangle;
+            //int c = r.Width / 2;
+            //lblInfoConexion.Location = new Point(c - lblInfoConexion.Width / 2, lblInfoConexion.Location.Y);
+            int height = Size.Height;
 
-            int c = r.Width / 2;
+            resizeTables(height);
 
-            lblInfoConexion.Location = new Point(c - lblInfoConexion.Width / 2, lblInfoConexion.Location.Y);
+            this.Invalidate();
         }
 
-#region guardado de las configuraciones
+        private void resizeTables(int height)
+        {
+            double newheight = height / 2.5;
+
+            tablaUdpClient.Height = (int) newheight;
+            btnDelUdpClient.Location = new Point(btnDelUdpClient.Location.X, tablaUdpClient.Height + 10);
+            panelUdpClient.Height = tablaUdpClient.Height + 50;
+
+            tablaUDPServer.Height = (int)newheight;
+            btnDelUdpServer.Location = new Point(btnDelUdpServer.Location.X, tablaUDPServer.Height + 10);
+            panelUdpServer.Height = tablaUDPServer.Height + 50;
+
+            tablaTcpClient.Height = (int)newheight;
+            btnDelTcpClient.Location = new Point(btnDelTcpClient.Location.X,tablaTcpClient.Height + 10);
+            panelTcpClient.Height = tablaTcpClient.Height + 50;
+
+            tablaTcpServer.Height = (int)newheight;
+            btnDelTcpServer.Location = new Point(btnDelTcpServer.Location.X, tablaTcpServer.Height + 10);
+            panelTcpServer.Height = tablaTcpServer.Height + 50;
+
+
+
+            tablaUdpClientModem.Height = (int)newheight;
+            btnDelUdpClientModem.Location = new Point(btnDelUdpClientModem.Location.X, tablaUdpClientModem.Height + 10);
+            panelUdpClientModem.Height = tablaUdpClientModem.Height + 50;
+
+            tablaUdpServerModem.Height = (int)newheight;
+            btnDelUdpServerModem.Location = new Point(btnDelUdpServerModem.Location.X, tablaUdpServerModem.Height + 10);
+            panelUdpServerModem.Height = tablaUdpServerModem.Height + 50;
+
+            tablaTcpClientModem.Height = (int)newheight;
+            btnDelTcpClientModem.Location = new Point(btnDelTcpClientModem.Location.X, tablaTcpClientModem.Height + 10);
+            panelTcpClientModem.Height = tablaTcpClientModem.Height + 50;
+
+            tablaTcpServerModem.Height = (int)newheight;
+            btnDelTcpServerModem.Location = new Point(btnDelTcpServerModem.Location.X, tablaTcpServerModem.Height + 10);
+            panelTcpServerModem.Height = tablaTcpServerModem.Height + 50;
+
+        }
+
+        #region guardado de las configuraciones
 
         #region guardardo del lado de los servidores
         private void btnGuardar_Click(object sender, EventArgs e)
@@ -82,16 +120,16 @@ namespace GPRS.Forms
 
             if (!validacionT)
             {
-                new Information("Existen tablas incompletas,\n ¡No se guardaran las configuraciones!").ShowDialog();
+                Alerts.ShowInformation("Existen tablas incompletas,\n ¡No se guardaran las configuraciones!");
             }
             else
             {
-                if (validarPuertosUdpServer(tablaUDPServer, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem) || 
-                    validarPuertosUdpClient(tablaUdpClient, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem) ||
-                    validarPuertosTcpServer(tablaTcpServer, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem) ||
-                    validarPuertosTcpClient(tablaTcpClient, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem))
+                if (validarPuertosUdpServer(tablaUDPServer, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem,tablaUdpClient,tablaTcpClient,tablaTcpServer) || 
+                    validarPuertosUdpClient(tablaUdpClient, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem,tablaUDPServer,tablaTcpClient,tablaTcpServer) ||
+                    validarPuertosTcpServer(tablaTcpServer, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem,tablaUdpClient,tablaUDPServer,tablaTcpClient) ||
+                    validarPuertosTcpClient(tablaTcpClient, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem, tablaTcpClientModem,tablaUdpClient,tablaUDPServer,tablaTcpServer))
                 {
-                    new Information("¡Este puerto ya existe!").ShowDialog();
+                    Alerts.ShowInformation("¡Este puerto ya existe!");
                 }
                 else
                 {
@@ -100,7 +138,7 @@ namespace GPRS.Forms
                     guardarTablaUdpServer();
                     guardarTablaTcpClient();
                     guardarTablaTcpServer();
-                    new Success("Guardado").ShowDialog();
+                    Alerts.ShowSuccess("Guardado");
                 }
             }
         }
@@ -151,6 +189,7 @@ namespace GPRS.Forms
                 c._Add(name, "", port, "", "", "Servers", "Tcp", "TcpServer");
             }
         }
+        
         #endregion
 
         #region guardado de tablas de los modems
@@ -178,16 +217,16 @@ namespace GPRS.Forms
 
             if (!validacionT)
             {
-                new Error("Existen tablas incompletas,\n ¡No se guardaran las configuraciones!").ShowDialog();
+                Alerts.ShowError("Existen tablas incompletas,\n ¡No se guardaran las configuraciones!");
             }
             else
             {
-                if (validarPuertosUdpClientModem(tablaUdpClientModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient) ||
-                    validarPuertosUdpServerModem(tablaUdpServerModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient) ||
-                    validarPuertosTcpServerModem(tablaTcpServerModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient) ||
-                    validarPuertosTcpClientModem(tablaTcpClientModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient))
+                if (validarPuertosUdpClientModem(tablaUdpClientModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient,tablaUdpServerModem,tablaTcpServerModem,tablaTcpClientModem) ||
+                    validarPuertosUdpServerModem(tablaUdpServerModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient,tablaUdpClientModem,tablaTcpServerModem,tablaTcpClientModem) ||
+                    validarPuertosTcpServerModem(tablaTcpServerModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient, tablaUdpServerModem, tablaUdpClientModem,tablaTcpClientModem) ||
+                    validarPuertosTcpClientModem(tablaTcpClientModem, tablaUDPServer, tablaUdpClient, tablaTcpServer, tablaTcpClient, tablaUdpServerModem, tablaUdpClientModem, tablaTcpServerModem))
                 {
-                    new Information("¡Este puerto ya existe!").ShowDialog();
+                    Alerts.ShowInformation("¡Este puerto ya existe!");
                 }
                 else
                 {
@@ -196,7 +235,7 @@ namespace GPRS.Forms
                     guardarTablaUdpServerModem();
                     guardarTablaTcpClientModem();
                     guardarTablaTcpServerModem();
-                    new Success("Guardado").ShowDialog();
+                    Alerts.ShowSuccess("Guardado");
                 }
             }
         }
@@ -264,13 +303,18 @@ namespace GPRS.Forms
 
             if (!validaciontabla)
             {
-                new Information("Existen datos de la tabla " + nombre + ",\n que estan incompletos").ShowDialog();
+                Alerts.ShowInformation("Existen datos de la tabla " + nombre + ",\n que estan incompletos");
             }
 
             return validaciontabla;
         }
 
-        private Boolean validarPuertosUdpServer(DataGridView tablaUdp,DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, DataGridView tablaTcpClientModem)
+        /// <summary>
+        /// SOCKETS DEL LADO DE LOS SERVIDORES
+        /// </summary>
+       
+        private Boolean validarPuertosUdpServer(DataGridView tablaUdp,DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, 
+            DataGridView tablaTcpClientModem, DataGridView tablaUdpClientServer, DataGridView tablaTcpClientServer, DataGridView tablaTcpServerServer)
         {
             Boolean puerto = false;
 
@@ -334,13 +378,42 @@ namespace GPRS.Forms
                     }
                 }
 
+                for (int x = 0; x < tablaUdpClientServer.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientPort"].Value.ToString())) || (enlaceport.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientDestinationPort"].Value.ToString())) ||
+                        (destinationport.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientPort"].Value.ToString())) || (destinationport.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientDestinationPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                        Console.WriteLine("Tabla: " + tablaUdpClientServer.Name.ToString());
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpClientServer.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpClientServer.Rows[x].Cells["tcpClientPort"].Value.ToString())) || (destinationport.Equals(tablaTcpClientServer.Rows[x].Cells["tcpClientPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                        Console.WriteLine("Tabla: " + tablaTcpClientServer.Name.ToString());
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpServerServer.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpServerServer.Rows[x].Cells["tcpServerPort"].Value.ToString())) || (destinationport.Equals(tablaTcpServerServer.Rows[x].Cells["tcpServerPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                        Console.WriteLine("Tabla: " + tablaTcpServerServer.Name.ToString());
+                    }
+                }
+
             }
 
             return puerto;
 
         }
 
-        private Boolean validarPuertosUdpClient(DataGridView tablaUdpClient, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, DataGridView tablaTcpClientModem)
+        private Boolean validarPuertosUdpClient(DataGridView tablaUdpClient, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, 
+            DataGridView tablaTcpClientModem, DataGridView tablaUdpServerServer, DataGridView tablaTcpClientServer, DataGridView tablaTcpServerServer)
         {
             Boolean puerto = false;
 
@@ -382,7 +455,6 @@ namespace GPRS.Forms
                     if ((enlaceport.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString())) || (destinationport.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString())))
                     {
                         puerto = true;
-                        Console.WriteLine("Tabla: " + tablaTcpModem.Name.ToString());
                     }
                 }
 
@@ -395,13 +467,43 @@ namespace GPRS.Forms
                     }
                 }
 
+                for (int x = 0; x < tablaUdpServerServer.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerEnlacePort"].Value.ToString())) || (enlaceport.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerDestinationPort"].Value.ToString())) ||
+                        (destinationport.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerEnlacePort"].Value.ToString())) || (destinationport.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerDestinationPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+
+                }
+
+                for (int x = 0; x < tablaTcpClientServer.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpClientServer.Rows[x].Cells["tcpClientPort"].Value.ToString())) || (destinationport.Equals(tablaTcpClientServer.Rows[x].Cells["tcpClientPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpServerServer.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpServerServer.Rows[x].Cells["tcpServerPort"].Value.ToString())) || (destinationport.Equals(tablaTcpServerServer.Rows[x].Cells["tcpServerPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                        Console.WriteLine("Tabla: " + tablaTcpServerServer.Name.ToString());
+                    }
+                }
+
+
+
             }
 
             return puerto;
 
         }
 
-        private Boolean validarPuertosTcpServer(DataGridView tablaTcpServer, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, DataGridView tablaTcpClientModem)
+        private Boolean validarPuertosTcpServer(DataGridView tablaTcpServer, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, 
+            DataGridView tablaTcpClientModem, DataGridView tablaUdpClientServer, DataGridView tablaUdpServerServer, DataGridView tablaTcpClientServer)
         {
             Boolean puerto = false;
 
@@ -453,13 +555,37 @@ namespace GPRS.Forms
                     }
                 }
 
+                for (int x = 0; x < tablaUdpClientServer.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientPort"].Value.ToString())) || (port.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientDestinationPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+                for (int x = 0; x < tablaUdpServerServer.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerEnlacePort"].Value.ToString())) || (port.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerDestinationPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+
+                }
+                for (int x = 0; x < tablaTcpClientServer.Rows.Count - 1; x++)
+                {
+                    if (port.Equals(tablaTcpClientServer.Rows[x].Cells["tcpClientPort"].Value.ToString()))
+                    {
+                        puerto = true;
+                    }
+                }
+
             }
 
             return puerto;
 
         }
 
-        private Boolean validarPuertosTcpClient(DataGridView tablaTcpClient, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, DataGridView tablaTcpClientModem)
+        private Boolean validarPuertosTcpClient(DataGridView tablaTcpClient, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, 
+            DataGridView tablaTcpClientModem, DataGridView tablaUdpClientServer, DataGridView tablaUdpServerServer, DataGridView tablaTcpServerServer)
         {
             Boolean puerto = false;
 
@@ -511,14 +637,43 @@ namespace GPRS.Forms
                     }
                 }
 
+                for (int x = 0; x < tablaUdpClientServer.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientPort"].Value.ToString())) || (port.Equals(tablaUdpClientServer.Rows[x].Cells["udpClientDestinationPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaUdpServerServer.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerEnlacePort"].Value.ToString())) || (port.Equals(tablaUdpServerServer.Rows[x].Cells["udpServerDestinationPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+
+                }
+
+                for (int x = 0; x < tablaTcpServerServer.Rows.Count - 1; x++)
+                {
+                    if (port.Equals(tablaTcpServerServer.Rows[x].Cells["tcpServerPort"].Value.ToString()))
+                    {
+                        puerto = true;
+                    }
+                }
+
             }
 
             return puerto;
 
         }
 
-
-        private Boolean validarPuertosUdpClientModem(DataGridView tablaUdpClientModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, DataGridView tablaTcpClient)
+        /// <summary>
+        /// SOCKETS LADO DE LOS MODEMS
+        /// </summary>
+        
+        private Boolean validarPuertosUdpClientModem(DataGridView tablaUdpClientModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, 
+            DataGridView tablaTcpClient, DataGridView tablaUdpServerModem, DataGridView tablaTcpModem, DataGridView tablaTcpClientModem)
         {
             Boolean puerto = false;
 
@@ -537,9 +692,6 @@ namespace GPRS.Forms
                     }
                 }
 
-                //String enlaceport = tablaUDPServer.Rows[fila].Cells["udpServerEnlacePort"].Value.ToString();
-                //String destinationport = tablaUDPServer.Rows[fila].Cells["udpServerDestinationPort"].Value.ToString();
-
                 for (int x = 0; x < tablaUdpServer.Rows.Count - 1; x++)
                 {
                     if ((enlaceport.Equals(tablaUdpServer.Rows[x].Cells["udpServerEnlacePort"].Value.ToString())) || (enlaceport.Equals(tablaUdpServer.Rows[x].Cells["udpServerDestinationPort"].Value.ToString())) ||
@@ -550,8 +702,6 @@ namespace GPRS.Forms
 
                 }
 
-                //String port = tablaUdpClient.Rows[fila].Cells["udpClientPort"].Value.ToString();
-                //String destinationport = tablaUdpClient.Rows[fila].Cells["udpClientDestinationPort"].Value.ToString();
                 for (int x = 0; x < tablaUdpClient.Rows.Count - 1; x++)
                 {
                     if ((enlaceport.Equals(tablaUdpClient.Rows[x].Cells["udpClientPort"].Value.ToString())) || (enlaceport.Equals(tablaUdpClient.Rows[x].Cells["udpClientDestinationPort"].Value.ToString())) ||
@@ -570,10 +720,35 @@ namespace GPRS.Forms
                     }
                 }
 
-
                 for (int x = 0; x < tablaTcpClient.Rows.Count - 1; x++)
                 {
                     if ((enlaceport.Equals(tablaTcpClient.Rows[x].Cells["tcpClientPort"].Value.ToString())) || (destinationport.Equals(tablaTcpClient.Rows[x].Cells["tcpClientPort"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaUdpServerModem.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerEnlacePortModem"].Value.ToString())) || (enlaceport.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerDestinationPortModem"].Value.ToString())) ||
+                        (destinationport.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerEnlacePortModem"].Value.ToString())) || (destinationport.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerDestinationPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+
+                }
+
+                for (int x = 0; x < tablaTcpModem.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString())) || (destinationport.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpClientModem.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpClientModem.Rows[x].Cells["tcpClientPortModem"].Value.ToString())) || (destinationport.Equals(tablaTcpClientModem.Rows[x].Cells["tcpClientPortModem"].Value.ToString())))
                     {
                         puerto = true;
                     }
@@ -585,7 +760,8 @@ namespace GPRS.Forms
 
         }
 
-        private Boolean validarPuertosUdpServerModem(DataGridView tablaUdpModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, DataGridView tablaTcpClient)
+        private Boolean validarPuertosUdpServerModem(DataGridView tablaUdpModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, 
+            DataGridView tablaTcpClient, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem, DataGridView tablaTcpClientModem)
         {
             Boolean puerto = false;
 
@@ -625,7 +801,6 @@ namespace GPRS.Forms
                     }
                 }
 
-
                 for (int x = 0; x < tablaTcp.Rows.Count - 1; x++)
                 {
                     if ((enlaceport.Equals(tablaTcp.Rows[x].Cells["tcpServerPort"].Value.ToString())) || (destinationport.Equals(tablaTcp.Rows[x].Cells["tcpServerPort"].Value.ToString())))
@@ -635,7 +810,6 @@ namespace GPRS.Forms
                     }
                 }
 
-
                 for (int x = 0; x < tablaTcpClient.Rows.Count - 1; x++)
                 {
                     if ((enlaceport.Equals(tablaTcpClient.Rows[x].Cells["tcpClientPort"].Value.ToString())) || (destinationport.Equals(tablaTcpClient.Rows[x].Cells["tcpClientPort"].Value.ToString())))
@@ -644,13 +818,39 @@ namespace GPRS.Forms
                         Console.WriteLine("Tabla: " + tablaTcpClient.Name.ToString());
                     }
                 }
+
+                for (int x = 0; x < tablaUdpClientModem.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientConexionPortModem"].Value.ToString())) || (enlaceport.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientDestinationPortModem"].Value.ToString())) ||
+                        (destinationport.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientConexionPortModem"].Value.ToString())) || (destinationport.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientDestinationPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpModem.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString())) || (destinationport.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpClientModem.Rows.Count - 1; x++)
+                {
+                    if ((enlaceport.Equals(tablaTcpClientModem.Rows[x].Cells["tcpClientPortModem"].Value.ToString())) || (destinationport.Equals(tablaTcpClientModem.Rows[x].Cells["tcpClientPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
             }
 
             return puerto;
 
         }
 
-        private Boolean validarPuertosTcpServerModem(DataGridView tablaTcpServerModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, DataGridView tablaTcpClient)
+        private Boolean validarPuertosTcpServerModem(DataGridView tablaTcpServerModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, 
+            DataGridView tablaTcpClient, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpClientModem)
         {
             Boolean puerto = false;
 
@@ -676,7 +876,6 @@ namespace GPRS.Forms
 
                 }
 
-
                 for (int x = 0; x < tablaUdpClient.Rows.Count - 1; x++)
                 {
                     if ((port.Equals(tablaUdpClient.Rows[x].Cells["udpClientPort"].Value.ToString())) || (port.Equals(tablaUdpClient.Rows[x].Cells["udpClientDestinationPort"].Value.ToString())))
@@ -685,7 +884,6 @@ namespace GPRS.Forms
                     }
                 }
 
-                //String port = tablaTcpServer.Rows[fila].Cells["tcpServerPort"].Value.ToString();
                 for (int x = 0; x < tablaTcp.Rows.Count - 1; x++)
                 {
                     if (port.Equals(tablaTcp.Rows[x].Cells["tcpServerPort"].Value.ToString()))
@@ -695,7 +893,6 @@ namespace GPRS.Forms
                     }
                 }
 
-                //String port = tablaTcpClient.Rows[fila].Cells["tcpClientPort"].Value.ToString();
                 for (int x = 0; x < tablaTcpClient.Rows.Count - 1; x++)
                 {
                     if (port.Equals(tablaTcpClient.Rows[x].Cells["tcpClientPort"].Value.ToString()))
@@ -704,13 +901,37 @@ namespace GPRS.Forms
                     }
                 }
 
+                for (int x = 0; x < tablaUdpServerModem.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerEnlacePortModem"].Value.ToString())) || (port.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerDestinationPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaUdpClientModem.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientConexionPortModem"].Value.ToString())) || (port.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientDestinationPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpClientModem.Rows.Count - 1; x++)
+                {
+                    if (port.Equals(tablaTcpClientModem.Rows[x].Cells["tcpClientPortModem"].Value.ToString()))
+                    {
+                        puerto = true;
+                    }
+                }
             }
 
             return puerto;
 
         }
 
-        private Boolean validarPuertosTcpClientModem(DataGridView tablaTcpClientModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, DataGridView tablaTcpClient)
+        private Boolean validarPuertosTcpClientModem(DataGridView tablaTcpClientModem, DataGridView tablaUdpServer, DataGridView tablaUdpClient, DataGridView tablaTcp, 
+            DataGridView tablaTcpClient, DataGridView tablaUdpServerModem, DataGridView tablaUdpClientModem, DataGridView tablaTcpModem)
         {
             Boolean puerto = false;
 
@@ -760,6 +981,32 @@ namespace GPRS.Forms
                         puerto = true;
                     }
                 }
+
+                for (int x = 0; x < tablaUdpServerModem.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerEnlacePortModem"].Value.ToString())) || (port.Equals(tablaUdpServerModem.Rows[x].Cells["udpServerDestinationPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+
+                }
+
+                for (int x = 0; x < tablaUdpClientModem.Rows.Count - 1; x++)
+                {
+                    if ((port.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientConexionPortModem"].Value.ToString())) || (port.Equals(tablaUdpClientModem.Rows[x].Cells["udpClientDestinationPortModem"].Value.ToString())))
+                    {
+                        puerto = true;
+                    }
+                }
+
+                for (int x = 0; x < tablaTcpModem.Rows.Count - 1; x++)
+                {
+                    if (port.Equals(tablaTcpModem.Rows[x].Cells["tcpServerPortModem"].Value.ToString()))
+                    {
+                        puerto = true;
+                        Console.WriteLine("Tabla: " + tablaTcpModem.Name.ToString());
+                    }
+                }
             }
 
             return puerto;
@@ -775,7 +1022,7 @@ namespace GPRS.Forms
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaUdpClient.Rows[tablaUdpClient.CurrentRow.Index].Cells["udpClientName"].Value.ToString();
                         Console.WriteLine(name);
@@ -784,7 +1031,7 @@ namespace GPRS.Forms
                             c._DeleteNodo(name, "Servers", "Udp", "UdpClient", "Client");
                         }
                         tablaUdpClient.Rows.Remove(tablaUdpClient.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                     
                 }
@@ -795,12 +1042,12 @@ namespace GPRS.Forms
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -810,7 +1057,7 @@ namespace GPRS.Forms
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaUDPServer.Rows[tablaUDPServer.CurrentRow.Index].Cells["udpSeverName"].Value.ToString();
                         Console.WriteLine(name);
@@ -819,7 +1066,7 @@ namespace GPRS.Forms
                             c._DeleteNodo(name, "Servers", "Udp", "UdpServer", "Server");
                         }
                         tablaUDPServer.Rows.Remove(tablaUDPServer.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                     
                 }
@@ -830,12 +1077,12 @@ namespace GPRS.Forms
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -845,7 +1092,7 @@ namespace GPRS.Forms
             {
                 try 
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaTcpServer.Rows[tablaTcpServer.CurrentRow.Index].Cells["tcpServerName"].Value.ToString();
                         Console.WriteLine(name);
@@ -854,7 +1101,7 @@ namespace GPRS.Forms
                             c._DeleteNodo(name, "Servers", "Tcp", "TcpServer", "Server");
                         }
                         tablaTcpServer.Rows.Remove(tablaTcpServer.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                 }
                 catch (XmlException xe)
@@ -864,12 +1111,12 @@ namespace GPRS.Forms
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -879,7 +1126,7 @@ namespace GPRS.Forms
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaTcpClient.Rows[tablaTcpClient.CurrentRow.Index].Cells["tcpClientName"].Value.ToString();
                         Console.WriteLine(name);
@@ -888,7 +1135,7 @@ namespace GPRS.Forms
                             c._DeleteNodo(name, "Servers", "Tcp", "TcpClient", "Client");
                         }
                         tablaTcpClient.Rows.Remove(tablaTcpClient.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                 }
                 catch (XmlException xe)
@@ -899,12 +1146,12 @@ namespace GPRS.Forms
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -912,15 +1159,7 @@ namespace GPRS.Forms
         {
             if (cbConexion.SelectedItem != null)
             {
-                lblInfoConexion.Location = new System.Drawing.Point(100, 93);
-
-                lblInfoConexion.Text = "Configuración" + cbSocket.SelectedItem.ToString() +" "+cbConexion.SelectedItem.ToString();
                 switchPanel(cbSocket.SelectedItem.ToString(), cbConexion.SelectedItem.ToString());
-            }
-            else
-            {
-                lblInfoConexion.Location = new System.Drawing.Point(174, 93);
-                lblInfoConexion.Text = "Configuración";
             }
         }
 
@@ -928,14 +1167,7 @@ namespace GPRS.Forms
         {
             if (cbSocket.SelectedItem != null)
             {
-                lblInfoConexion.Location = new System.Drawing.Point(100, 93);
-                lblInfoConexion.Text = "Configuración " + cbSocket.SelectedItem.ToString() + " " + cbConexion.SelectedItem.ToString();
                 switchPanel(cbSocket.SelectedItem.ToString(), cbConexion.SelectedItem.ToString());
-            }
-            else
-            {
-                lblInfoConexion.Location = new System.Drawing.Point(174, 93);
-                lblInfoConexion.Text = "Configuración";
             }
         }
         /*Cliente
@@ -1005,14 +1237,14 @@ Servidor*/
         }
 #endregion
 
-#region vista configuracion del lado del modem
+        #region vista configuracion del lado del modem
         private void btnDelTcpServerModem_Click(object sender, EventArgs e)
         {
             if (tablaTcpServerModem.CurrentRow.Selected)
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaTcpServerModem.Rows[tablaTcpServerModem.CurrentRow.Index].Cells["tcpServerNameModem"].Value.ToString();
                         Console.WriteLine(name);
@@ -1021,7 +1253,7 @@ Servidor*/
                             c._DeleteNodo(name, "Modems", "Tcp", "TcpServer", "Server");
                         }
                         tablaTcpServerModem.Rows.Remove(tablaTcpServerModem.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                 }
                 catch (XmlException xe)
@@ -1031,12 +1263,12 @@ Servidor*/
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -1046,7 +1278,7 @@ Servidor*/
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaTcpClientModem.Rows[tablaTcpClientModem.CurrentRow.Index].Cells["tcpClientNameModem"].Value.ToString();
                         Console.WriteLine(name);
@@ -1055,7 +1287,7 @@ Servidor*/
                             c._DeleteNodo(name, "Modems", "Tcp", "TcpClient", "Client");
                         }
                         tablaTcpClientModem.Rows.Remove(tablaTcpClientModem.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                 }
                 catch (XmlException xe)
@@ -1065,12 +1297,12 @@ Servidor*/
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -1080,7 +1312,7 @@ Servidor*/
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaUdpClientModem.Rows[tablaUdpClientModem.CurrentRow.Index].Cells["udpClientNameModem"].Value.ToString();
                         Console.WriteLine(name);
@@ -1089,7 +1321,7 @@ Servidor*/
                             c._DeleteNodo(name, "Modems", "Udp", "UdpClient", "Client");
                         }
                         tablaUdpClientModem.Rows.Remove(tablaUdpClientModem.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                     
                 }
@@ -1100,12 +1332,12 @@ Servidor*/
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 
@@ -1115,7 +1347,7 @@ Servidor*/
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?,\n ¡Se eliminará completamente!"))
                     {
                         string name = tablaUdpServerModem.Rows[tablaUdpServerModem.CurrentRow.Index].Cells["udpSeverNameModem"].Value.ToString();
                         Console.WriteLine(name);
@@ -1124,7 +1356,7 @@ Servidor*/
                             c._DeleteNodo(name, "Modems", "Udp", "UdpServer", "Server");
                         }
                         tablaUdpServerModem.Rows.Remove(tablaUdpServerModem.CurrentRow);
-                        new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                        Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                     }
                 }
                 catch (XmlException xe)
@@ -1134,16 +1366,14 @@ Servidor*/
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
-
-
 
         private void cbSocketModem_SelectedIndexChanged(object sender, EventArgs e)
         {
@@ -1377,9 +1607,5 @@ Servidor*/
         }
         #endregion
 
-        private void panel2_Paint(object sender, PaintEventArgs e)
-        {
-
-        }
     }
 }

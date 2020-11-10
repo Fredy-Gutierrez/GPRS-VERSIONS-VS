@@ -1,4 +1,5 @@
 ﻿using GPRS.Clases;
+using GPRS.Clases.Models;
 using GPRS.Forms.Messages;
 using System;
 using System.Collections.Generic;
@@ -19,14 +20,15 @@ namespace GPRS.Forms
         public FormLogIn()
         {
             InitializeComponent();
-            txtPass.UseSystemPasswordChar = false;
         }
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            if (new Warning("¿Seguro desea cerrar el Programa?").ShowDialog() == DialogResult.OK)
+            if (Alerts.ShowWarning("¿Seguro desea cerrar la ventana?"))
             {
-                Application.Exit();
+                cleanUsertxt();
+                cleanPasstxt();
+                this.Hide();
             }
         }
 
@@ -48,10 +50,12 @@ namespace GPRS.Forms
 
         private void txtUser_Enter(object sender, EventArgs e)
         {
+            //txtUser.Font = new Font("Century Gothic", 15.75f, FontStyle.Bold);
             if (txtUser.Text == "Usuario")
             {
                 txtUser.Text = "";
-                txtUser.ForeColor = Color.Black;
+                txtUser.ForeColor = Color.White;
+                txtUser.Font = new Font("Century Gothic", 15.75f, FontStyle.Bold);
             }
         }
 
@@ -59,8 +63,7 @@ namespace GPRS.Forms
         {
             if (txtUser.Text == "")
             {
-                txtUser.Text = "Usuario";
-                txtUser.ForeColor = Color.FromArgb(90, 90, 90);
+                cleanUsertxt();
             }
         }
 
@@ -70,7 +73,8 @@ namespace GPRS.Forms
             {
                 txtPass.Text = "";
                 txtPass.UseSystemPasswordChar = true;
-                txtPass.ForeColor = Color.Black;
+                txtPass.ForeColor = Color.White;
+                txtPass.Font = new Font("Century Gothic", 15.75f, FontStyle.Bold);
             }
         }
 
@@ -78,9 +82,7 @@ namespace GPRS.Forms
         {
             if (txtPass.Text == "")
             {
-                txtPass.Text = "Contraseña";
-                txtPass.UseSystemPasswordChar = false;
-                txtPass.ForeColor = Color.FromArgb(90, 90, 90);
+                cleanPasstxt();
             }
         }
 
@@ -106,14 +108,19 @@ namespace GPRS.Forms
             }
         }
 
+        
+
         private void btnSesion_Click(object sender, EventArgs e)
         {
-            Boolean user = false;
+            //Console.WriteLine(Properties.Settings.Default.maxWindows);
+            //Boolean user = false;
 
-            string username = Seguridad.Encriptar(txtUser.Text);
+            //string username = Seguridad.Encriptar(txtUser.Text);
+            string username = txtUser.Text;
             string password = Seguridad.Encriptar(txtPass.Text);
 
-            UsersXml usersXml = new UsersXml();
+            /*
+             * UsersXml usersXml = new UsersXml();
 
             usersXml._CreateXml();
 
@@ -142,21 +149,50 @@ namespace GPRS.Forms
 
                 }
             }
+            */
 
-            if (user)
+            UsersModel usersModel = new UsersModel();
+
+            if (usersModel.LogIn(username,password))
             {
-                FormPrincipal formPrincipal = new FormPrincipal();
-                formPrincipal.Show();
-
                 Session.user = txtUser.Text;
                 Session.pass = txtPass.Text;
                 this.Hide();
+
+                cleanUsertxt();
+                cleanPasstxt();
+
+                FormPrincipal formPrincipal = FormPrincipal.formPrincipal;
+
+                formPrincipal.ActivateButton(formPrincipal.btnCerrarSesion, FormPrincipal.RGBColors.color5);
+                formPrincipal.OpenChildForm(new FormCuenta());
             }
             else
             {
-                new Information("El usuario y/o contraseña son incorrectos").ShowDialog();
+                Alerts.ShowInformation("El usuario y/o contraseña son incorrectos");
             }
             
+        }
+
+        private void cleanUsertxt()
+        {
+            txtUser.Text = "Usuario";
+            txtUser.ForeColor = Color.FromArgb(90, 90, 90);
+            txtUser.Font = new Font("Century Gothic", 15.75f, FontStyle.Regular);
+        }
+        private void cleanPasstxt()
+        {
+            txtPass.Text = "Contraseña";
+            txtPass.UseSystemPasswordChar = false;
+            txtPass.ForeColor = Color.FromArgb(90, 90, 90);
+
+            txtPass.Font = new Font("Century Gothic", 15.75f, FontStyle.Regular);
+        }
+
+        private void FormLogIn_Load(object sender, EventArgs e)
+        {
+            txtPass.UseSystemPasswordChar = false;
+            btnSesion.Select();
         }
     }
 }

@@ -28,32 +28,38 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             this.txtMensajes = new System.Windows.Forms.RichTextBox();
             this.label2 = new System.Windows.Forms.Label();
-            this.backgroundWorker1 = new System.ComponentModel.BackgroundWorker();
-            this.backgroundWorker2 = new System.ComponentModel.BackgroundWorker();
-            this.label1 = new System.Windows.Forms.Label();
-            this.label3 = new System.Windows.Forms.Label();
-            this.label4 = new System.Windows.Forms.Label();
-            this.label5 = new System.Windows.Forms.Label();
-            this.label6 = new System.Windows.Forms.Label();
-            this.label7 = new System.Windows.Forms.Label();
-            this.label8 = new System.Windows.Forms.Label();
-            this.label9 = new System.Windows.Forms.Label();
-            this.label10 = new System.Windows.Forms.Label();
-            this.label11 = new System.Windows.Forms.Label();
+            this.lblUdpClientServer = new System.Windows.Forms.Label();
+            this.lblUdpServerServer = new System.Windows.Forms.Label();
+            this.lblTcpClientServer = new System.Windows.Forms.Label();
+            this.lblTcpServerServer = new System.Windows.Forms.Label();
+            this.lblTcpServerModem = new System.Windows.Forms.Label();
+            this.lblTcpClientModem = new System.Windows.Forms.Label();
+            this.lblUdpServerModem = new System.Windows.Forms.Label();
+            this.lblUdpClientModem = new System.Windows.Forms.Label();
+            this.lblTitleServer = new System.Windows.Forms.Label();
+            this.lblTitleModem = new System.Windows.Forms.Label();
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.pictureBox3 = new System.Windows.Forms.PictureBox();
-            this.btnTcpServerModem = new FontAwesome.Sharp.IconButton();
-            this.btnTcpServerServer = new FontAwesome.Sharp.IconButton();
-            this.btnTcpClientModem = new FontAwesome.Sharp.IconButton();
-            this.btnUdpServerModem = new FontAwesome.Sharp.IconButton();
-            this.btnUdpClientModem = new FontAwesome.Sharp.IconButton();
-            this.btnTcpClientServer = new FontAwesome.Sharp.IconButton();
-            this.btnUdpServerServer = new FontAwesome.Sharp.IconButton();
-            this.btnUdpClientServer = new FontAwesome.Sharp.IconButton();
+            this.label1 = new System.Windows.Forms.Label();
+            this.panel4 = new System.Windows.Forms.Panel();
+            this.txtMaxWindows = new System.Windows.Forms.TextBox();
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
+            this.pictureInformation = new System.Windows.Forms.PictureBox();
+            this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.switchBtnTcpServerModem = new GPRS.CeLearningToggle();
+            this.switchBtnTcpClientModem = new GPRS.CeLearningToggle();
+            this.switchBtnUdpServerModem = new GPRS.CeLearningToggle();
+            this.switchBtnUdpClientModem = new GPRS.CeLearningToggle();
+            this.switchBtnTcpServerSock = new GPRS.CeLearningToggle();
+            this.switchBtnTcpClientSock = new GPRS.CeLearningToggle();
+            this.switchBtnUdpClientSock = new GPRS.CeLearningToggle();
+            this.switchBtnUdpServerSock = new GPRS.CeLearningToggle();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureInformation)).BeginInit();
             this.SuspendLayout();
             // 
             // txtMensajes
@@ -66,7 +72,7 @@
             this.txtMensajes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMensajes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtMensajes.HideSelection = false;
-            this.txtMensajes.Location = new System.Drawing.Point(1, 193);
+            this.txtMensajes.Location = new System.Drawing.Point(3, 233);
             this.txtMensajes.Name = "txtMensajes";
             this.txtMensajes.ReadOnly = true;
             this.txtMensajes.Size = new System.Drawing.Size(892, 186);
@@ -79,149 +85,165 @@
             this.label2.AutoSize = true;
             this.label2.BackColor = System.Drawing.Color.Transparent;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label2.Location = new System.Drawing.Point(425, 162);
+            this.label2.ForeColor = System.Drawing.Color.Cyan;
+            this.label2.Location = new System.Drawing.Point(423, 198);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(87, 19);
             this.label2.TabIndex = 9;
             this.label2.Text = "MENSAJES";
             // 
-            // label1
+            // lblUdpClientServer
             // 
-            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label1.AutoSize = true;
-            this.label1.BackColor = System.Drawing.Color.Transparent;
-            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label1.Location = new System.Drawing.Point(247, 30);
-            this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(99, 19);
-            this.label1.TabIndex = 22;
-            this.label1.Text = "Udp Cliente";
+            this.lblUdpClientServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUdpClientServer.AutoSize = true;
+            this.lblUdpClientServer.BackColor = System.Drawing.Color.Transparent;
+            this.lblUdpClientServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUdpClientServer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUdpClientServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblUdpClientServer.Location = new System.Drawing.Point(247, 27);
+            this.lblUdpClientServer.Name = "lblUdpClientServer";
+            this.lblUdpClientServer.Size = new System.Drawing.Size(99, 19);
+            this.lblUdpClientServer.TabIndex = 22;
+            this.lblUdpClientServer.Text = "Udp Cliente";
+            this.lblUdpClientServer.Click += new System.EventHandler(this.lblUdpClientServer_Click);
             // 
-            // label3
+            // lblUdpServerServer
             // 
-            this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label3.AutoSize = true;
-            this.label3.BackColor = System.Drawing.Color.Transparent;
-            this.label3.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label3.Location = new System.Drawing.Point(247, 64);
-            this.label3.Name = "label3";
-            this.label3.Size = new System.Drawing.Size(107, 19);
-            this.label3.TabIndex = 23;
-            this.label3.Text = "Udp Servidor";
+            this.lblUdpServerServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUdpServerServer.AutoSize = true;
+            this.lblUdpServerServer.BackColor = System.Drawing.Color.Transparent;
+            this.lblUdpServerServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUdpServerServer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUdpServerServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblUdpServerServer.Location = new System.Drawing.Point(247, 69);
+            this.lblUdpServerServer.Name = "lblUdpServerServer";
+            this.lblUdpServerServer.Size = new System.Drawing.Size(107, 19);
+            this.lblUdpServerServer.TabIndex = 23;
+            this.lblUdpServerServer.Text = "Udp Servidor";
+            this.lblUdpServerServer.Click += new System.EventHandler(this.lblUdpServerServer_Click);
             // 
-            // label4
+            // lblTcpClientServer
             // 
-            this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label4.AutoSize = true;
-            this.label4.BackColor = System.Drawing.Color.Transparent;
-            this.label4.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label4.Location = new System.Drawing.Point(247, 113);
-            this.label4.Name = "label4";
-            this.label4.Size = new System.Drawing.Size(95, 19);
-            this.label4.TabIndex = 24;
-            this.label4.Text = "Tcp Cliente";
+            this.lblTcpClientServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTcpClientServer.AutoSize = true;
+            this.lblTcpClientServer.BackColor = System.Drawing.Color.Transparent;
+            this.lblTcpClientServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTcpClientServer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTcpClientServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblTcpClientServer.Location = new System.Drawing.Point(247, 109);
+            this.lblTcpClientServer.Name = "lblTcpClientServer";
+            this.lblTcpClientServer.Size = new System.Drawing.Size(95, 19);
+            this.lblTcpClientServer.TabIndex = 24;
+            this.lblTcpClientServer.Text = "Tcp Cliente";
+            this.lblTcpClientServer.Click += new System.EventHandler(this.lblTcpClientServer_Click);
             // 
-            // label5
+            // lblTcpServerServer
             // 
-            this.label5.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label5.AutoSize = true;
-            this.label5.BackColor = System.Drawing.Color.Transparent;
-            this.label5.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label5.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label5.Location = new System.Drawing.Point(247, 144);
-            this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(103, 19);
-            this.label5.TabIndex = 25;
-            this.label5.Text = "Tcp Servidor";
+            this.lblTcpServerServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTcpServerServer.AutoSize = true;
+            this.lblTcpServerServer.BackColor = System.Drawing.Color.Transparent;
+            this.lblTcpServerServer.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTcpServerServer.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTcpServerServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblTcpServerServer.Location = new System.Drawing.Point(247, 148);
+            this.lblTcpServerServer.Name = "lblTcpServerServer";
+            this.lblTcpServerServer.Size = new System.Drawing.Size(103, 19);
+            this.lblTcpServerServer.TabIndex = 25;
+            this.lblTcpServerServer.Text = "Tcp Servidor";
+            this.lblTcpServerServer.Click += new System.EventHandler(this.lblTcpServerServer_Click);
             // 
-            // label6
+            // lblTcpServerModem
             // 
-            this.label6.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label6.AutoSize = true;
-            this.label6.BackColor = System.Drawing.Color.Transparent;
-            this.label6.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label6.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label6.Location = new System.Drawing.Point(578, 145);
-            this.label6.Name = "label6";
-            this.label6.Size = new System.Drawing.Size(103, 19);
-            this.label6.TabIndex = 29;
-            this.label6.Text = "Tcp Servidor";
+            this.lblTcpServerModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTcpServerModem.AutoSize = true;
+            this.lblTcpServerModem.BackColor = System.Drawing.Color.Transparent;
+            this.lblTcpServerModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTcpServerModem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTcpServerModem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblTcpServerModem.Location = new System.Drawing.Point(579, 148);
+            this.lblTcpServerModem.Name = "lblTcpServerModem";
+            this.lblTcpServerModem.Size = new System.Drawing.Size(103, 19);
+            this.lblTcpServerModem.TabIndex = 29;
+            this.lblTcpServerModem.Text = "Tcp Servidor";
+            this.lblTcpServerModem.Click += new System.EventHandler(this.lblTcpServerModem_Click);
             // 
-            // label7
+            // lblTcpClientModem
             // 
-            this.label7.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label7.AutoSize = true;
-            this.label7.BackColor = System.Drawing.Color.Transparent;
-            this.label7.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label7.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label7.Location = new System.Drawing.Point(578, 114);
-            this.label7.Name = "label7";
-            this.label7.Size = new System.Drawing.Size(95, 19);
-            this.label7.TabIndex = 28;
-            this.label7.Text = "Tcp Cliente";
+            this.lblTcpClientModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTcpClientModem.AutoSize = true;
+            this.lblTcpClientModem.BackColor = System.Drawing.Color.Transparent;
+            this.lblTcpClientModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblTcpClientModem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTcpClientModem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblTcpClientModem.Location = new System.Drawing.Point(579, 109);
+            this.lblTcpClientModem.Name = "lblTcpClientModem";
+            this.lblTcpClientModem.Size = new System.Drawing.Size(95, 19);
+            this.lblTcpClientModem.TabIndex = 28;
+            this.lblTcpClientModem.Text = "Tcp Cliente";
+            this.lblTcpClientModem.Click += new System.EventHandler(this.lblTcpClientModem_Click);
             // 
-            // label8
+            // lblUdpServerModem
             // 
-            this.label8.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label8.AutoSize = true;
-            this.label8.BackColor = System.Drawing.Color.Transparent;
-            this.label8.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label8.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label8.Location = new System.Drawing.Point(578, 65);
-            this.label8.Name = "label8";
-            this.label8.Size = new System.Drawing.Size(107, 19);
-            this.label8.TabIndex = 27;
-            this.label8.Text = "Udp Servidor";
+            this.lblUdpServerModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUdpServerModem.AutoSize = true;
+            this.lblUdpServerModem.BackColor = System.Drawing.Color.Transparent;
+            this.lblUdpServerModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUdpServerModem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUdpServerModem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblUdpServerModem.Location = new System.Drawing.Point(579, 69);
+            this.lblUdpServerModem.Name = "lblUdpServerModem";
+            this.lblUdpServerModem.Size = new System.Drawing.Size(107, 19);
+            this.lblUdpServerModem.TabIndex = 27;
+            this.lblUdpServerModem.Text = "Udp Servidor";
+            this.lblUdpServerModem.Click += new System.EventHandler(this.lblUdpServerModem_Click);
             // 
-            // label9
+            // lblUdpClientModem
             // 
-            this.label9.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label9.AutoSize = true;
-            this.label9.BackColor = System.Drawing.Color.Transparent;
-            this.label9.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label9.ForeColor = System.Drawing.Color.Gainsboro;
-            this.label9.Location = new System.Drawing.Point(578, 31);
-            this.label9.Name = "label9";
-            this.label9.Size = new System.Drawing.Size(99, 19);
-            this.label9.TabIndex = 26;
-            this.label9.Text = "Udp Cliente";
+            this.lblUdpClientModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblUdpClientModem.AutoSize = true;
+            this.lblUdpClientModem.BackColor = System.Drawing.Color.Transparent;
+            this.lblUdpClientModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.lblUdpClientModem.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblUdpClientModem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(153)))), ((int)(((byte)(51)))));
+            this.lblUdpClientModem.Location = new System.Drawing.Point(579, 27);
+            this.lblUdpClientModem.Name = "lblUdpClientModem";
+            this.lblUdpClientModem.Size = new System.Drawing.Size(99, 19);
+            this.lblUdpClientModem.TabIndex = 26;
+            this.lblUdpClientModem.Text = "Udp Cliente";
+            this.lblUdpClientModem.Click += new System.EventHandler(this.lblUdpClientModem_Click);
             // 
-            // label10
+            // lblTitleServer
             // 
-            this.label10.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label10.AutoSize = true;
-            this.label10.BackColor = System.Drawing.Color.Transparent;
-            this.label10.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label10.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(115)))), ((int)(((byte)(255)))), ((int)(((byte)(113)))));
-            this.label10.Location = new System.Drawing.Point(156, 32);
-            this.label10.Name = "label10";
-            this.label10.Size = new System.Drawing.Size(84, 18);
-            this.label10.TabIndex = 32;
-            this.label10.Text = "Servidores";
+            this.lblTitleServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitleServer.AutoSize = true;
+            this.lblTitleServer.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitleServer.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleServer.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(123)))), ((int)(((byte)(185)))), ((int)(((byte)(255)))));
+            this.lblTitleServer.Location = new System.Drawing.Point(163, 30);
+            this.lblTitleServer.Name = "lblTitleServer";
+            this.lblTitleServer.Size = new System.Drawing.Size(65, 18);
+            this.lblTitleServer.TabIndex = 32;
+            this.lblTitleServer.Text = "Sockets";
             // 
-            // label11
+            // lblTitleModem
             // 
-            this.label11.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.label11.AutoSize = true;
-            this.label11.BackColor = System.Drawing.Color.Transparent;
-            this.label11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label11.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(113)))), ((int)(((byte)(255)))), ((int)(((byte)(251)))));
-            this.label11.Location = new System.Drawing.Point(688, 38);
-            this.label11.Name = "label11";
-            this.label11.Size = new System.Drawing.Size(72, 18);
-            this.label11.TabIndex = 33;
-            this.label11.Text = "Módems";
+            this.lblTitleModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblTitleModem.AutoSize = true;
+            this.lblTitleModem.BackColor = System.Drawing.Color.Transparent;
+            this.lblTitleModem.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.lblTitleModem.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(196)))), ((int)(((byte)(145)))), ((int)(((byte)(235)))));
+            this.lblTitleModem.Location = new System.Drawing.Point(692, 35);
+            this.lblTitleModem.Name = "lblTitleModem";
+            this.lblTitleModem.Size = new System.Drawing.Size(72, 18);
+            this.lblTitleModem.TabIndex = 33;
+            this.lblTitleModem.Text = "Módems";
             // 
             // pictureBox1
             // 
             this.pictureBox1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox1.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox1.Image = global::GPRS.Properties.Resources.wifi;
-            this.pictureBox1.Location = new System.Drawing.Point(691, 63);
+            this.pictureBox1.Location = new System.Drawing.Point(688, 63);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(80, 70);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -233,188 +255,245 @@
             this.pictureBox3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.pictureBox3.BackColor = System.Drawing.Color.Transparent;
             this.pictureBox3.Image = global::GPRS.Properties.Resources.servidores__1_;
-            this.pictureBox3.Location = new System.Drawing.Point(162, 56);
+            this.pictureBox3.Location = new System.Drawing.Point(159, 56);
             this.pictureBox3.Name = "pictureBox3";
             this.pictureBox3.Size = new System.Drawing.Size(70, 76);
             this.pictureBox3.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
             this.pictureBox3.TabIndex = 30;
             this.pictureBox3.TabStop = false;
             // 
-            // btnTcpServerModem
+            // label1
             // 
-            this.btnTcpServerModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnTcpServerModem.BackColor = System.Drawing.Color.Red;
-            this.btnTcpServerModem.FlatAppearance.BorderSize = 0;
-            this.btnTcpServerModem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnTcpServerModem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnTcpServerModem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTcpServerModem.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnTcpServerModem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTcpServerModem.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnTcpServerModem.IconColor = System.Drawing.Color.Black;
-            this.btnTcpServerModem.IconSize = 16;
-            this.btnTcpServerModem.Location = new System.Drawing.Point(535, 145);
-            this.btnTcpServerModem.Name = "btnTcpServerModem";
-            this.btnTcpServerModem.Rotation = 0D;
-            this.btnTcpServerModem.Size = new System.Drawing.Size(37, 23);
-            this.btnTcpServerModem.TabIndex = 21;
-            this.btnTcpServerModem.Text = "OFF";
-            this.btnTcpServerModem.UseVisualStyleBackColor = false;
-            this.btnTcpServerModem.Click += new System.EventHandler(this.btnTcpServerModem_Click);
+            this.label1.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.label1.AutoSize = true;
+            this.label1.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.label1.ForeColor = System.Drawing.Color.White;
+            this.label1.Location = new System.Drawing.Point(287, 434);
+            this.label1.Name = "label1";
+            this.label1.Size = new System.Drawing.Size(82, 38);
+            this.label1.TabIndex = 34;
+            this.label1.Text = "Ventanas\r\ntotales";
+            this.label1.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
-            // btnTcpServerServer
+            // panel4
             // 
-            this.btnTcpServerServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnTcpServerServer.BackColor = System.Drawing.Color.Red;
-            this.btnTcpServerServer.FlatAppearance.BorderSize = 0;
-            this.btnTcpServerServer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnTcpServerServer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnTcpServerServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTcpServerServer.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnTcpServerServer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTcpServerServer.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnTcpServerServer.IconColor = System.Drawing.Color.Black;
-            this.btnTcpServerServer.IconSize = 16;
-            this.btnTcpServerServer.Location = new System.Drawing.Point(363, 144);
-            this.btnTcpServerServer.Name = "btnTcpServerServer";
-            this.btnTcpServerServer.Rotation = 0D;
-            this.btnTcpServerServer.Size = new System.Drawing.Size(37, 23);
-            this.btnTcpServerServer.TabIndex = 20;
-            this.btnTcpServerServer.Text = "OFF";
-            this.btnTcpServerServer.UseVisualStyleBackColor = false;
-            this.btnTcpServerServer.Click += new System.EventHandler(this.btnTcpServerServer_Click);
+            this.panel4.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.panel4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.panel4.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
+            this.panel4.Location = new System.Drawing.Point(389, 472);
+            this.panel4.Name = "panel4";
+            this.panel4.Size = new System.Drawing.Size(132, 2);
+            this.panel4.TabIndex = 36;
             // 
-            // btnTcpClientModem
+            // txtMaxWindows
             // 
-            this.btnTcpClientModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnTcpClientModem.BackColor = System.Drawing.Color.Red;
-            this.btnTcpClientModem.FlatAppearance.BorderSize = 0;
-            this.btnTcpClientModem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnTcpClientModem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnTcpClientModem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTcpClientModem.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnTcpClientModem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTcpClientModem.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnTcpClientModem.IconColor = System.Drawing.Color.Black;
-            this.btnTcpClientModem.IconSize = 16;
-            this.btnTcpClientModem.Location = new System.Drawing.Point(535, 113);
-            this.btnTcpClientModem.Name = "btnTcpClientModem";
-            this.btnTcpClientModem.Rotation = 0D;
-            this.btnTcpClientModem.Size = new System.Drawing.Size(37, 23);
-            this.btnTcpClientModem.TabIndex = 19;
-            this.btnTcpClientModem.Text = "OFF";
-            this.btnTcpClientModem.UseVisualStyleBackColor = false;
-            this.btnTcpClientModem.Click += new System.EventHandler(this.btnTcpClientModem_Click);
+            this.txtMaxWindows.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.txtMaxWindows.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
+            this.txtMaxWindows.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMaxWindows.Font = new System.Drawing.Font("Century Gothic", 15.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.txtMaxWindows.ForeColor = System.Drawing.Color.Gainsboro;
+            this.txtMaxWindows.Location = new System.Drawing.Point(389, 440);
+            this.txtMaxWindows.Name = "txtMaxWindows";
+            this.txtMaxWindows.RightToLeft = System.Windows.Forms.RightToLeft.No;
+            this.txtMaxWindows.Size = new System.Drawing.Size(132, 26);
+            this.txtMaxWindows.TabIndex = 35;
+            this.txtMaxWindows.DoubleClick += new System.EventHandler(this.txtMaxWindows_DoubleClick);
+            this.txtMaxWindows.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxWindows_KeyPress);
             // 
-            // btnUdpServerModem
+            // btnAdd
             // 
-            this.btnUdpServerModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnUdpServerModem.BackColor = System.Drawing.Color.Red;
-            this.btnUdpServerModem.FlatAppearance.BorderSize = 0;
-            this.btnUdpServerModem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnUdpServerModem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnUdpServerModem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUdpServerModem.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnUdpServerModem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUdpServerModem.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnUdpServerModem.IconColor = System.Drawing.Color.Black;
-            this.btnUdpServerModem.IconSize = 16;
-            this.btnUdpServerModem.Location = new System.Drawing.Point(535, 63);
-            this.btnUdpServerModem.Name = "btnUdpServerModem";
-            this.btnUdpServerModem.Rotation = 0D;
-            this.btnUdpServerModem.Size = new System.Drawing.Size(37, 23);
-            this.btnUdpServerModem.TabIndex = 18;
-            this.btnUdpServerModem.Text = "OFF";
-            this.btnUdpServerModem.UseVisualStyleBackColor = false;
-            this.btnUdpServerModem.Click += new System.EventHandler(this.btnUdpServerModem_Click);
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(181)))), ((int)(((byte)(252)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(225)))));
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.White;
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(19)))));
+            this.btnAdd.IconSize = 18;
+            this.btnAdd.Location = new System.Drawing.Point(559, 442);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Rotation = 0D;
+            this.btnAdd.Size = new System.Drawing.Size(91, 32);
+            this.btnAdd.TabIndex = 47;
+            this.btnAdd.Text = "  Guardar";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
-            // btnUdpClientModem
+            // pictureInformation
             // 
-            this.btnUdpClientModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnUdpClientModem.BackColor = System.Drawing.Color.Red;
-            this.btnUdpClientModem.FlatAppearance.BorderSize = 0;
-            this.btnUdpClientModem.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnUdpClientModem.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnUdpClientModem.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUdpClientModem.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnUdpClientModem.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUdpClientModem.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnUdpClientModem.IconColor = System.Drawing.Color.Black;
-            this.btnUdpClientModem.IconSize = 16;
-            this.btnUdpClientModem.Location = new System.Drawing.Point(535, 27);
-            this.btnUdpClientModem.Name = "btnUdpClientModem";
-            this.btnUdpClientModem.Rotation = 0D;
-            this.btnUdpClientModem.Size = new System.Drawing.Size(37, 23);
-            this.btnUdpClientModem.TabIndex = 17;
-            this.btnUdpClientModem.Text = "OFF";
-            this.btnUdpClientModem.UseVisualStyleBackColor = false;
-            this.btnUdpClientModem.Click += new System.EventHandler(this.btnUdpClientModem_Click);
+            this.pictureInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureInformation.BackColor = System.Drawing.Color.Transparent;
+            this.pictureInformation.Image = global::GPRS.Properties.Resources.informacion;
+            this.pictureInformation.Location = new System.Drawing.Point(866, 1);
+            this.pictureInformation.Name = "pictureInformation";
+            this.pictureInformation.Size = new System.Drawing.Size(29, 22);
+            this.pictureInformation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureInformation.TabIndex = 60;
+            this.pictureInformation.TabStop = false;
             // 
-            // btnTcpClientServer
+            // toolTip
             // 
-            this.btnTcpClientServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnTcpClientServer.BackColor = System.Drawing.Color.Red;
-            this.btnTcpClientServer.FlatAppearance.BorderSize = 0;
-            this.btnTcpClientServer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnTcpClientServer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnTcpClientServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnTcpClientServer.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnTcpClientServer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnTcpClientServer.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnTcpClientServer.IconColor = System.Drawing.Color.Black;
-            this.btnTcpClientServer.IconSize = 16;
-            this.btnTcpClientServer.Location = new System.Drawing.Point(363, 113);
-            this.btnTcpClientServer.Name = "btnTcpClientServer";
-            this.btnTcpClientServer.Rotation = 0D;
-            this.btnTcpClientServer.Size = new System.Drawing.Size(37, 23);
-            this.btnTcpClientServer.TabIndex = 16;
-            this.btnTcpClientServer.Text = "OFF";
-            this.btnTcpClientServer.UseVisualStyleBackColor = false;
-            this.btnTcpClientServer.Click += new System.EventHandler(this.btnTcpClientServer_Click);
+            this.toolTip.AutoPopDelay = 20000;
+            this.toolTip.InitialDelay = 500;
+            this.toolTip.ReshowDelay = 100;
+            this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
-            // btnUdpServerServer
+            // switchBtnTcpServerModem
             // 
-            this.btnUdpServerServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnUdpServerServer.BackColor = System.Drawing.Color.Red;
-            this.btnUdpServerServer.FlatAppearance.BorderSize = 0;
-            this.btnUdpServerServer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnUdpServerServer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnUdpServerServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUdpServerServer.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnUdpServerServer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUdpServerServer.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnUdpServerServer.IconColor = System.Drawing.Color.Black;
-            this.btnUdpServerServer.IconSize = 16;
-            this.btnUdpServerServer.Location = new System.Drawing.Point(363, 63);
-            this.btnUdpServerServer.Name = "btnUdpServerServer";
-            this.btnUdpServerServer.Rotation = 0D;
-            this.btnUdpServerServer.Size = new System.Drawing.Size(37, 23);
-            this.btnUdpServerServer.TabIndex = 15;
-            this.btnUdpServerServer.Text = "OFF";
-            this.btnUdpServerServer.UseVisualStyleBackColor = false;
-            this.btnUdpServerServer.Click += new System.EventHandler(this.btnUdpServerServer_Click);
+            this.switchBtnTcpServerModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnTcpServerModem.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpServerModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnTcpServerModem.ForeColor = System.Drawing.Color.White;
+            this.switchBtnTcpServerModem.IsOn = false;
+            this.switchBtnTcpServerModem.Location = new System.Drawing.Point(527, 147);
+            this.switchBtnTcpServerModem.Name = "switchBtnTcpServerModem";
+            this.switchBtnTcpServerModem.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpServerModem.OffText = "OFF";
+            this.switchBtnTcpServerModem.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnTcpServerModem.OnText = "ON";
+            this.switchBtnTcpServerModem.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnTcpServerModem.TabIndex = 59;
+            this.switchBtnTcpServerModem.Text = "ceLearningToggle8";
+            this.switchBtnTcpServerModem.TextEnabled = true;
+            this.switchBtnTcpServerModem.Click += new System.EventHandler(this.switchBtnTcpServerModem_Click);
             // 
-            // btnUdpClientServer
+            // switchBtnTcpClientModem
             // 
-            this.btnUdpClientServer.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.btnUdpClientServer.BackColor = System.Drawing.Color.Red;
-            this.btnUdpClientServer.FlatAppearance.BorderSize = 0;
-            this.btnUdpClientServer.FlatAppearance.MouseDownBackColor = System.Drawing.Color.Red;
-            this.btnUdpClientServer.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(255)))), ((int)(((byte)(113)))), ((int)(((byte)(113)))));
-            this.btnUdpClientServer.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnUdpClientServer.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnUdpClientServer.Font = new System.Drawing.Font("Century Gothic", 8.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnUdpClientServer.IconChar = FontAwesome.Sharp.IconChar.None;
-            this.btnUdpClientServer.IconColor = System.Drawing.Color.Black;
-            this.btnUdpClientServer.IconSize = 16;
-            this.btnUdpClientServer.Location = new System.Drawing.Point(363, 30);
-            this.btnUdpClientServer.Name = "btnUdpClientServer";
-            this.btnUdpClientServer.Rotation = 0D;
-            this.btnUdpClientServer.Size = new System.Drawing.Size(37, 23);
-            this.btnUdpClientServer.TabIndex = 14;
-            this.btnUdpClientServer.Text = "OFF";
-            this.btnUdpClientServer.UseVisualStyleBackColor = false;
-            this.btnUdpClientServer.Click += new System.EventHandler(this.btnUdpClientServer_Click);
+            this.switchBtnTcpClientModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnTcpClientModem.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpClientModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnTcpClientModem.ForeColor = System.Drawing.Color.White;
+            this.switchBtnTcpClientModem.IsOn = false;
+            this.switchBtnTcpClientModem.Location = new System.Drawing.Point(527, 108);
+            this.switchBtnTcpClientModem.Name = "switchBtnTcpClientModem";
+            this.switchBtnTcpClientModem.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpClientModem.OffText = "OFF";
+            this.switchBtnTcpClientModem.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnTcpClientModem.OnText = "ON";
+            this.switchBtnTcpClientModem.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnTcpClientModem.TabIndex = 58;
+            this.switchBtnTcpClientModem.Text = "ceLearningToggle7";
+            this.switchBtnTcpClientModem.TextEnabled = true;
+            this.switchBtnTcpClientModem.Click += new System.EventHandler(this.switchBtnTcpClientModem_Click);
+            // 
+            // switchBtnUdpServerModem
+            // 
+            this.switchBtnUdpServerModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnUdpServerModem.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpServerModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnUdpServerModem.ForeColor = System.Drawing.Color.White;
+            this.switchBtnUdpServerModem.IsOn = false;
+            this.switchBtnUdpServerModem.Location = new System.Drawing.Point(527, 68);
+            this.switchBtnUdpServerModem.Name = "switchBtnUdpServerModem";
+            this.switchBtnUdpServerModem.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpServerModem.OffText = "OFF";
+            this.switchBtnUdpServerModem.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnUdpServerModem.OnText = "ON";
+            this.switchBtnUdpServerModem.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnUdpServerModem.TabIndex = 57;
+            this.switchBtnUdpServerModem.Text = "ceLearningToggle6";
+            this.switchBtnUdpServerModem.TextEnabled = true;
+            this.switchBtnUdpServerModem.Click += new System.EventHandler(this.switchBtnUdpServerModem_Click);
+            // 
+            // switchBtnUdpClientModem
+            // 
+            this.switchBtnUdpClientModem.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnUdpClientModem.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpClientModem.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnUdpClientModem.ForeColor = System.Drawing.Color.White;
+            this.switchBtnUdpClientModem.IsOn = false;
+            this.switchBtnUdpClientModem.Location = new System.Drawing.Point(527, 27);
+            this.switchBtnUdpClientModem.Name = "switchBtnUdpClientModem";
+            this.switchBtnUdpClientModem.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpClientModem.OffText = "OFF";
+            this.switchBtnUdpClientModem.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnUdpClientModem.OnText = "ON";
+            this.switchBtnUdpClientModem.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnUdpClientModem.TabIndex = 56;
+            this.switchBtnUdpClientModem.Text = "switchBtnUdpClientModem";
+            this.switchBtnUdpClientModem.TextEnabled = true;
+            this.switchBtnUdpClientModem.Click += new System.EventHandler(this.switchBtnUdpClientModem_Click);
+            // 
+            // switchBtnTcpServerSock
+            // 
+            this.switchBtnTcpServerSock.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnTcpServerSock.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpServerSock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnTcpServerSock.ForeColor = System.Drawing.Color.White;
+            this.switchBtnTcpServerSock.IsOn = false;
+            this.switchBtnTcpServerSock.Location = new System.Drawing.Point(360, 147);
+            this.switchBtnTcpServerSock.Name = "switchBtnTcpServerSock";
+            this.switchBtnTcpServerSock.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpServerSock.OffText = "OFF";
+            this.switchBtnTcpServerSock.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnTcpServerSock.OnText = "ON";
+            this.switchBtnTcpServerSock.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnTcpServerSock.TabIndex = 55;
+            this.switchBtnTcpServerSock.Text = "ceLearningToggle4";
+            this.switchBtnTcpServerSock.TextEnabled = true;
+            this.switchBtnTcpServerSock.Click += new System.EventHandler(this.switchBtnTcpServerSock_Click);
+            // 
+            // switchBtnTcpClientSock
+            // 
+            this.switchBtnTcpClientSock.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnTcpClientSock.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpClientSock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnTcpClientSock.ForeColor = System.Drawing.Color.White;
+            this.switchBtnTcpClientSock.IsOn = false;
+            this.switchBtnTcpClientSock.Location = new System.Drawing.Point(360, 108);
+            this.switchBtnTcpClientSock.Name = "switchBtnTcpClientSock";
+            this.switchBtnTcpClientSock.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnTcpClientSock.OffText = "OFF";
+            this.switchBtnTcpClientSock.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnTcpClientSock.OnText = "ON";
+            this.switchBtnTcpClientSock.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnTcpClientSock.TabIndex = 54;
+            this.switchBtnTcpClientSock.Text = "ceLearningToggle3";
+            this.switchBtnTcpClientSock.TextEnabled = true;
+            this.switchBtnTcpClientSock.Click += new System.EventHandler(this.switchBtnTcpClientSock_Click);
+            // 
+            // switchBtnUdpClientSock
+            // 
+            this.switchBtnUdpClientSock.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnUdpClientSock.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpClientSock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnUdpClientSock.ForeColor = System.Drawing.Color.White;
+            this.switchBtnUdpClientSock.IsOn = false;
+            this.switchBtnUdpClientSock.Location = new System.Drawing.Point(360, 26);
+            this.switchBtnUdpClientSock.Name = "switchBtnUdpClientSock";
+            this.switchBtnUdpClientSock.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpClientSock.OffText = "OFF";
+            this.switchBtnUdpClientSock.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnUdpClientSock.OnText = "ON";
+            this.switchBtnUdpClientSock.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnUdpClientSock.TabIndex = 53;
+            this.switchBtnUdpClientSock.Text = "ceLearningToggle2";
+            this.switchBtnUdpClientSock.TextEnabled = true;
+            this.switchBtnUdpClientSock.Click += new System.EventHandler(this.switchBtnUdpClientSock_Click);
+            // 
+            // switchBtnUdpServerSock
+            // 
+            this.switchBtnUdpServerSock.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.switchBtnUdpServerSock.BorderColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpServerSock.Cursor = System.Windows.Forms.Cursors.Hand;
+            this.switchBtnUdpServerSock.ForeColor = System.Drawing.Color.White;
+            this.switchBtnUdpServerSock.IsOn = false;
+            this.switchBtnUdpServerSock.Location = new System.Drawing.Point(360, 68);
+            this.switchBtnUdpServerSock.Name = "switchBtnUdpServerSock";
+            this.switchBtnUdpServerSock.OffColor = System.Drawing.Color.Gray;
+            this.switchBtnUdpServerSock.OffText = "OFF";
+            this.switchBtnUdpServerSock.OnColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(166)))), ((int)(((byte)(255)))));
+            this.switchBtnUdpServerSock.OnText = "ON";
+            this.switchBtnUdpServerSock.Size = new System.Drawing.Size(42, 23);
+            this.switchBtnUdpServerSock.TabIndex = 52;
+            this.switchBtnUdpServerSock.Text = "ceLearningToggle1";
+            this.switchBtnUdpServerSock.TextEnabled = true;
+            this.switchBtnUdpServerSock.Click += new System.EventHandler(this.switchBtnUdpServerSock_Click);
             // 
             // FormServidor
             // 
@@ -422,26 +501,31 @@
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.ClientSize = new System.Drawing.Size(896, 495);
-            this.Controls.Add(this.label11);
-            this.Controls.Add(this.label10);
+            this.Controls.Add(this.pictureInformation);
+            this.Controls.Add(this.switchBtnTcpServerModem);
+            this.Controls.Add(this.switchBtnTcpClientModem);
+            this.Controls.Add(this.switchBtnUdpServerModem);
+            this.Controls.Add(this.switchBtnUdpClientModem);
+            this.Controls.Add(this.switchBtnTcpServerSock);
+            this.Controls.Add(this.switchBtnTcpClientSock);
+            this.Controls.Add(this.switchBtnUdpClientSock);
+            this.Controls.Add(this.switchBtnUdpServerSock);
+            this.Controls.Add(this.btnAdd);
+            this.Controls.Add(this.panel4);
+            this.Controls.Add(this.txtMaxWindows);
+            this.Controls.Add(this.label1);
+            this.Controls.Add(this.lblTitleModem);
+            this.Controls.Add(this.lblTitleServer);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.pictureBox3);
-            this.Controls.Add(this.label6);
-            this.Controls.Add(this.label7);
-            this.Controls.Add(this.label8);
-            this.Controls.Add(this.label9);
-            this.Controls.Add(this.label5);
-            this.Controls.Add(this.label4);
-            this.Controls.Add(this.label3);
-            this.Controls.Add(this.label1);
-            this.Controls.Add(this.btnTcpServerModem);
-            this.Controls.Add(this.btnTcpServerServer);
-            this.Controls.Add(this.btnTcpClientModem);
-            this.Controls.Add(this.btnUdpServerModem);
-            this.Controls.Add(this.btnUdpClientModem);
-            this.Controls.Add(this.btnTcpClientServer);
-            this.Controls.Add(this.btnUdpServerServer);
-            this.Controls.Add(this.btnUdpClientServer);
+            this.Controls.Add(this.lblTcpServerModem);
+            this.Controls.Add(this.lblTcpClientModem);
+            this.Controls.Add(this.lblUdpServerModem);
+            this.Controls.Add(this.lblUdpClientModem);
+            this.Controls.Add(this.lblTcpServerServer);
+            this.Controls.Add(this.lblTcpClientServer);
+            this.Controls.Add(this.lblUdpServerServer);
+            this.Controls.Add(this.lblUdpClientServer);
             this.Controls.Add(this.txtMensajes);
             this.Controls.Add(this.label2);
             this.Name = "FormServidor";
@@ -451,6 +535,7 @@
             this.Resize += new System.EventHandler(this.FormServidor_Resize);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureInformation)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -460,27 +545,31 @@
 
         public System.Windows.Forms.RichTextBox txtMensajes;
         private System.Windows.Forms.Label label2;
-        public System.ComponentModel.BackgroundWorker backgroundWorker1;
-        public System.ComponentModel.BackgroundWorker backgroundWorker2;
-        private FontAwesome.Sharp.IconButton btnUdpClientServer;
-        private FontAwesome.Sharp.IconButton btnUdpServerServer;
-        private FontAwesome.Sharp.IconButton btnUdpServerModem;
-        private FontAwesome.Sharp.IconButton btnUdpClientModem;
-        private FontAwesome.Sharp.IconButton btnTcpServerServer;
-        private FontAwesome.Sharp.IconButton btnTcpServerModem;
-        private System.Windows.Forms.Label label1;
-        private System.Windows.Forms.Label label3;
-        private System.Windows.Forms.Label label4;
-        private System.Windows.Forms.Label label5;
-        private System.Windows.Forms.Label label6;
-        private System.Windows.Forms.Label label7;
-        private System.Windows.Forms.Label label8;
-        private System.Windows.Forms.Label label9;
+        private System.Windows.Forms.Label lblUdpClientServer;
+        private System.Windows.Forms.Label lblUdpServerServer;
+        private System.Windows.Forms.Label lblTcpServerServer;
+        private System.Windows.Forms.Label lblTcpServerModem;
+        private System.Windows.Forms.Label lblUdpServerModem;
+        private System.Windows.Forms.Label lblUdpClientModem;
         private System.Windows.Forms.PictureBox pictureBox3;
         private System.Windows.Forms.PictureBox pictureBox1;
-        private System.Windows.Forms.Label label10;
-        private System.Windows.Forms.Label label11;
-        public FontAwesome.Sharp.IconButton btnTcpClientServer;
-        public FontAwesome.Sharp.IconButton btnTcpClientModem;
+        public System.Windows.Forms.Label lblTitleServer;
+        public System.Windows.Forms.Label lblTitleModem;
+        public System.Windows.Forms.Label lblTcpClientServer;
+        public System.Windows.Forms.Label lblTcpClientModem;
+        private System.Windows.Forms.Label label1;
+        private System.Windows.Forms.Panel panel4;
+        private System.Windows.Forms.TextBox txtMaxWindows;
+        private FontAwesome.Sharp.IconButton btnAdd;
+        private CeLearningToggle switchBtnUdpServerSock;
+        private CeLearningToggle switchBtnUdpClientSock;
+        private CeLearningToggle switchBtnTcpClientSock;
+        private CeLearningToggle switchBtnTcpServerSock;
+        private CeLearningToggle switchBtnUdpClientModem;
+        private CeLearningToggle switchBtnUdpServerModem;
+        private CeLearningToggle switchBtnTcpClientModem;
+        private CeLearningToggle switchBtnTcpServerModem;
+        private System.Windows.Forms.PictureBox pictureInformation;
+        private System.Windows.Forms.ToolTip toolTip;
     }
 }

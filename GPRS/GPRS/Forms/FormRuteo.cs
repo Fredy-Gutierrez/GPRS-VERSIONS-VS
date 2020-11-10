@@ -1,13 +1,7 @@
 ﻿using GPRS.Clases;
 using GPRS.Forms.Messages;
 using System;
-using System.Collections.Generic;
-using System.ComponentModel;
-using System.Data;
 using System.Drawing;
-using System.Linq;
-using System.Text;
-using System.Threading.Tasks;
 using System.Windows.Forms;
 using System.Xml;
 
@@ -53,12 +47,15 @@ namespace GPRS.Forms
         private void FormRuteo_Resize(object sender, EventArgs e)
         {
             int ancho = Size.Width;
-            double nancho = ancho * 0.72;
+
+            double nancho = ancho - 190;
+
             tablaRuteo.Width = (int)nancho;
+            tablaRuteo.Height = Size.Height / 2;
 
             int x = tablaRuteo.Location.X;
 
-            int rutaboton = x + (int)nancho+5;
+            int rutaboton = x + (int)nancho + 5;
 
             int y = btnDelete.Location.Y;
 
@@ -67,10 +64,12 @@ namespace GPRS.Forms
 
         private void btnAdd_Click(object sender, EventArgs e)
         {
+            string idserver = string.Empty;
+            string idmodem = string.Empty;
             if (cbNameS.SelectedItem == null || cbConeccionS.SelectedItem == null || cbNameS.SelectedItem == null ||
                 cbNameM.SelectedItem == null || cbConeccionM.SelectedItem == null || cbNameM.SelectedItem == null)
             {
-                new Information("Debe seleccionar todos los campos,\n son necesarios").ShowDialog();
+                Alerts.ShowInformation("Debe seleccionar todos los campos,\n son necesarios");
             }
             else
             {
@@ -79,8 +78,8 @@ namespace GPRS.Forms
                 string mname = cbNameM.SelectedItem.ToString();
                 string mtype = convertNodoName(cbConeccionM.SelectedItem.ToString()) + convertNodoName(cbTypeM.SelectedItem.ToString());
                 
-                string idserver = txtIdServer.Text;
-                string idmodem = txtIdModem.Text; 
+                idserver = txtIdServer.Text;
+                idmodem = txtIdModem.Text; 
                 
                 r._Add(sname, stype, mname, mtype,idserver,idmodem);
                 tablaRuteo.Rows.Add(sname, stype, mname, mtype, idserver, idmodem);
@@ -97,7 +96,7 @@ namespace GPRS.Forms
             {
                 try
                 {
-                    if (new Warning("¿Seguro deseas eliminar esta fila?").ShowDialog() == DialogResult.OK)
+                    if (Alerts.ShowWarning("¿Seguro deseas eliminar esta fila?"))
                     {
                         
                         string serverName = tablaRuteo.Rows[tablaRuteo.CurrentRow.Index].Cells["ServerName"].Value.ToString();
@@ -112,7 +111,7 @@ namespace GPRS.Forms
                         if (r._FindNodoBeforeDelete(serverName,serverType,modemName,modemType,serverid,modemid))
                         {
                             r._DeleteNodo(serverName, serverType, modemName, modemType, serverid, modemid);
-                            new Success("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar").ShowDialog();
+                            Alerts.ShowSuccess("Se ha borrado corectamente,\n No se requiere guardar despues de eliminar");
                         }
 
                         tablaRuteo.Rows.Remove(tablaRuteo.CurrentRow);
@@ -122,12 +121,12 @@ namespace GPRS.Forms
                 catch (XmlException xe)
                 {
                     Console.WriteLine(xe.Message.ToString());
-                    new Error("Esta fila no se puede eliminar").ShowDialog();
+                    Alerts.ShowError("Esta fila no se puede eliminar");
                 }
             }
             else
             {
-                new Information("Seleccione la fila que desea eliminar").ShowDialog();
+                Alerts.ShowInformation("Seleccione la fila que desea eliminar");
             }
         }
 

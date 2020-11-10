@@ -28,31 +28,33 @@
         /// </summary>
         private void InitializeComponent()
         {
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle1 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle2 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle3 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle4 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle5 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle6 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle7 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle8 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle9 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle10 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle11 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle12 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle13 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle14 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle15 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle16 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle17 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle18 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle19 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle20 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle21 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle22 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle23 = new System.Windows.Forms.DataGridViewCellStyle();
-            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle24 = new System.Windows.Forms.DataGridViewCellStyle();
+            this.components = new System.ComponentModel.Container();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle25 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle26 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle27 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle28 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle29 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle30 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle31 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle32 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle33 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle34 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle35 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle36 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle37 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle38 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle39 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle40 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle41 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle42 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle43 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle44 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle45 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle46 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle47 = new System.Windows.Forms.DataGridViewCellStyle();
+            System.Windows.Forms.DataGridViewCellStyle dataGridViewCellStyle48 = new System.Windows.Forms.DataGridViewCellStyle();
             this.panelTitleBar = new System.Windows.Forms.Panel();
+            this.pictureInformation = new System.Windows.Forms.PictureBox();
             this.panel1 = new System.Windows.Forms.Panel();
             this.panelTcpClient = new System.Windows.Forms.Panel();
             this.btnDelTcpClient = new FontAwesome.Sharp.IconButton();
@@ -65,13 +67,13 @@
             this.tablaTcpServer = new System.Windows.Forms.DataGridView();
             this.tcpServerName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.tcpServerPort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.panelUdpServer = new System.Windows.Forms.Panel();
             this.btnDelUdpServer = new FontAwesome.Sharp.IconButton();
             this.tablaUDPServer = new System.Windows.Forms.DataGridView();
             this.udpSeverName = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.udpServerEnlacePort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.udpServerDestinationPort = new System.Windows.Forms.DataGridViewTextBoxColumn();
+            this.btnGuardar = new FontAwesome.Sharp.IconButton();
             this.panelUdpClient = new System.Windows.Forms.Panel();
             this.btnDelUdpClient = new FontAwesome.Sharp.IconButton();
             this.tablaUdpClient = new System.Windows.Forms.DataGridView();
@@ -79,7 +81,6 @@
             this.udpClientIp = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.udpClientPort = new System.Windows.Forms.DataGridViewTextBoxColumn();
             this.udpClientDestinationPort = new System.Windows.Forms.DataGridViewTextBoxColumn();
-            this.lblInfoConexion = new System.Windows.Forms.Label();
             this.cbConexion = new System.Windows.Forms.ComboBox();
             this.lblTipoConexion = new System.Windows.Forms.Label();
             this.cbSocket = new System.Windows.Forms.ComboBox();
@@ -116,6 +117,9 @@
             this.cbSocketModem = new System.Windows.Forms.ComboBox();
             this.label4 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
+            this.toolTipInformation = new System.Windows.Forms.ToolTip(this.components);
+            this.panelTitleBar.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.pictureInformation)).BeginInit();
             this.panel1.SuspendLayout();
             this.panelTcpClient.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.tablaTcpClient)).BeginInit();
@@ -139,6 +143,7 @@
             // panelTitleBar
             // 
             this.panelTitleBar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(35)))), ((int)(((byte)(35)))), ((int)(((byte)(35)))));
+            this.panelTitleBar.Controls.Add(this.pictureInformation);
             this.panelTitleBar.Dock = System.Windows.Forms.DockStyle.Top;
             this.panelTitleBar.Location = new System.Drawing.Point(0, 0);
             this.panelTitleBar.Name = "panelTitleBar";
@@ -146,15 +151,26 @@
             this.panelTitleBar.TabIndex = 2;
             this.panelTitleBar.Paint += new System.Windows.Forms.PaintEventHandler(this.panelTitleBar_Paint);
             // 
+            // pictureInformation
+            // 
+            this.pictureInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
+            this.pictureInformation.BackColor = System.Drawing.Color.Transparent;
+            this.pictureInformation.Image = global::GPRS.Properties.Resources.informacion;
+            this.pictureInformation.Location = new System.Drawing.Point(832, -2);
+            this.pictureInformation.Name = "pictureInformation";
+            this.pictureInformation.Size = new System.Drawing.Size(40, 22);
+            this.pictureInformation.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
+            this.pictureInformation.TabIndex = 0;
+            this.pictureInformation.TabStop = false;
+            // 
             // panel1
             // 
             this.panel1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(59)))), ((int)(((byte)(59)))));
             this.panel1.Controls.Add(this.panelTcpClient);
             this.panel1.Controls.Add(this.panelTcpServer);
-            this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.panelUdpServer);
+            this.panel1.Controls.Add(this.btnGuardar);
             this.panel1.Controls.Add(this.panelUdpClient);
-            this.panel1.Controls.Add(this.lblInfoConexion);
             this.panel1.Controls.Add(this.cbConexion);
             this.panel1.Controls.Add(this.lblTipoConexion);
             this.panel1.Controls.Add(this.cbSocket);
@@ -173,10 +189,10 @@
             this.panelTcpClient.BackColor = System.Drawing.Color.Transparent;
             this.panelTcpClient.Controls.Add(this.btnDelTcpClient);
             this.panelTcpClient.Controls.Add(this.tablaTcpClient);
-            this.panelTcpClient.Location = new System.Drawing.Point(1, 124);
+            this.panelTcpClient.Location = new System.Drawing.Point(3, 124);
             this.panelTcpClient.Name = "panelTcpClient";
-            this.panelTcpClient.Size = new System.Drawing.Size(429, 224);
-            this.panelTcpClient.TabIndex = 32;
+            this.panelTcpClient.Size = new System.Drawing.Size(422, 224);
+            this.panelTcpClient.TabIndex = 38;
             this.panelTcpClient.Visible = false;
             // 
             // btnDelTcpClient
@@ -191,7 +207,7 @@
             this.btnDelTcpClient.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDelTcpClient.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelTcpClient.IconSize = 16;
-            this.btnDelTcpClient.Location = new System.Drawing.Point(274, 189);
+            this.btnDelTcpClient.Location = new System.Drawing.Point(271, 189);
             this.btnDelTcpClient.Name = "btnDelTcpClient";
             this.btnDelTcpClient.Rotation = 0D;
             this.btnDelTcpClient.Size = new System.Drawing.Size(97, 31);
@@ -209,42 +225,42 @@
             this.tablaTcpClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaTcpClient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaTcpClient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle1.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle1.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle1.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle1.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle1.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle1.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle1;
-            this.tablaTcpClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle25.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle25.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle25.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle25.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle25.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle25.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle25.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle25;
+            this.tablaTcpClient.ColumnHeadersHeight = 66;
             this.tablaTcpClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tcpClientName,
             this.tcpClientIp,
             this.tcpClientPort});
-            dataGridViewCellStyle2.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle2.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle2.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle2.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle2.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle2.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaTcpClient.DefaultCellStyle = dataGridViewCellStyle2;
+            dataGridViewCellStyle26.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle26.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle26.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle26.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle26.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle26.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaTcpClient.DefaultCellStyle = dataGridViewCellStyle26;
             this.tablaTcpClient.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaTcpClient.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaTcpClient.EnableHeadersVisualStyles = false;
             this.tablaTcpClient.Location = new System.Drawing.Point(0, 0);
             this.tablaTcpClient.Name = "tablaTcpClient";
             this.tablaTcpClient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle3.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle3.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle3.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle3.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle3.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle3;
-            this.tablaTcpClient.Size = new System.Drawing.Size(429, 169);
+            dataGridViewCellStyle27.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle27.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle27.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle27.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle27.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle27.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle27.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle27;
+            this.tablaTcpClient.Size = new System.Drawing.Size(422, 169);
             this.tablaTcpClient.TabIndex = 0;
             // 
             // tcpClientName
@@ -269,10 +285,10 @@
             this.panelTcpServer.BackColor = System.Drawing.Color.Transparent;
             this.panelTcpServer.Controls.Add(this.btnDelTcpServer);
             this.panelTcpServer.Controls.Add(this.tablaTcpServer);
-            this.panelTcpServer.Location = new System.Drawing.Point(1, 128);
+            this.panelTcpServer.Location = new System.Drawing.Point(2, 124);
             this.panelTcpServer.Name = "panelTcpServer";
-            this.panelTcpServer.Size = new System.Drawing.Size(427, 224);
-            this.panelTcpServer.TabIndex = 31;
+            this.panelTcpServer.Size = new System.Drawing.Size(421, 224);
+            this.panelTcpServer.TabIndex = 37;
             this.panelTcpServer.Visible = false;
             // 
             // btnDelTcpServer
@@ -287,7 +303,7 @@
             this.btnDelTcpServer.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDelTcpServer.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelTcpServer.IconSize = 16;
-            this.btnDelTcpServer.Location = new System.Drawing.Point(274, 189);
+            this.btnDelTcpServer.Location = new System.Drawing.Point(271, 189);
             this.btnDelTcpServer.Name = "btnDelTcpServer";
             this.btnDelTcpServer.Rotation = 0D;
             this.btnDelTcpServer.Size = new System.Drawing.Size(97, 31);
@@ -305,41 +321,41 @@
             this.tablaTcpServer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaTcpServer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaTcpServer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle4.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle4.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle4.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle4.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle4.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle4.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpServer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle4;
-            this.tablaTcpServer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle28.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle28.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle28.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle28.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle28.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle28.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle28.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpServer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle28;
+            this.tablaTcpServer.ColumnHeadersHeight = 66;
             this.tablaTcpServer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tcpServerName,
             this.tcpServerPort});
-            dataGridViewCellStyle5.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle5.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle5.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle5.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle5.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle5.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaTcpServer.DefaultCellStyle = dataGridViewCellStyle5;
+            dataGridViewCellStyle29.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle29.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle29.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle29.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle29.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle29.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaTcpServer.DefaultCellStyle = dataGridViewCellStyle29;
             this.tablaTcpServer.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaTcpServer.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaTcpServer.EnableHeadersVisualStyles = false;
             this.tablaTcpServer.Location = new System.Drawing.Point(0, 0);
             this.tablaTcpServer.Name = "tablaTcpServer";
             this.tablaTcpServer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle6.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle6.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle6.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle6.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle6.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle6.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle6.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpServer.RowHeadersDefaultCellStyle = dataGridViewCellStyle6;
-            this.tablaTcpServer.Size = new System.Drawing.Size(427, 169);
+            dataGridViewCellStyle30.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle30.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle30.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle30.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle30.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle30.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle30.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpServer.RowHeadersDefaultCellStyle = dataGridViewCellStyle30;
+            this.tablaTcpServer.Size = new System.Drawing.Size(421, 169);
             this.tablaTcpServer.TabIndex = 0;
             // 
             // tcpServerName
@@ -352,28 +368,6 @@
             this.tcpServerPort.HeaderText = "Puerto";
             this.tcpServerPort.Name = "tcpServerPort";
             // 
-            // btnGuardar
-            // 
-            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
-            this.btnGuardar.FlatAppearance.BorderSize = 0;
-            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnGuardar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(189)))), ((int)(((byte)(255)))));
-            this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnGuardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
-            this.btnGuardar.IconSize = 16;
-            this.btnGuardar.Location = new System.Drawing.Point(178, 377);
-            this.btnGuardar.Name = "btnGuardar";
-            this.btnGuardar.Rotation = 0D;
-            this.btnGuardar.Size = new System.Drawing.Size(97, 31);
-            this.btnGuardar.TabIndex = 33;
-            this.btnGuardar.Text = " Guardar";
-            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnGuardar.UseVisualStyleBackColor = false;
-            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
-            // 
             // panelUdpServer
             // 
             this.panelUdpServer.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -381,10 +375,10 @@
             this.panelUdpServer.BackColor = System.Drawing.Color.Transparent;
             this.panelUdpServer.Controls.Add(this.btnDelUdpServer);
             this.panelUdpServer.Controls.Add(this.tablaUDPServer);
-            this.panelUdpServer.Location = new System.Drawing.Point(2, 128);
+            this.panelUdpServer.Location = new System.Drawing.Point(3, 124);
             this.panelUdpServer.Name = "panelUdpServer";
-            this.panelUdpServer.Size = new System.Drawing.Size(425, 224);
-            this.panelUdpServer.TabIndex = 28;
+            this.panelUdpServer.Size = new System.Drawing.Size(420, 224);
+            this.panelUdpServer.TabIndex = 36;
             this.panelUdpServer.Visible = false;
             // 
             // btnDelUdpServer
@@ -399,7 +393,7 @@
             this.btnDelUdpServer.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDelUdpServer.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelUdpServer.IconSize = 16;
-            this.btnDelUdpServer.Location = new System.Drawing.Point(272, 189);
+            this.btnDelUdpServer.Location = new System.Drawing.Point(270, 189);
             this.btnDelUdpServer.Name = "btnDelUdpServer";
             this.btnDelUdpServer.Rotation = 0D;
             this.btnDelUdpServer.Size = new System.Drawing.Size(97, 31);
@@ -417,42 +411,42 @@
             this.tablaUDPServer.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaUDPServer.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaUDPServer.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle7.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle7.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle7.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle7.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle7.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle7.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle7.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUDPServer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle7;
-            this.tablaUDPServer.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle31.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle31.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle31.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle31.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle31.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle31.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle31.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUDPServer.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle31;
+            this.tablaUDPServer.ColumnHeadersHeight = 66;
             this.tablaUDPServer.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.udpSeverName,
             this.udpServerEnlacePort,
             this.udpServerDestinationPort});
-            dataGridViewCellStyle8.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle8.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle8.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle8.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle8.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle8.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaUDPServer.DefaultCellStyle = dataGridViewCellStyle8;
+            dataGridViewCellStyle32.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle32.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle32.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle32.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle32.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle32.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaUDPServer.DefaultCellStyle = dataGridViewCellStyle32;
             this.tablaUDPServer.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaUDPServer.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaUDPServer.EnableHeadersVisualStyles = false;
             this.tablaUDPServer.Location = new System.Drawing.Point(0, 0);
             this.tablaUDPServer.Name = "tablaUDPServer";
             this.tablaUDPServer.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle9.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle9.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle9.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle9.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle9.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle9.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle9.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUDPServer.RowHeadersDefaultCellStyle = dataGridViewCellStyle9;
-            this.tablaUDPServer.Size = new System.Drawing.Size(425, 169);
+            dataGridViewCellStyle33.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle33.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle33.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle33.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle33.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle33.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle33.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUDPServer.RowHeadersDefaultCellStyle = dataGridViewCellStyle33;
+            this.tablaUDPServer.Size = new System.Drawing.Size(420, 169);
             this.tablaUDPServer.TabIndex = 0;
             // 
             // udpSeverName
@@ -470,6 +464,31 @@
             this.udpServerDestinationPort.HeaderText = "Puerto de Destino";
             this.udpServerDestinationPort.Name = "udpServerDestinationPort";
             // 
+            // btnGuardar
+            // 
+            this.btnGuardar.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnGuardar.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
+            this.btnGuardar.FlatAppearance.BorderSize = 0;
+            this.btnGuardar.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
+            this.btnGuardar.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
+            this.btnGuardar.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnGuardar.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
+            this.btnGuardar.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnGuardar.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
+            this.btnGuardar.IconChar = FontAwesome.Sharp.IconChar.Save;
+            this.btnGuardar.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(19)))));
+            this.btnGuardar.IconSize = 16;
+            this.btnGuardar.Location = new System.Drawing.Point(128, 388);
+            this.btnGuardar.Name = "btnGuardar";
+            this.btnGuardar.Rotation = 0D;
+            this.btnGuardar.Size = new System.Drawing.Size(150, 40);
+            this.btnGuardar.TabIndex = 33;
+            this.btnGuardar.Text = " Guardar";
+            this.btnGuardar.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
+            this.btnGuardar.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnGuardar.UseVisualStyleBackColor = false;
+            this.btnGuardar.Click += new System.EventHandler(this.btnGuardar_Click);
+            // 
             // panelUdpClient
             // 
             this.panelUdpClient.Anchor = ((System.Windows.Forms.AnchorStyles)(((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Left) 
@@ -477,9 +496,9 @@
             this.panelUdpClient.BackColor = System.Drawing.Color.Transparent;
             this.panelUdpClient.Controls.Add(this.btnDelUdpClient);
             this.panelUdpClient.Controls.Add(this.tablaUdpClient);
-            this.panelUdpClient.Location = new System.Drawing.Point(1, 131);
+            this.panelUdpClient.Location = new System.Drawing.Point(3, 124);
             this.panelUdpClient.Name = "panelUdpClient";
-            this.panelUdpClient.Size = new System.Drawing.Size(423, 224);
+            this.panelUdpClient.Size = new System.Drawing.Size(419, 224);
             this.panelUdpClient.TabIndex = 31;
             this.panelUdpClient.Visible = false;
             // 
@@ -495,7 +514,7 @@
             this.btnDelUdpClient.IconChar = FontAwesome.Sharp.IconChar.TrashAlt;
             this.btnDelUdpClient.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(217)))), ((int)(((byte)(0)))), ((int)(((byte)(0)))));
             this.btnDelUdpClient.IconSize = 16;
-            this.btnDelUdpClient.Location = new System.Drawing.Point(270, 189);
+            this.btnDelUdpClient.Location = new System.Drawing.Point(268, 189);
             this.btnDelUdpClient.Name = "btnDelUdpClient";
             this.btnDelUdpClient.Rotation = 0D;
             this.btnDelUdpClient.Size = new System.Drawing.Size(97, 31);
@@ -513,43 +532,43 @@
             this.tablaUdpClient.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaUdpClient.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaUdpClient.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle10.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle10.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle10.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle10.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle10.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle10.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle10.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUdpClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle10;
-            this.tablaUdpClient.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle34.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle34.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle34.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle34.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle34.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle34.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle34.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUdpClient.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle34;
+            this.tablaUdpClient.ColumnHeadersHeight = 66;
             this.tablaUdpClient.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.udpClientName,
             this.udpClientIp,
             this.udpClientPort,
             this.udpClientDestinationPort});
-            dataGridViewCellStyle11.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle11.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle11.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle11.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle11.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle11.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaUdpClient.DefaultCellStyle = dataGridViewCellStyle11;
+            dataGridViewCellStyle35.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle35.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle35.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle35.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle35.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle35.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaUdpClient.DefaultCellStyle = dataGridViewCellStyle35;
             this.tablaUdpClient.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaUdpClient.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaUdpClient.EnableHeadersVisualStyles = false;
             this.tablaUdpClient.Location = new System.Drawing.Point(0, 0);
             this.tablaUdpClient.Name = "tablaUdpClient";
             this.tablaUdpClient.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle12.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle12.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle12.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle12.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle12.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle12.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle12.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUdpClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle12;
-            this.tablaUdpClient.Size = new System.Drawing.Size(423, 169);
+            dataGridViewCellStyle36.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle36.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle36.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle36.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle36.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle36.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle36.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUdpClient.RowHeadersDefaultCellStyle = dataGridViewCellStyle36;
+            this.tablaUdpClient.Size = new System.Drawing.Size(419, 169);
             this.tablaUdpClient.TabIndex = 0;
             // 
             // udpClientName
@@ -572,19 +591,6 @@
             // 
             this.udpClientDestinationPort.HeaderText = "Puerto de destino";
             this.udpClientDestinationPort.Name = "udpClientDestinationPort";
-            // 
-            // lblInfoConexion
-            // 
-            this.lblInfoConexion.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblInfoConexion.AutoSize = true;
-            this.lblInfoConexion.Font = new System.Drawing.Font("Century Gothic", 12F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.lblInfoConexion.ForeColor = System.Drawing.Color.Gainsboro;
-            this.lblInfoConexion.Location = new System.Drawing.Point(174, 93);
-            this.lblInfoConexion.Name = "lblInfoConexion";
-            this.lblInfoConexion.Size = new System.Drawing.Size(120, 19);
-            this.lblInfoConexion.TabIndex = 30;
-            this.lblInfoConexion.Text = "Configuración";
-            this.lblInfoConexion.TextAlign = System.Drawing.ContentAlignment.MiddleCenter;
             // 
             // cbConexion
             // 
@@ -628,7 +634,7 @@
             "TCP"});
             this.cbSocket.Location = new System.Drawing.Point(128, 53);
             this.cbSocket.Name = "cbSocket";
-            this.cbSocket.Size = new System.Drawing.Size(67, 24);
+            this.cbSocket.Size = new System.Drawing.Size(70, 24);
             this.cbSocket.TabIndex = 2;
             this.cbSocket.SelectedIndexChanged += new System.EventHandler(this.cbSocket_SelectedIndexChanged);
             // 
@@ -649,7 +655,7 @@
             this.label1.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label1.AutoSize = true;
             this.label1.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label1.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(195)))), ((int)(((byte)(218)))));
+            this.label1.ForeColor = System.Drawing.Color.Cyan;
             this.label1.Location = new System.Drawing.Point(95, 12);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(242, 19);
@@ -674,26 +680,28 @@
             this.panel2.Name = "panel2";
             this.panel2.Size = new System.Drawing.Size(443, 471);
             this.panel2.TabIndex = 4;
-            this.panel2.Paint += new System.Windows.Forms.PaintEventHandler(this.panel2_Paint);
             // 
             // btnGuardarModems
             // 
             this.btnGuardarModems.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnGuardarModems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(50)))), ((int)(((byte)(50)))), ((int)(((byte)(50)))));
+            this.btnGuardarModems.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(60)))), ((int)(((byte)(60)))), ((int)(((byte)(60)))));
             this.btnGuardarModems.FlatAppearance.BorderSize = 0;
+            this.btnGuardarModems.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(40)))), ((int)(((byte)(40)))), ((int)(((byte)(40)))));
+            this.btnGuardarModems.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(85)))), ((int)(((byte)(85)))), ((int)(((byte)(85)))));
             this.btnGuardarModems.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
             this.btnGuardarModems.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnGuardarModems.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnGuardarModems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(70)))), ((int)(((byte)(179)))), ((int)(((byte)(255)))));
+            this.btnGuardarModems.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(51)))), ((int)(((byte)(255)))), ((int)(((byte)(255)))));
             this.btnGuardarModems.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnGuardarModems.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(151)))), ((int)(((byte)(255)))));
+            this.btnGuardarModems.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(19)))));
             this.btnGuardarModems.IconSize = 16;
-            this.btnGuardarModems.Location = new System.Drawing.Point(203, 377);
+            this.btnGuardarModems.Location = new System.Drawing.Point(184, 388);
             this.btnGuardarModems.Name = "btnGuardarModems";
             this.btnGuardarModems.Rotation = 0D;
-            this.btnGuardarModems.Size = new System.Drawing.Size(97, 31);
+            this.btnGuardarModems.Size = new System.Drawing.Size(150, 40);
             this.btnGuardarModems.TabIndex = 34;
             this.btnGuardarModems.Text = " Guardar";
+            this.btnGuardarModems.TextAlign = System.Drawing.ContentAlignment.MiddleRight;
             this.btnGuardarModems.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
             this.btnGuardarModems.UseVisualStyleBackColor = false;
             this.btnGuardarModems.Click += new System.EventHandler(this.btnGuardarModems_Click);
@@ -741,42 +749,42 @@
             this.tablaUdpClientModem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaUdpClientModem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaUdpClientModem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle13.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle13.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle13.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle13.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle13.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle13.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle13.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUdpClientModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle13;
-            this.tablaUdpClientModem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle37.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle37.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle37.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle37.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle37.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle37.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle37.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUdpClientModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle37;
+            this.tablaUdpClientModem.ColumnHeadersHeight = 66;
             this.tablaUdpClientModem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.udpClientNameModem,
             this.udpClientIpModem,
             this.udpClientConexionPortModem,
             this.udpClientDestinationPortModem});
-            dataGridViewCellStyle14.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle14.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle14.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle14.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle14.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle14.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaUdpClientModem.DefaultCellStyle = dataGridViewCellStyle14;
+            dataGridViewCellStyle38.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle38.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle38.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle38.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle38.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle38.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaUdpClientModem.DefaultCellStyle = dataGridViewCellStyle38;
             this.tablaUdpClientModem.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaUdpClientModem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaUdpClientModem.EnableHeadersVisualStyles = false;
             this.tablaUdpClientModem.Location = new System.Drawing.Point(0, 0);
             this.tablaUdpClientModem.Name = "tablaUdpClientModem";
             this.tablaUdpClientModem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle15.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle15.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle15.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle15.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle15.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle15.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle15.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUdpClientModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle15;
+            dataGridViewCellStyle39.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle39.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle39.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle39.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle39.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle39.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle39.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUdpClientModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle39;
             this.tablaUdpClientModem.Size = new System.Drawing.Size(429, 169);
             this.tablaUdpClientModem.TabIndex = 0;
             // 
@@ -843,41 +851,41 @@
             this.tablaUdpServerModem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaUdpServerModem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaUdpServerModem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle16.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle16.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle16.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle16.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle16.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle16.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle16.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUdpServerModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle16;
-            this.tablaUdpServerModem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle40.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle40.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle40.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle40.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle40.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle40.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle40.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUdpServerModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle40;
+            this.tablaUdpServerModem.ColumnHeadersHeight = 66;
             this.tablaUdpServerModem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.udpSeverNameModem,
             this.udpServerEnlacePortModem,
             this.udpServerDestinationPortModem});
-            dataGridViewCellStyle17.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle17.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle17.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle17.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle17.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle17.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaUdpServerModem.DefaultCellStyle = dataGridViewCellStyle17;
+            dataGridViewCellStyle41.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle41.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle41.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle41.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle41.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle41.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle41.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaUdpServerModem.DefaultCellStyle = dataGridViewCellStyle41;
             this.tablaUdpServerModem.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaUdpServerModem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaUdpServerModem.EnableHeadersVisualStyles = false;
             this.tablaUdpServerModem.Location = new System.Drawing.Point(0, 0);
             this.tablaUdpServerModem.Name = "tablaUdpServerModem";
             this.tablaUdpServerModem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle18.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle18.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle18.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle18.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle18.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle18.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle18.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaUdpServerModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle18;
+            dataGridViewCellStyle42.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle42.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle42.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle42.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle42.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle42.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle42.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaUdpServerModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle42;
             this.tablaUdpServerModem.Size = new System.Drawing.Size(427, 169);
             this.tablaUdpServerModem.TabIndex = 0;
             // 
@@ -956,41 +964,41 @@
             this.tablaTcpClientModem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaTcpClientModem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaTcpClientModem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle19.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle19.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle19.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle19.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle19.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle19.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle19.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpClientModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle19;
-            this.tablaTcpClientModem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle43.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle43.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle43.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle43.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle43.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle43.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle43.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpClientModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle43;
+            this.tablaTcpClientModem.ColumnHeadersHeight = 66;
             this.tablaTcpClientModem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tcpClientNameModem,
             this.tcpClientIpModem,
             this.tcpClientPortModem});
-            dataGridViewCellStyle20.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle20.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle20.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle20.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle20.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle20.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaTcpClientModem.DefaultCellStyle = dataGridViewCellStyle20;
+            dataGridViewCellStyle44.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle44.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle44.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle44.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle44.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle44.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle44.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaTcpClientModem.DefaultCellStyle = dataGridViewCellStyle44;
             this.tablaTcpClientModem.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaTcpClientModem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaTcpClientModem.EnableHeadersVisualStyles = false;
             this.tablaTcpClientModem.Location = new System.Drawing.Point(0, 0);
             this.tablaTcpClientModem.Name = "tablaTcpClientModem";
             this.tablaTcpClientModem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle21.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle21.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle21.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle21.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle21.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle21.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle21.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpClientModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle21;
+            dataGridViewCellStyle45.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle45.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle45.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle45.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle45.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle45.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle45.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpClientModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle45;
             this.tablaTcpClientModem.Size = new System.Drawing.Size(425, 169);
             this.tablaTcpClientModem.TabIndex = 0;
             // 
@@ -1064,40 +1072,40 @@
             this.tablaTcpServerModem.BorderStyle = System.Windows.Forms.BorderStyle.None;
             this.tablaTcpServerModem.CellBorderStyle = System.Windows.Forms.DataGridViewCellBorderStyle.None;
             this.tablaTcpServerModem.ColumnHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle22.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle22.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
-            dataGridViewCellStyle22.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle22.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle22.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle22.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle22.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpServerModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle22;
-            this.tablaTcpServerModem.ColumnHeadersHeightSizeMode = System.Windows.Forms.DataGridViewColumnHeadersHeightSizeMode.AutoSize;
+            dataGridViewCellStyle46.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle46.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(8)))), ((int)(((byte)(83)))), ((int)(((byte)(115)))));
+            dataGridViewCellStyle46.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle46.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle46.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle46.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle46.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpServerModem.ColumnHeadersDefaultCellStyle = dataGridViewCellStyle46;
+            this.tablaTcpServerModem.ColumnHeadersHeight = 66;
             this.tablaTcpServerModem.Columns.AddRange(new System.Windows.Forms.DataGridViewColumn[] {
             this.tcpServerNameModem,
             this.tcpServerPortModem});
-            dataGridViewCellStyle23.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle23.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
-            dataGridViewCellStyle23.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle23.ForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.SelectionBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(31)))), ((int)(((byte)(183)))), ((int)(((byte)(220)))));
-            dataGridViewCellStyle23.SelectionForeColor = System.Drawing.Color.White;
-            dataGridViewCellStyle23.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
-            this.tablaTcpServerModem.DefaultCellStyle = dataGridViewCellStyle23;
+            dataGridViewCellStyle47.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle47.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(111)))), ((int)(((byte)(180)))), ((int)(((byte)(216)))));
+            dataGridViewCellStyle47.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle47.ForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle47.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle47.SelectionForeColor = System.Drawing.Color.White;
+            dataGridViewCellStyle47.WrapMode = System.Windows.Forms.DataGridViewTriState.False;
+            this.tablaTcpServerModem.DefaultCellStyle = dataGridViewCellStyle47;
             this.tablaTcpServerModem.Dock = System.Windows.Forms.DockStyle.Top;
             this.tablaTcpServerModem.EditMode = System.Windows.Forms.DataGridViewEditMode.EditOnEnter;
             this.tablaTcpServerModem.EnableHeadersVisualStyles = false;
             this.tablaTcpServerModem.Location = new System.Drawing.Point(0, 0);
             this.tablaTcpServerModem.Name = "tablaTcpServerModem";
             this.tablaTcpServerModem.RowHeadersBorderStyle = System.Windows.Forms.DataGridViewHeaderBorderStyle.None;
-            dataGridViewCellStyle24.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
-            dataGridViewCellStyle24.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
-            dataGridViewCellStyle24.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            dataGridViewCellStyle24.ForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle24.SelectionBackColor = System.Drawing.SystemColors.Highlight;
-            dataGridViewCellStyle24.SelectionForeColor = System.Drawing.Color.Gainsboro;
-            dataGridViewCellStyle24.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
-            this.tablaTcpServerModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle24;
+            dataGridViewCellStyle48.Alignment = System.Windows.Forms.DataGridViewContentAlignment.MiddleLeft;
+            dataGridViewCellStyle48.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(63)))), ((int)(((byte)(117)))), ((int)(((byte)(140)))));
+            dataGridViewCellStyle48.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            dataGridViewCellStyle48.ForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle48.SelectionBackColor = System.Drawing.SystemColors.Highlight;
+            dataGridViewCellStyle48.SelectionForeColor = System.Drawing.Color.Gainsboro;
+            dataGridViewCellStyle48.WrapMode = System.Windows.Forms.DataGridViewTriState.True;
+            this.tablaTcpServerModem.RowHeadersDefaultCellStyle = dataGridViewCellStyle48;
             this.tablaTcpServerModem.Size = new System.Drawing.Size(423, 169);
             this.tablaTcpServerModem.TabIndex = 0;
             // 
@@ -1145,12 +1153,18 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 12.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.ForeColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(210)))), ((int)(((byte)(8)))));
+            this.label2.ForeColor = System.Drawing.Color.Cyan;
             this.label2.Location = new System.Drawing.Point(105, 12);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(229, 19);
             this.label2.TabIndex = 1;
             this.label2.Text = "Configuración de Modems";
+            // 
+            // toolTipInformation
+            // 
+            this.toolTipInformation.AutoPopDelay = 15000;
+            this.toolTipInformation.InitialDelay = 500;
+            this.toolTipInformation.ReshowDelay = 100;
             // 
             // FormConfiguraciones
             // 
@@ -1165,6 +1179,8 @@
             this.Text = "Configuraciones";
             this.Load += new System.EventHandler(this.FormConfiguraciones_Load);
             this.Resize += new System.EventHandler(this.FormConfiguraciones_Resize);
+            this.panelTitleBar.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.pictureInformation)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
             this.panelTcpClient.ResumeLayout(false);
@@ -1200,27 +1216,9 @@
         private System.Windows.Forms.ComboBox cbSocket;
         private System.Windows.Forms.ComboBox cbConexion;
         private System.Windows.Forms.Label lblTipoConexion;
-        private System.Windows.Forms.Panel panelUdpServer;
-        private System.Windows.Forms.DataGridView tablaUDPServer;
-        private System.Windows.Forms.Label lblInfoConexion;
         private System.Windows.Forms.Panel panelUdpClient;
         private System.Windows.Forms.DataGridView tablaUdpClient;
-        private System.Windows.Forms.Panel panelTcpClient;
-        private System.Windows.Forms.DataGridView tablaTcpClient;
-        private System.Windows.Forms.Panel panelTcpServer;
-        private System.Windows.Forms.DataGridView tablaTcpServer;
-        private System.Windows.Forms.DataGridViewTextBoxColumn udpSeverName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn udpServerEnlacePort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn udpServerDestinationPort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tcpClientName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tcpClientIp;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tcpClientPort;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tcpServerName;
-        private System.Windows.Forms.DataGridViewTextBoxColumn tcpServerPort;
         private FontAwesome.Sharp.IconButton btnDelUdpClient;
-        private FontAwesome.Sharp.IconButton btnDelUdpServer;
-        private FontAwesome.Sharp.IconButton btnDelTcpClient;
-        private FontAwesome.Sharp.IconButton btnDelTcpServer;
         private FontAwesome.Sharp.IconButton btnGuardar;
         private System.Windows.Forms.Panel panelTcpServerModem;
         private FontAwesome.Sharp.IconButton btnDelTcpServerModem;
@@ -1255,5 +1253,24 @@
         private System.Windows.Forms.DataGridViewTextBoxColumn udpClientIp;
         private System.Windows.Forms.DataGridViewTextBoxColumn udpClientPort;
         private System.Windows.Forms.DataGridViewTextBoxColumn udpClientDestinationPort;
+        private System.Windows.Forms.Panel panelUdpServer;
+        private FontAwesome.Sharp.IconButton btnDelUdpServer;
+        private System.Windows.Forms.DataGridView tablaUDPServer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn udpSeverName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn udpServerEnlacePort;
+        private System.Windows.Forms.DataGridViewTextBoxColumn udpServerDestinationPort;
+        private System.Windows.Forms.Panel panelTcpServer;
+        private FontAwesome.Sharp.IconButton btnDelTcpServer;
+        private System.Windows.Forms.DataGridView tablaTcpServer;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tcpServerName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tcpServerPort;
+        private System.Windows.Forms.Panel panelTcpClient;
+        private FontAwesome.Sharp.IconButton btnDelTcpClient;
+        private System.Windows.Forms.DataGridView tablaTcpClient;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tcpClientName;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tcpClientIp;
+        private System.Windows.Forms.DataGridViewTextBoxColumn tcpClientPort;
+        private System.Windows.Forms.PictureBox pictureInformation;
+        private System.Windows.Forms.ToolTip toolTipInformation;
     }
 }

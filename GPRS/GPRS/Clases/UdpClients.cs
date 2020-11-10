@@ -1,4 +1,6 @@
-﻿using GPRS.Forms.Messages;
+﻿using GPRS.Clases.Models;
+using GPRS.Clases.Xml.SocketsMessages;
+using GPRS.Forms.Messages;
 using System;
 using System.Collections.Generic;
 using System.ComponentModel;
@@ -15,14 +17,17 @@ namespace GPRS.Clases
     {
 
         public DriverMaster driverMaster;
-        UdpClient client;
-        string name = "";
-        string ip = "";
-        string type;
-        Int32 enlaceport;
-        Int32 destinationport;
+        private UdpClient client;
+        private string name = "";
+        private string ip = "";
+        private string type;
+        private Int32 enlaceport;
+        private Int32 destinationport;
+        private Configurations c;
+        UdpClientMessagesModel udpClientMessagesModel = new UdpClientMessagesModel();
 
-        public UdpClients(DriverMaster driverMaster,string name, string ip, string enlaceport,string destinationport,string type)
+
+        public UdpClients(DriverMaster driverMaster,string name, string ip, string enlaceport,string destinationport,string type, Configurations c)
         {
             this.driverMaster = driverMaster;
             this.name = name;
@@ -30,6 +35,7 @@ namespace GPRS.Clases
             this.enlaceport = Convert.ToInt32(enlaceport);
             this.destinationport = Convert.ToInt32(destinationport);
             this.type = type;
+            this.c = c;
         }
 
         public void beginClient()
@@ -45,29 +51,56 @@ namespace GPRS.Clases
             catch (SocketException ex)
             {
                 Console.WriteLine(ex.Message.ToString());
-                new Error("Se produjo un error en la creacion del socket,\n parece que otra aplicacion esta haciendo uso de el").ShowDialog();
+                Alerts.ShowError("Se produjo un error en la creacion del socket,\n parece que otra aplicacion esta haciendo uso de el");
             }
             
         }
+
+        bool newMsg = true;
         IPEndPoint receivedIpEndPoint;
         public void DataReceived(IAsyncResult ar)
         {
             try
             {
                 receivedIpEndPoint = new IPEndPoint(IPAddress.Any, enlaceport);
+
                 Byte[] receivedBytes = client.EndReceive(ar, ref receivedIpEndPoint);
 
-                sendRecived(receivedBytes);
+                string receivedText = BitConverter.ToString(receivedBytes).Replace("-"," ");
 
-                // Convert data to ASCII and print in console
-                string receivedText = ASCIIEncoding.ASCII.GetString(receivedBytes);
-                Console.Write(receivedIpEndPoint + ": " + receivedText + Environment.NewLine);
+                Task.Run(() =>
+                {
+
+                    String data = "RESPUESTA A: " + receivedText;
+
+                    Console.Write(receivedIpEndPoint + ": " + receivedText + Environment.NewLine);
+
+
+                    string hour = DateTime.Now.ToString("hh:mm:ss");
+
+                    DateTime fechaHoy = DateTime.Now;
+
+                    string date = fechaHoy.ToString("d");
+
+                    sendRecived(receivedBytes, "[" + date + "   " + hour + "]");
+
+                    udpClientMessagesModel.InsertMessage(this.name, receivedText, ip, date, hour, this.type);
+
+                    try
+                    {
+                        if (newMsg)
+                        {
+                            c._UpdateUdpClient(name, ip, Convert.ToString(enlaceport), Convert.ToString(destinationport), type, "En comunicación");
+                        }
+
+                    }
+                    catch (Exception ex)
+                    {
+                        Console.WriteLine("Xml Exception: " + ex.Message.ToString());
+                    }
+                });
                 
-                String data = "RESPUESTA A: " + receivedText;
-                //send(receivedBytes);
-                //send(Encoding.UTF8.GetBytes(data));
-                // Restart listening for udp data packages
-
+                newMsg = false;
 
                 client.BeginReceive(new AsyncCallback(DataReceived), null);
             }
@@ -77,29 +110,33 @@ namespace GPRS.Clases
             }
         }
 
-        public void sendRecived(Byte [] msg)
+        public void sendRecived(Byte [] msg, string fecha)
         {
             if (type.Equals("Servers"))
             {
-                driverMaster.reciveToSendServer(msg, name, "UdpClient");
+                driverMaster.reciveToSendServer(msg, name, "UdpClient",fecha);
             }
             else if (type.Equals("Modems"))
             {
-                driverMaster.reciveToSendModem(msg, name, "UdpClient");
+                driverMaster.reciveToSendModem(msg, name, "UdpClient", fecha);
             }
         }
 
         public void send(Byte[] ms)
         {
             UdpClient udpClientSend = new UdpClient(ip, destinationport);
+
             udpClientSend.Send(ms, ms.Length);
+
             udpClientSend.Close();
-            /*client.Send(ms,ms.Length,receivedIpEndPoint);*/
         }
 
         public void CloseUdp()
         {
             client.Close();
+
+            c._UpdateUdpClient(name, ip, Convert.ToString(enlaceport), Convert.ToString(destinationport), type, "Inactivo");
+            Console.WriteLine("Socket cerrado");
         }
         
         public string getName()

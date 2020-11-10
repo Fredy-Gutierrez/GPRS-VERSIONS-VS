@@ -1,4 +1,5 @@
 ﻿using GPRS.Clases;
+using GPRS.Clases.Models;
 using GPRS.Forms.Messages;
 using System;
 using System.Collections.Generic;
@@ -15,7 +16,17 @@ namespace GPRS.Forms
 {
     public partial class FormCuenta : Form
     {
-        UsersXml usersXml;
+        //UsersXml usersXml;
+        private struct RGBColors
+        {
+            public static Color color1 = Color.FromArgb(0, 210, 210);
+            public static Color color2 = Color.FromArgb(196, 145, 235);
+            public static Color color3 = Color.FromArgb(249, 118, 176);
+            public static Color color4 = Color.FromArgb(253, 138, 114);
+            public static Color color5 = Color.FromArgb(187, 236, 72);
+            public static Color color6 = Color.FromArgb(24, 161, 251);
+        }
+
 
         public FormCuenta()
         {
@@ -24,13 +35,18 @@ namespace GPRS.Forms
 
         private void btnCloseSession_Click(object sender, EventArgs e)
         {
-            if (new Warning("¿Seguro desea Cerra la Sesión?").ShowDialog() == DialogResult.OK)
+            if (Alerts.ShowWarning("¿Seguro desea Cerra la Sesión?"))
             {
-                closeAllServers();
+                Session.closeSesion();
 
-                FormLogIn formLogin = new FormLogIn();
-                formLogin.Show();
-                FormPrincipal.formPrincipal.Hide();
+                FormPrincipal formPrincipal = FormPrincipal.formPrincipal;
+
+                formPrincipal.Reset();
+
+                formPrincipal.ActivateButton(formPrincipal.btnInicio, FormPrincipal.RGBColors.color1);
+                formPrincipal.OpenChildForm(new FormInicio());
+
+                this.Hide();
             }
         }
 
@@ -40,25 +56,41 @@ namespace GPRS.Forms
             {
                 if (txtPass.Text.Equals(txtPassConfirm.Text))
                 {
-                    string name = Seguridad.Encriptar(txtName.Text);
+                    /*string name = Seguridad.Encriptar(txtName.Text);
                     string email = Seguridad.Encriptar(txtEmail.Text);
                     string user = Seguridad.Encriptar(txtUser.Text);
                     string password = Seguridad.Encriptar(txtPass.Text);
 
-                    usersXml._Update(name,email,user,password);
+                    usersXml._Update(name,email,user,password);*/
 
-                    new Success("Modificaciones Guardadas").ShowDialog();
+                    string id = lblId.Text;
+                    string name = txtName.Text;
+                    string email = txtEmail.Text;
+                    string user = txtUser.Text;
+                    string password = Seguridad.Encriptar(txtPass.Text);
 
-                    clean();
+                    UsersModel usersModel = new UsersModel();
+                    if (usersModel.UpdateUser(id, name, email, password))
+                    {
+                        Alerts.ShowSuccess("Modificaciones Guardadas");
+                        txtActualPass.Text = string.Empty;
+                        txtPass.Text = string.Empty;
+                        txtPassConfirm.Text = string.Empty;
+                    }
+                    else
+                    {
+                        Alerts.ShowError("No se pudo actualizar la información");
+                    }
+
                 }
                 else
                 {
-                    new Information("La nueva contraseña y la confirmación no coinciden").ShowDialog();
+                    Alerts.ShowInformation("La nueva contraseña y la confirmación no coinciden");
                 }
             }
             else
             {
-                new Error("La contraseña actual no coincide").ShowDialog();
+                Alerts.ShowError("La contraseña actual no coincide");
             }
         }
 
@@ -68,7 +100,7 @@ namespace GPRS.Forms
 
             string username = Session.user;
 
-            usersXml = new UsersXml();
+            /*usersXml = new UsersXml();
 
             XmlNodeList route = usersXml._ReadXml();
 
@@ -95,13 +127,21 @@ namespace GPRS.Forms
                     txtUser.Text = suser;
                 }
 
-            }
+            }*/
+
+            UsersModel usersModel = new UsersModel();
+            usersModel.getSesionUser(username);
+
+            txtName.Text = Session.name;
+            txtEmail.Text = Session.email;
+            txtUser.Text = Session.user;
+            lblId.Text = Convert.ToString(Session.id);
 
             txtPass.UseSystemPasswordChar = true;
             txtPassConfirm.UseSystemPasswordChar = true;
             txtActualPass.UseSystemPasswordChar = true;
-
         }
+
         Boolean activePassActual = false;
         private void btnShowPassActual_Click(object sender, EventArgs e)
         {
@@ -148,90 +188,6 @@ namespace GPRS.Forms
                 activePassConfirm = true;
                 txtPassConfirm.UseSystemPasswordChar = false;
                 btnShowConfirmPass.IconChar = FontAwesome.Sharp.IconChar.Eye;
-            }
-        }
-
-        private void clean()
-        {
-            txtActualPass.Text = String.Empty;
-            txtPass.Text = String.Empty;
-            txtPassConfirm.Text = String.Empty;
-        }
-
-        private void closeAllServers()
-        {
-            closeUdpClientS();
-            closeUdpServerS();
-            closeTcpClientS();
-            closeTcpServerS();
-
-            closeUdpClientM();
-            closeUdpServerM();
-            closeTcpClientM();
-            closeTcpServerM();
-        }
-        public void closeUdpClientS()
-        {
-            for (int x = 0; x < DriverMaster.listUdpClientsConnectors.Count; x++)
-            {
-                DriverMaster.listUdpClientsConnectors[x].CloseUdp();
-            }
-        }
-
-        public void closeUdpServerS()
-        {
-            for (int x = 0; x < DriverMaster.listUdpConnectors.Count; x++)
-            {
-                DriverMaster.listUdpConnectors[x].CloseUdp();
-            }
-        }
-
-        public void closeTcpClientS()
-        {
-            for (int x = 0; x < DriverMaster.listTcpClientsConnectors.Count; x++)
-            {
-                DriverMaster.listTcpClientsConnectors[x].CloseTcp();
-            }
-        }
-
-        public void closeTcpServerS()
-        {
-            for (int x = 0; x < DriverMaster.listTcpConnectors.Count; x++)
-            {
-                DriverMaster.listTcpConnectors[x].CloseTcp();
-            }
-        }
-
-
-        public void closeUdpClientM()
-        {
-            for (int x = 0; x < DriverMaster.listUdpClientsConnectorsModem.Count; x++)
-            {
-                DriverMaster.listUdpClientsConnectorsModem[x].CloseUdp();
-            }
-        }
-
-        public void closeUdpServerM()
-        {
-            for (int x = 0; x < DriverMaster.listUdpConnectorsModem.Count; x++)
-            {
-                DriverMaster.listUdpConnectorsModem[x].CloseUdp();
-            }
-        }
-
-        public void closeTcpClientM()
-        {
-            for (int x = 0; x < DriverMaster.listTcpClientsConnectorsModem.Count; x++)
-            {
-                DriverMaster.listTcpClientsConnectorsModem[x].CloseTcp();
-            }
-        }
-
-        public void closeTcpServerM()
-        {
-            for (int x = 0; x < DriverMaster.listTcpConnectorsModem.Count; x++)
-            {
-                DriverMaster.listTcpConnectorsModem[x].CloseTcp();
             }
         }
     }
