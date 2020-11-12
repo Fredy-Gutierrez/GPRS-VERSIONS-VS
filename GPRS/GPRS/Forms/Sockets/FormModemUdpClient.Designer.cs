@@ -154,7 +154,7 @@
             this.btnSwitchOnOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSwitchOnOff.ForeColor = System.Drawing.Color.White;
             this.btnSwitchOnOff.IsOn = false;
-            this.btnSwitchOnOff.Location = new System.Drawing.Point(501, 44);
+            this.btnSwitchOnOff.Location = new System.Drawing.Point(465, 96);
             this.btnSwitchOnOff.Name = "btnSwitchOnOff";
             this.btnSwitchOnOff.OffColor = System.Drawing.Color.Gray;
             this.btnSwitchOnOff.OffText = "OFF";
@@ -188,6 +188,7 @@
             this.txtMsg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMsg.Location = new System.Drawing.Point(3, 247);
             this.txtMsg.Name = "txtMsg";
+            this.txtMsg.ReadOnly = true;
             this.txtMsg.Size = new System.Drawing.Size(609, 129);
             this.txtMsg.TabIndex = 18;
             this.txtMsg.Text = "";
@@ -199,7 +200,7 @@
             // 
             this.txtDestinationPort.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtDestinationPort.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtDestinationPort.Location = new System.Drawing.Point(257, 191);
+            this.txtDestinationPort.Location = new System.Drawing.Point(258, 177);
             this.txtDestinationPort.Name = "txtDestinationPort";
             this.txtDestinationPort.Size = new System.Drawing.Size(88, 26);
             this.txtDestinationPort.TabIndex = 17;
@@ -208,7 +209,7 @@
             // 
             this.txtEnlacePort.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtEnlacePort.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtEnlacePort.Location = new System.Drawing.Point(257, 151);
+            this.txtEnlacePort.Location = new System.Drawing.Point(258, 137);
             this.txtEnlacePort.Name = "txtEnlacePort";
             this.txtEnlacePort.Size = new System.Drawing.Size(88, 26);
             this.txtEnlacePort.TabIndex = 16;
@@ -218,7 +219,7 @@
             this.label4.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(131, 194);
+            this.label4.Location = new System.Drawing.Point(132, 180);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(99, 16);
             this.label4.TabIndex = 15;
@@ -230,7 +231,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(131, 154);
+            this.label3.Location = new System.Drawing.Point(132, 140);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(87, 16);
             this.label3.TabIndex = 14;
@@ -241,7 +242,7 @@
             // 
             this.txtIp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtIp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIp.Location = new System.Drawing.Point(257, 110);
+            this.txtIp.Location = new System.Drawing.Point(258, 96);
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(181, 26);
             this.txtIp.TabIndex = 13;
@@ -251,7 +252,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(131, 115);
+            this.label2.Location = new System.Drawing.Point(132, 101);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 12;

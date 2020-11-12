@@ -994,6 +994,30 @@ namespace GPRS.Forms
         {
             //txtMaxWindows.ReadOnly = false;
         }
+
+        private void txtMensajes_MouseClick(object sender, MouseEventArgs e)
+        {
+            
+        }
+
+        private void copyItem_Click(object sender, EventArgs e)
+        {
+            try
+            {
+                Clipboard.SetDataObject(txtMensajes.Text, true);
+            }
+            catch (Exception err)
+            {
+                MessageBox.Show("Error al copiar texto al portapapeles: " +
+                    Environment.NewLine + err.Message, "Error al copiar",
+                    MessageBoxButtons.OK, MessageBoxIcon.Error);
+            }
+        }
+
+        private void cleanItem_Click(object sender, EventArgs e)
+        {
+            txtMensajes.Clear();
+        }
     }
 
 

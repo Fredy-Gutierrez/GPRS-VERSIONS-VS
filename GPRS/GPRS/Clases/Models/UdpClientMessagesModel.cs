@@ -54,6 +54,7 @@ namespace GPRS.Clases.Models
         public DataTable readMessages(string name, string type, string msg)
         {
             DataTable t = new DataTable();
+            
             using (SqlConnection connection = Connexion.Connect())
             {
                 try
@@ -68,16 +69,13 @@ namespace GPRS.Clases.Models
 
                     a.Fill(t);
                 }
-                catch (SqlException se)
-                {
-                    Console.WriteLine(se.Message.ToString());
-                }
                 catch (Exception ex)
                 {
                     Console.WriteLine(ex.Message.ToString());
                 }
 
             }
+            
             return t;
         }
         /*

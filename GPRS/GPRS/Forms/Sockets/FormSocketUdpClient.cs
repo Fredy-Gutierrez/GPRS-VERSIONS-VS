@@ -23,7 +23,8 @@ namespace GPRS.Forms.Sockets
         Configurations c;
         FormServidor formServidor;
         private DriverMaster driverMaster;
-        //EventWaitHandle waitHandle = new ManualResetEvent(initialState: true);
+        ManualResetEvent waitHandle = new ManualResetEvent(false);
+        bool writting = false;
 
         UdpClientMessagesModel udpClientMessagesModel = new UdpClientMessagesModel();
 
@@ -58,55 +59,56 @@ namespace GPRS.Forms.Sockets
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            formServidor.listUdpClientsForm.Remove(this);
             this.Close();
         }
-         
+        
         public void setMessage(string name,string msg)
         {
+            writting = true;
             try
             {
                 if (lblName.Text.Equals(name))
                 {
-                    
-                    this.Invoke(new MethodInvoker(delegate
-                    {
-                        if (!lblStatus.Text.Equals("En comunicación"))
+                        this.Invoke(new MethodInvoker(delegate
                         {
-                            lblStatus.Text = "En comunicación";
-                            lblStatus.ForeColor = Color.FromArgb(0, 166, 255);
-                        }
-
-                        string x = "\n";
-                        char[] charArr = x.ToCharArray();
-
-                        string[] lines = txtMsg.Text.Split(charArr);
-
-                        if (lines.Length >= 50)
-                        {
-                            if (txtMsg.Text.IndexOfAny(charArr) > 0)
+                            if (!lblStatus.Text.Equals("En comunicación"))
                             {
-                                txtMsg.Text = txtMsg.Text.Remove(0, txtMsg.Text.IndexOfAny(charArr) + 1);
+                                lblStatus.Text = "En comunicación";
+                                lblStatus.ForeColor = Color.FromArgb(0, 166, 255);
                             }
-                        }
 
-                        if (txtMsg.Text.Equals(""))
-                        {
-                            txtMsg.Text += msg;
-                        }
-                        else
-                        {
-                            txtMsg.Text += "\n" + msg;
-                        }
-                        txtMsg.SelectionStart = txtMsg.Text.Length;
-                        txtMsg.ScrollToCaret();
-                    }));
+                            string x = "\n";
+                            char[] charArr = x.ToCharArray();
+
+                            string[] lines = txtMsg.Text.Split(charArr);
+
+                            if (lines.Length >= 50)
+                            {
+                                if (txtMsg.Text.IndexOfAny(charArr) > 0)
+                                {
+                                    txtMsg.Text = txtMsg.Text.Remove(0, txtMsg.Text.IndexOfAny(charArr) + 1);
+                                }
+                            }
+
+                            if (txtMsg.Text.Equals(""))
+                            {
+                                txtMsg.Text += msg;
+                            }
+                            else
+                            {
+                                txtMsg.Text += "\n" + msg;
+                            }
+                            txtMsg.SelectionStart = txtMsg.Text.Length;
+                            txtMsg.ScrollToCaret();
+                        }));
                 }
             }
             catch (Exception ex)
             {
                 Console.WriteLine(ex.Message.ToString());
             }
+            writting = false;
+            waitHandle.Set();
         }
 
         private void FormSocketUdpClient_Load(object sender, EventArgs e)
@@ -119,7 +121,7 @@ namespace GPRS.Forms.Sockets
 
             int yp = 60;
 
-            FontAwesome.Sharp.IconButton btn;
+            IconButton btn;
 
             int h = 490;
 
@@ -182,11 +184,11 @@ namespace GPRS.Forms.Sockets
                 if (xp > 10)
                 {
                     xp = 10;
-                    yp = yp + 70;
+                    yp += 70;
                 }
                 else
                 {
-                    xp = xp + 85;
+                    xp += 85;
                 }
 
 
@@ -195,52 +197,71 @@ namespace GPRS.Forms.Sockets
 
         private void btn_Click(object sender, EventArgs e)
         {
-            IconButton btn = (IconButton)sender;
-
-            string btnName = btn.Text;
-
-            XmlNodeList listaClients = c._ReadXml("Servers", "Udp", "UdpClient", "Client");
-
-            XmlNode client;
-
-            for (int i = 0; i < listaClients.Count; i++)
+            try
             {
-                client = listaClients.Item(i);
+                IconButton btn = (IconButton)sender;
 
-                string name = client.SelectSingleNode("Name").InnerText;
-                if (btnName.Equals(name))
+                string btnName = btn.Text;
+
+                XmlNodeList listaClients = c._ReadXml("Servers", "Udp", "UdpClient", "Client");
+
+                XmlNode client;
+
+                for (int i = 0; i < listaClients.Count; i++)
                 {
-                    
-                    string status = client.SelectSingleNode("Status").InnerText;
+                    client = listaClients.Item(i);
 
-                    lblName.Text = name;
-                    lblStatus.Location = new Point(lblName.Location.X + lblName.Size.Width + 10, lblStatus.Location.Y );
-                    lblStatus.Text = status;
-                    txtIp.Text = client.SelectSingleNode("IpAdress").InnerText;
-                    txtEnlacePort.Text = client.SelectSingleNode("EnlacePort").InnerText;
-                    txtDestinationPort.Text = client.SelectSingleNode("DestinationPort").InnerText;
+                    string name = client.SelectSingleNode("Name").InnerText;
 
-                    chargeBeforeMessage();
-
-                    switch (status)
+                    if (btnName.Equals(name))
                     {
-                        case "Inactivo":
-                            btnSwitchOnOff.IsOn = false;
-                            lblStatus.ForeColor = Color.FromArgb(193, 114, 1);
-                            break;
-                        case "En espera":
-                            btnSwitchOnOff.IsOn = true;
-                            lblStatus.ForeColor = Color.FromArgb(216, 255, 0);
-                            break;
-                        case "En comunicación":
-                            btnSwitchOnOff.IsOn = true;
-                            lblStatus.ForeColor = Color.FromArgb(0, 166, 255);
-                            break;
-                        default:
-                            btnSwitchOnOff.IsOn = true;
-                            break;
+                        string status = client.SelectSingleNode("Status").InnerText;
+                        if (writting)
+                        {
+                            waitHandle.WaitOne();
+                        }
+                        string ip = client.SelectSingleNode("IpAdress").InnerText;
+                        string enlaceport = client.SelectSingleNode("EnlacePort").InnerText;
+                        string destinationport = client.SelectSingleNode("DestinationPort").InnerText;
+
+                        this.Invoke(new MethodInvoker(delegate
+                        {
+                            lblName.Text = name;
+                            lblStatus.Location = new Point(lblName.Location.X + lblName.Size.Width + 10, lblStatus.Location.Y);
+                            lblStatus.Text = status;
+                            txtIp.Text = ip;
+                            txtEnlacePort.Text = enlaceport;
+                            txtDestinationPort.Text = destinationport;
+                        }));
+
+                        switch (status)
+                        {
+                            case "Inactivo":
+                                btnSwitchOnOff.IsOn = false;
+                                lblStatus.ForeColor = Color.FromArgb(193, 114, 1);
+                                break;
+                            case "En espera":
+                                btnSwitchOnOff.IsOn = true;
+                                lblStatus.ForeColor = Color.FromArgb(216, 255, 0);
+                                break;
+                            case "En comunicación":
+                                btnSwitchOnOff.IsOn = true;
+                                lblStatus.ForeColor = Color.FromArgb(0, 166, 255);
+                                break;
+                            default:
+                                btnSwitchOnOff.IsOn = true;
+                                break;
+                        }
+                        Task.Run(() =>
+                        {
+                            chargeBeforeMessage();
+                        });
                     }
                 }
+            }
+            catch (Exception ex)
+            {
+                Console.WriteLine(ex.Message.ToString());
             }
         }
 
@@ -305,6 +326,7 @@ namespace GPRS.Forms.Sockets
         private void FormSocketUdpClient_FormClosing(object sender, FormClosingEventArgs e)
         {
             formServidor.countWindows -= 1;
+            formServidor.listUdpClientsForm.Remove(this);
         }
 
         private void chargeBeforeMessage()
@@ -314,7 +336,7 @@ namespace GPRS.Forms.Sockets
                 string msg = string.Empty;
 
                 DataTable t = udpClientMessagesModel.readMessages(lblName.Text, "Servers", msg);
-                Console.WriteLine("**********************Begin process");
+                
                 for (int i = 0; i < t.Rows.Count; i++)
                 {
                     //t.Rows[i]["Numero"].ToString();
@@ -329,16 +351,20 @@ namespace GPRS.Forms.Sockets
                 }
                 if (!msg.Equals(string.Empty))
                 {
+                    if (writting)
+                    {
+                        waitHandle.WaitOne();
+                    }
                     this.Invoke(new MethodInvoker(delegate
                     {
-                        txtMsg.Text = string.Empty;
+                        txtMsg.Clear();
                         txtMsg.Text = msg;
                         txtMsg.SelectionStart = txtMsg.Text.Length;
                         txtMsg.ScrollToCaret();
-                        //taskMessage = true;
+                    //taskMessage = true;
                     }));
+                    
                 }
-                Console.WriteLine("**********************End process");
             }
             catch (Exception ex)
             {

@@ -150,7 +150,7 @@
             this.btnSwitchOnOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSwitchOnOff.ForeColor = System.Drawing.Color.White;
             this.btnSwitchOnOff.IsOn = false;
-            this.btnSwitchOnOff.Location = new System.Drawing.Point(489, 40);
+            this.btnSwitchOnOff.Location = new System.Drawing.Point(460, 110);
             this.btnSwitchOnOff.Name = "btnSwitchOnOff";
             this.btnSwitchOnOff.OffColor = System.Drawing.Color.Gray;
             this.btnSwitchOnOff.OffText = "OFF";
@@ -184,6 +184,7 @@
             this.txtMsg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMsg.Location = new System.Drawing.Point(3, 247);
             this.txtMsg.Name = "txtMsg";
+            this.txtMsg.ReadOnly = true;
             this.txtMsg.Size = new System.Drawing.Size(609, 129);
             this.txtMsg.TabIndex = 26;
             this.txtMsg.Text = "";

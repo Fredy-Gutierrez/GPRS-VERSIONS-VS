@@ -45,6 +45,7 @@ namespace GPRS.Clases
 
         public void _Add(string servername, string servertype, string modemname, string modemtype, string idserver,string idmodem)
         {
+            int intent = 0;
             bool action = false;
             while (!action) {
                 try
@@ -62,6 +63,11 @@ namespace GPRS.Clases
                 }
                 catch (Exception ex)
                 {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
                     Console.WriteLine(ex.Message.ToString());
                 }
             }
@@ -106,6 +112,7 @@ namespace GPRS.Clases
         public Boolean _FindNodoBeforeDelete(string sname, string stype, string mname,string mtype,string idserver,string idmodem )
         {
             bool action = false;
+            int intent = 0;
             while (!action)
             {
                 try
@@ -126,6 +133,11 @@ namespace GPRS.Clases
                 }
                 catch (Exception ex)
                 {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
                     Console.WriteLine(ex.Message.ToString());
                 }
             }
@@ -167,7 +179,7 @@ namespace GPRS.Clases
                 }
                 catch (Exception ex)
                 {
-                    if (intent>5)
+                    if (intent>3)
                     {
                         action = true;
                     }
@@ -194,7 +206,7 @@ namespace GPRS.Clases
                 }
                 catch (Exception ex)
                 {
-                    if (intent > 5)
+                    if (intent > 3)
                     {
                         action = true;
                     }

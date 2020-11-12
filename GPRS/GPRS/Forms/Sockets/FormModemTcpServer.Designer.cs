@@ -146,7 +146,7 @@
             this.btnSwitchOnOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSwitchOnOff.ForeColor = System.Drawing.Color.White;
             this.btnSwitchOnOff.IsOn = false;
-            this.btnSwitchOnOff.Location = new System.Drawing.Point(501, 40);
+            this.btnSwitchOnOff.Location = new System.Drawing.Point(424, 113);
             this.btnSwitchOnOff.Name = "btnSwitchOnOff";
             this.btnSwitchOnOff.OffColor = System.Drawing.Color.Gray;
             this.btnSwitchOnOff.OffText = "OFF";
@@ -180,6 +180,7 @@
             this.txtMsg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMsg.Location = new System.Drawing.Point(3, 247);
             this.txtMsg.Name = "txtMsg";
+            this.txtMsg.ReadOnly = true;
             this.txtMsg.Size = new System.Drawing.Size(609, 129);
             this.txtMsg.TabIndex = 32;
             this.txtMsg.Text = "";
@@ -191,7 +192,7 @@
             // 
             this.txtPort.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPort.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPort.Location = new System.Drawing.Point(256, 118);
+            this.txtPort.Location = new System.Drawing.Point(243, 113);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(88, 26);
             this.txtPort.TabIndex = 31;
@@ -201,7 +202,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(130, 121);
+            this.label3.Location = new System.Drawing.Point(158, 119);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 30;

@@ -150,7 +150,7 @@
             this.btnSwitchOnOff.Cursor = System.Windows.Forms.Cursors.Hand;
             this.btnSwitchOnOff.ForeColor = System.Drawing.Color.White;
             this.btnSwitchOnOff.IsOn = false;
-            this.btnSwitchOnOff.Location = new System.Drawing.Point(497, 35);
+            this.btnSwitchOnOff.Location = new System.Drawing.Point(468, 95);
             this.btnSwitchOnOff.Name = "btnSwitchOnOff";
             this.btnSwitchOnOff.OffColor = System.Drawing.Color.Gray;
             this.btnSwitchOnOff.OffText = "OFF";
@@ -184,6 +184,7 @@
             this.txtMsg.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMsg.Location = new System.Drawing.Point(3, 247);
             this.txtMsg.Name = "txtMsg";
+            this.txtMsg.ReadOnly = true;
             this.txtMsg.Size = new System.Drawing.Size(609, 129);
             this.txtMsg.TabIndex = 18;
             this.txtMsg.Text = "";
@@ -195,7 +196,7 @@
             // 
             this.txtPort.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtPort.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtPort.Location = new System.Drawing.Point(257, 151);
+            this.txtPort.Location = new System.Drawing.Point(259, 138);
             this.txtPort.Name = "txtPort";
             this.txtPort.Size = new System.Drawing.Size(88, 26);
             this.txtPort.TabIndex = 16;
@@ -205,7 +206,7 @@
             this.label3.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label3.AutoSize = true;
             this.label3.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label3.Location = new System.Drawing.Point(131, 154);
+            this.label3.Location = new System.Drawing.Point(133, 141);
             this.label3.Name = "label3";
             this.label3.Size = new System.Drawing.Size(48, 16);
             this.label3.TabIndex = 14;
@@ -216,7 +217,7 @@
             // 
             this.txtIp.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.txtIp.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.txtIp.Location = new System.Drawing.Point(257, 110);
+            this.txtIp.Location = new System.Drawing.Point(259, 97);
             this.txtIp.Name = "txtIp";
             this.txtIp.Size = new System.Drawing.Size(181, 26);
             this.txtIp.TabIndex = 13;
@@ -226,7 +227,7 @@
             this.label2.Anchor = System.Windows.Forms.AnchorStyles.Top;
             this.label2.AutoSize = true;
             this.label2.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label2.Location = new System.Drawing.Point(131, 115);
+            this.label2.Location = new System.Drawing.Point(133, 102);
             this.label2.Name = "label2";
             this.label2.Size = new System.Drawing.Size(85, 16);
             this.label2.TabIndex = 12;

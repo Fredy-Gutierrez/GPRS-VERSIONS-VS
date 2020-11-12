@@ -26,6 +26,8 @@ namespace GPRS.Forms.Sockets
         private DriverMaster driverMaster;
         //EventWaitHandle waitHandle = new ManualResetEvent(initialState: true);
         TcpClientMessagesModel tcpClientMessagesModel = new TcpClientMessagesModel();
+        ManualResetEvent waitHandle = new ManualResetEvent(false);
+        bool writting = false;
 
         public FormModemTcpClient(FormServidor formServidor)
         {
@@ -154,14 +156,23 @@ namespace GPRS.Forms.Sockets
                 if (btnName.Equals(name))
                 {
                     string status = client.SelectSingleNode("Status").InnerText;
+                    string port = client.SelectSingleNode("Port").InnerText;
 
-                    lblName.Text = name;
-                    lblStatus.Location = new Point(lblName.Location.X + lblName.Size.Width + 10, lblStatus.Location.Y);
-                    lblStatus.Text = status;
-                    txtIp.Text = client.SelectSingleNode("IpAdress").InnerText;
-                    txtPort.Text = client.SelectSingleNode("Port").InnerText;
+                    if (writting)
+                    {
+                        waitHandle.WaitOne();
+                    }
 
-                    chargeBeforeMessage();
+                    string ip = client.SelectSingleNode("IpAdress").InnerText;
+                    this.Invoke(new MethodInvoker(delegate
+                    {
+                        lblName.Text = name;
+                        lblStatus.Location = new Point(lblName.Location.X + lblName.Size.Width + 10, lblStatus.Location.Y);
+                        lblStatus.Text = status;
+                        txtIp.Text = ip;
+                        txtPort.Text = port;
+                    }));
+
 
                     switch (status)
                     {
@@ -181,12 +192,18 @@ namespace GPRS.Forms.Sockets
                             btnSwitchOnOff.IsOn = true;
                             break;
                     }
+
+                    Task.Run(() =>
+                    {
+                        chargeBeforeMessage();
+                    });
                 }
             }
         }
 
         public void setMessage(string name, string msg)
         {
+            writting = true;
             try
             {
                 if (lblName.Text.Equals(name))
@@ -229,6 +246,8 @@ namespace GPRS.Forms.Sockets
             {
                 Console.WriteLine(ex.Message.ToString());
             }
+            writting = false;
+            waitHandle.Set();
         }
 
 
@@ -239,7 +258,6 @@ namespace GPRS.Forms.Sockets
 
         private void btnCerrar_Click(object sender, EventArgs e)
         {
-            formServidor.listTcpClientsFormModem.Remove(this);
             this.Close();
         }
 
@@ -300,6 +318,7 @@ namespace GPRS.Forms.Sockets
 
         private void FormModemTcpClient_FormClosing(object sender, FormClosingEventArgs e)
         {
+            formServidor.listTcpClientsFormModem.Remove(this);
             formServidor.countWindows -= 1;
         }
 
@@ -326,6 +345,10 @@ namespace GPRS.Forms.Sockets
 
                 if (!msg.Equals(string.Empty))
                 {
+                    if (writting)
+                    {
+                        waitHandle.WaitOne();
+                    }
                     this.Invoke(new MethodInvoker(delegate
                     {
                         txtMsg.Text = String.Empty;

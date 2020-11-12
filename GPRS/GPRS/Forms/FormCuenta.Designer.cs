@@ -29,6 +29,7 @@
         private void InitializeComponent()
         {
             this.panel1 = new System.Windows.Forms.Panel();
+            this.lblId = new System.Windows.Forms.Label();
             this.btnCloseSession = new FontAwesome.Sharp.IconButton();
             this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.btnShowPassActual = new FontAwesome.Sharp.IconButton();
@@ -55,7 +56,6 @@
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.lblUser = new System.Windows.Forms.Label();
             this.flowLayoutPanel1 = new System.Windows.Forms.FlowLayoutPanel();
-            this.lblId = new System.Windows.Forms.Label();
             this.panel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel1.SuspendLayout();
@@ -96,6 +96,16 @@
             this.panel1.Size = new System.Drawing.Size(436, 700);
             this.panel1.TabIndex = 0;
             // 
+            // lblId
+            // 
+            this.lblId.Anchor = System.Windows.Forms.AnchorStyles.Top;
+            this.lblId.AutoSize = true;
+            this.lblId.Location = new System.Drawing.Point(310, 35);
+            this.lblId.Name = "lblId";
+            this.lblId.Size = new System.Drawing.Size(0, 13);
+            this.lblId.TabIndex = 48;
+            this.lblId.Visible = false;
+            // 
             // btnCloseSession
             // 
             this.btnCloseSession.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(90)))), ((int)(((byte)(90)))), ((int)(((byte)(90)))));
@@ -104,15 +114,14 @@
             this.btnCloseSession.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(225)))));
             this.btnCloseSession.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
             this.btnCloseSession.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnCloseSession.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnCloseSession.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.btnCloseSession.ForeColor = System.Drawing.Color.Gainsboro;
             this.btnCloseSession.IconChar = FontAwesome.Sharp.IconChar.DoorClosed;
             this.btnCloseSession.IconColor = System.Drawing.Color.SpringGreen;
+            this.btnCloseSession.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnCloseSession.IconSize = 30;
             this.btnCloseSession.Location = new System.Drawing.Point(0, 649);
             this.btnCloseSession.Name = "btnCloseSession";
-            this.btnCloseSession.Rotation = 0D;
             this.btnCloseSession.Size = new System.Drawing.Size(436, 51);
             this.btnCloseSession.TabIndex = 47;
             this.btnCloseSession.Text = "Cerrar Sesión";
@@ -123,21 +132,20 @@
             // 
             // btnAdd
             // 
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(181)))), ((int)(((byte)(252)))));
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
             this.btnAdd.FlatAppearance.BorderSize = 0;
             this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(225)))));
             this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
             this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold);
             this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(19)))));
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.SdCard;
+            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnAdd.IconSize = 22;
-            this.btnAdd.Location = new System.Drawing.Point(239, 495);
+            this.btnAdd.Location = new System.Drawing.Point(268, 490);
             this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Rotation = 0D;
-            this.btnAdd.Size = new System.Drawing.Size(141, 38);
+            this.btnAdd.Size = new System.Drawing.Size(112, 38);
             this.btnAdd.TabIndex = 46;
             this.btnAdd.Text = "  Guardar";
             this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
@@ -151,13 +159,12 @@
             this.btnShowPassActual.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnShowPassActual.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnShowPassActual.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowPassActual.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnShowPassActual.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.btnShowPassActual.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(181)))), ((int)(((byte)(252)))));
+            this.btnShowPassActual.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShowPassActual.IconSize = 20;
             this.btnShowPassActual.Location = new System.Drawing.Point(345, 275);
             this.btnShowPassActual.Name = "btnShowPassActual";
-            this.btnShowPassActual.Rotation = 0D;
             this.btnShowPassActual.Size = new System.Drawing.Size(35, 25);
             this.btnShowPassActual.TabIndex = 45;
             this.btnShowPassActual.UseVisualStyleBackColor = false;
@@ -201,13 +208,12 @@
             this.btnShowPass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnShowPass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnShowPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowPass.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnShowPass.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.btnShowPass.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(181)))), ((int)(((byte)(252)))));
+            this.btnShowPass.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShowPass.IconSize = 20;
             this.btnShowPass.Location = new System.Drawing.Point(345, 340);
             this.btnShowPass.Name = "btnShowPass";
-            this.btnShowPass.Rotation = 0D;
             this.btnShowPass.Size = new System.Drawing.Size(35, 25);
             this.btnShowPass.TabIndex = 41;
             this.btnShowPass.UseVisualStyleBackColor = false;
@@ -220,13 +226,12 @@
             this.btnShowConfirmPass.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(80)))), ((int)(((byte)(80)))), ((int)(((byte)(80)))));
             this.btnShowConfirmPass.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(100)))), ((int)(((byte)(100)))), ((int)(((byte)(100)))));
             this.btnShowConfirmPass.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnShowConfirmPass.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
             this.btnShowConfirmPass.IconChar = FontAwesome.Sharp.IconChar.EyeSlash;
             this.btnShowConfirmPass.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(181)))), ((int)(((byte)(252)))));
+            this.btnShowConfirmPass.IconFont = FontAwesome.Sharp.IconFont.Auto;
             this.btnShowConfirmPass.IconSize = 20;
             this.btnShowConfirmPass.Location = new System.Drawing.Point(345, 415);
             this.btnShowConfirmPass.Name = "btnShowConfirmPass";
-            this.btnShowConfirmPass.Rotation = 0D;
             this.btnShowConfirmPass.Size = new System.Drawing.Size(35, 25);
             this.btnShowConfirmPass.TabIndex = 40;
             this.btnShowConfirmPass.UseVisualStyleBackColor = false;
@@ -418,16 +423,6 @@
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(465, 455);
             this.flowLayoutPanel1.TabIndex = 1;
-            // 
-            // lblId
-            // 
-            this.lblId.Anchor = System.Windows.Forms.AnchorStyles.Top;
-            this.lblId.AutoSize = true;
-            this.lblId.Location = new System.Drawing.Point(310, 35);
-            this.lblId.Name = "lblId";
-            this.lblId.Size = new System.Drawing.Size(0, 13);
-            this.lblId.TabIndex = 48;
-            this.lblId.Visible = false;
             // 
             // FormCuenta
             // 

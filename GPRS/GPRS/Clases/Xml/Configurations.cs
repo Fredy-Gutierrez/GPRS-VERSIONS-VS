@@ -89,148 +89,170 @@ namespace GPRS.Clases
 
         public void _Add(string name, string ip, string port,string enlaceport,string destinationport,String nodoP,String nodoS, String nodoT)
         {
-            doc.Load(rutaXml);
-
-            XmlNode newNodo = null;
-            XmlNode nodoRaiz = null;
-
-            switch (nodoP)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                case "Servers":
-                    switch (nodoS)
+                try
+                {
+                    doc.Load(rutaXml);
+
+                    XmlNode newNodo = null;
+                    XmlNode nodoRaiz = null;
+
+                    switch (nodoP)
                     {
-                        case "Udp":
-                            switch (nodoT)
+                        case "Servers":
+                            switch (nodoS)
                             {
-                                case "UdpClient":
-                                    if (_FindUdpClient(name,nodoP))
+                                case "Udp":
+                                    switch (nodoT)
                                     {
-                                        _UpdateUdpClient(name,ip,enlaceport,destinationport,nodoP, "Inactivo");
-                                    }
-                                    else
-                                    {
-                                        newNodo = _Create_Udp_Client(name, ip, enlaceport,destinationport, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
+                                        case "UdpClient":
+                                            if (_FindUdpClient(name, nodoP))
+                                            {
+                                                _UpdateUdpClient(name, ip, enlaceport, destinationport, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Udp_Client(name, ip, enlaceport, destinationport, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
 
-                                    break;
-                                case "UdpServer":
-                                    if (_FindUdpServer(name,nodoP))
-                                    {
-                                        _UpdateUdpServer(name,enlaceport,destinationport,nodoP, "Inactivo");
+                                            break;
+                                        case "UdpServer":
+                                            if (_FindUdpServer(name, nodoP))
+                                            {
+                                                _UpdateUdpServer(name, enlaceport, destinationport, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Udp_Server(name, enlaceport, destinationport, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
+                                            break;
                                     }
-                                    else {
-                                        newNodo = _Create_Udp_Server(name, enlaceport, destinationport, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
+                                    break;
+                                case "Tcp":
+                                    switch (nodoT)
+                                    {
+                                        case "TcpClient":
+                                            if (_FindTcpClient(name, nodoP))
+                                            {
+                                                _UpdateTcpClient(name, ip, port, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Tcp_Client(name, ip, port, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
+
+                                            break;
+                                        case "TcpServer":
+                                            if (_FindTcpServer(name, nodoP))
+                                            {
+                                                _UpdateTcpServer(name, port, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Tcp_Server(name, port, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
+
+                                            break;
                                     }
                                     break;
                             }
                             break;
-                        case "Tcp":
-                            switch (nodoT)
+                        case "Modems":
+                            switch (nodoS)
                             {
-                                case "TcpClient":
-                                    if (_FindTcpClient(name,nodoP))
+                                case "Udp":
+                                    switch (nodoT)
                                     {
-                                        _UpdateTcpClient(name,ip,port,nodoP, "Inactivo");
+                                        case "UdpClient":
+                                            if (_FindUdpClient(name, nodoP))
+                                            {
+                                                _UpdateUdpClient(name, ip, enlaceport, destinationport, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Udp_Client(name, ip, enlaceport, destinationport, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
+                                            break;
+                                        case "UdpServer":
+                                            if (_FindUdpServer(name, nodoP))
+                                            {
+                                                _UpdateUdpServer(name, enlaceport, destinationport, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Udp_Server(name, enlaceport, destinationport, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
+                                            break;
                                     }
-                                    else
-                                    {
-                                        newNodo = _Create_Tcp_Client(name, ip, port, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
-
                                     break;
-                                case "TcpServer":
-                                    if (_FindTcpServer(name,nodoP))
+                                case "Tcp":
+                                    switch (nodoT)
                                     {
-                                        _UpdateTcpServer(name,port,nodoP, "Inactivo");
-                                    }
-                                    else
-                                    {
-                                        newNodo = _Create_Tcp_Server(name, port, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
+                                        case "TcpClient":
+                                            if (_FindTcpClient(name, nodoP))
+                                            {
+                                                _UpdateTcpClient(name, ip, port, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Tcp_Client(name, ip, port, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
+                                            break;
+                                        case "TcpServer":
+                                            if (_FindTcpServer(name, nodoP))
+                                            {
+                                                _UpdateTcpServer(name, port, nodoP, "Inactivo");
+                                            }
+                                            else
+                                            {
+                                                newNodo = _Create_Tcp_Server(name, port, "Inactivo");
+                                                nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
+                                                nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
+                                                doc.Save(rutaXml);
+                                            }
 
+                                            break;
+                                    }
                                     break;
                             }
                             break;
+
                     }
-                    break;
-                case "Modems":
-                    switch (nodoS)
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
                     {
-                        case "Udp":
-                            switch (nodoT)
-                            {
-                                case "UdpClient":
-                                    if (_FindUdpClient(name,nodoP))
-                                    {
-                                        _UpdateUdpClient(name,ip,enlaceport,destinationport,nodoP,"Inactivo");
-                                    }
-                                    else {
-                                        newNodo = _Create_Udp_Client(name, ip, enlaceport,destinationport, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
-                                    break;
-                                case "UdpServer":
-                                    if (_FindUdpServer(name,nodoP))
-                                    {
-                                        _UpdateUdpServer(name,enlaceport,destinationport,nodoP, "Inactivo");
-                                    }
-                                    else {
-                                        newNodo = _Create_Udp_Server(name, enlaceport, destinationport, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
-                                    break;
-                            }
-                            break;
-                        case "Tcp":
-                            switch (nodoT)
-                            {
-                                case "TcpClient":
-                                    if (_FindTcpClient(name,nodoP))
-                                    {
-                                        _UpdateTcpClient(name,ip,port,nodoP, "Inactivo");
-                                    }
-                                    else {
-                                        newNodo = _Create_Tcp_Client(name, ip, port, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
-                                    break;
-                                case "TcpServer":
-                                    if (_FindTcpServer(name,nodoP))
-                                    {
-                                        _UpdateTcpServer(name,port,nodoP, "Inactivo");
-                                    }
-                                    else
-                                    {
-                                        newNodo = _Create_Tcp_Server(name, port, "Inactivo");
-                                        nodoRaiz = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode(nodoS).SelectSingleNode(nodoT);
-                                        nodoRaiz.InsertAfter(newNodo, nodoRaiz.LastChild);
-                                        doc.Save(rutaXml);
-                                    }
-
-                                    break;
-                            }
-                            break;
+                        action = true;
                     }
-                    break;
-
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
+                }
             }
 
             //XmlNode newNodo = _Create_Udp_Client(name,ip,port);
@@ -358,95 +380,183 @@ namespace GPRS.Clases
         #region Update
         public void _UpdateUdpClient(string name, string ip, string port,string destinationport,string nodoP,string status)
         {
-            doc.Load(rutaXml);
-            XmlNode udpclient = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Udp").SelectSingleNode("UdpClient");
-
-            XmlNodeList listClientUdp = doc.SelectNodes(nodoPrincipal+"/"+nodoP+"/Udp/UdpClient/Client");
-            XmlNode nuevo_ClientUdp = _Create_Udp_Client(name,ip,port,destinationport, status);
-
-            foreach (XmlNode item in listClientUdp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    XmlNode nodoOld = item;
-                    udpclient.ReplaceChild(nuevo_ClientUdp, nodoOld);
+                    doc.Load(rutaXml);
+                    XmlNode udpclient = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Udp").SelectSingleNode("UdpClient");
+
+                    XmlNodeList listClientUdp = doc.SelectNodes(nodoPrincipal+"/"+nodoP+"/Udp/UdpClient/Client");
+                    XmlNode nuevo_ClientUdp = _Create_Udp_Client(name,ip,port,destinationport, status);
+
+                    foreach (XmlNode item in listClientUdp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            XmlNode nodoOld = item;
+                            udpclient.ReplaceChild(nuevo_ClientUdp, nodoOld);
+                        }
+                    }
+                    doc.Save(rutaXml);
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
 
-            doc.Save(rutaXml);
         }
 
         public void _UpdateUdpServer(string name, string enlaceport, string destinationport, string nodoP,string status)
         {
-            doc.Load(rutaXml);
-            XmlNode udpserver = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Udp").SelectSingleNode("UdpServer");
-            XmlNodeList listServerUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Udp/UdpServer/Server");
-            XmlNode nuevo_ServerUdp = _Create_Udp_Server(name, enlaceport, destinationport,status);
-
-            foreach (XmlNode item in listServerUdp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    XmlNode nodoOld = item;
-                    udpserver.ReplaceChild(nuevo_ServerUdp, nodoOld);
+                    doc.Load(rutaXml);
+                    XmlNode udpserver = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Udp").SelectSingleNode("UdpServer");
+                    XmlNodeList listServerUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Udp/UdpServer/Server");
+                    XmlNode nuevo_ServerUdp = _Create_Udp_Server(name, enlaceport, destinationport, status);
+
+                    foreach (XmlNode item in listServerUdp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            XmlNode nodoOld = item;
+                            udpserver.ReplaceChild(nuevo_ServerUdp, nodoOld);
+                        }
+                    }
+
+                    doc.Save(rutaXml);
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
-
-            doc.Save(rutaXml);
         }
 
         public void _UpdateTcpClient(string name, string ip, string port, string nodoP,string status)
         {
-            doc.Load(rutaXml);
-            XmlNode tcpclient = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Tcp").SelectSingleNode("TcpClient");
-            XmlNodeList listClientTcp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpClient/Client");
-            XmlNode nuevo_ClientTcp = _Create_Tcp_Client(name, ip, port,status);
-
-            foreach (XmlNode item in listClientTcp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    XmlNode nodoOld = item;
-                    tcpclient.ReplaceChild(nuevo_ClientTcp, nodoOld);
+                    doc.Load(rutaXml);
+                    XmlNode tcpclient = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Tcp").SelectSingleNode("TcpClient");
+                    XmlNodeList listClientTcp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpClient/Client");
+                    XmlNode nuevo_ClientTcp = _Create_Tcp_Client(name, ip, port,status);
+
+                    foreach (XmlNode item in listClientTcp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            XmlNode nodoOld = item;
+                            tcpclient.ReplaceChild(nuevo_ClientTcp, nodoOld);
+                        }
+                    }
+                    doc.Save(rutaXml);
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
-
-            doc.Save(rutaXml);
         }
 
         public void _UpdateTcpServer(string name, string port,string nodoP, string status)
         {
-            doc.Load(rutaXml);
-            XmlNode tcpserver = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Tcp").SelectSingleNode("TcpServer"); ;
-            
-            XmlNodeList listServerUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpServer/Server");
-            
-            XmlNode nuevo_ServerTcp = _Create_Tcp_Server(name, port,status);
-
-            foreach (XmlNode item in listServerUdp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    XmlNode nodoOld = item;
-                    tcpserver.ReplaceChild(nuevo_ServerTcp, nodoOld);
+                    doc.Load(rutaXml);
+                    XmlNode tcpserver = doc.DocumentElement.SelectSingleNode(nodoP).SelectSingleNode("Tcp").SelectSingleNode("TcpServer"); ;
+            
+                    XmlNodeList listServerUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpServer/Server");
+            
+                    XmlNode nuevo_ServerTcp = _Create_Tcp_Server(name, port,status);
+
+                    foreach (XmlNode item in listServerUdp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            XmlNode nodoOld = item;
+                            tcpserver.ReplaceChild(nuevo_ServerTcp, nodoOld);
+                        }
+                    }
+                    doc.Save(rutaXml);
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
-
-            doc.Save(rutaXml);
         }
         #endregion
 
         #region Find
         public Boolean _FindUdpClient(string name, string nodoP)
         {
-            doc.Load(rutaXml);
-            XmlNodeList listClientUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Udp/UdpClient/Client");
-            
-            foreach (XmlNode item in listClientUdp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    return true;
+                    doc.Load(rutaXml);
+                    XmlNodeList listClientUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Udp/UdpClient/Client");
+            
+                    foreach (XmlNode item in listClientUdp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            return true;
+                        }
+                    }
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
             return false;
@@ -454,56 +564,134 @@ namespace GPRS.Clases
 
         public Boolean _FindUdpServer(string name, string nodoP)
         {
-            doc.Load(rutaXml);
-            XmlNodeList listServerUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Udp/UdpServer/Server");
-
-            foreach (XmlNode item in listServerUdp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    return true;
+                    doc.Load(rutaXml);
+                    XmlNodeList listServerUdp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Udp/UdpServer/Server");
+
+                    foreach (XmlNode item in listServerUdp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            return true;
+                        }
+                    }
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
+
             return false;
         }
 
         public Boolean _FindTcpClient(string name, string nodoP)
         {
-            doc.Load(rutaXml);
-            XmlNodeList listClientTcp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpClient/Client");
 
-            foreach (XmlNode item in listClientTcp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    return true;
+                    doc.Load(rutaXml);
+                    XmlNodeList listClientTcp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpClient/Client");
+
+                    foreach (XmlNode item in listClientTcp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            return true;
+                        }
+                    }
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
+            
             return false;
         }
 
         public Boolean _FindTcpServer(string name, string nodoP)
         {
-            doc.Load(rutaXml);
-            XmlNodeList listServerTcp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpServer/Server");
-
-            foreach (XmlNode item in listServerTcp)
+            int intent = 0;
+            bool action = false;
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    return true;
+                    doc.Load(rutaXml);
+                    XmlNodeList listServerTcp = doc.SelectNodes(nodoPrincipal + "/" + nodoP + "/Tcp/TcpServer/Server");
+
+                    foreach (XmlNode item in listServerTcp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            return true;
+                        }
+                    }
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
+
             return false;
         }
         #endregion
 
         public XmlNodeList _ReadXml(string nodop, string nodos, string nodot, string nodoc)
         {
+            int intent = 0;
+            bool action = false;
+            XmlNodeList listNodos = null;
 
-            doc.Load(rutaXml);
+            while (!action)
+            {
+                try
+                {
+                    doc.Load(rutaXml);
 
-            XmlNodeList listNodos = doc.SelectNodes(nodoPrincipal+"/"+nodop+"/"+nodos+"/"+nodot+"/"+nodoc);
+                    listNodos = doc.SelectNodes(nodoPrincipal+"/"+nodop+"/"+nodos+"/"+nodot+"/"+nodoc);
+
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
+                }
+            }
 
             return listNodos;
 
@@ -512,37 +700,76 @@ namespace GPRS.Clases
 
         public void _DeleteNodo(string name,string nodop, string nodos, string nodot,string nodoc)
         {
-            doc.Load(rutaXml);
+            int intent = 0;
+            bool action = false;
+            XmlNodeList listNodos = null;
 
-            XmlNode nododel = doc.DocumentElement.SelectSingleNode(nodop).SelectSingleNode(nodos).SelectSingleNode(nodot);
-
-            XmlNodeList listNodos = doc.SelectNodes(nodoPrincipal+"/"+nodop+"/"+nodos+"/"+nodot+"/"+nodoc);
-
-            foreach (XmlNode item in listNodos)
+            while (!action)
             {
-
-                if (item.SelectSingleNode("Name").InnerText == name)
+                try
                 {
+                    doc.Load(rutaXml);
 
-                    XmlNode nodoOld = item;
+                    XmlNode nododel = doc.DocumentElement.SelectSingleNode(nodop).SelectSingleNode(nodos).SelectSingleNode(nodot);
 
-                    nododel.RemoveChild(nodoOld);
+                    listNodos = doc.SelectNodes(nodoPrincipal+"/"+nodop+"/"+nodos+"/"+nodot+"/"+nodoc);
+
+                    foreach (XmlNode item in listNodos)
+                    {
+
+                        if (item.SelectSingleNode("Name").InnerText == name)
+                        {
+
+                            XmlNode nodoOld = item;
+
+                            nododel.RemoveChild(nodoOld);
+                        }
+                    }
+
+                    doc.Save(rutaXml);
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
-
-            doc.Save(rutaXml);
         }
 
         public Boolean _FindNodoBeforeDelete(string name,string nodop,string nodos,string nodot,string nodoc)
         {
-            doc.Load(rutaXml);
-            XmlNodeList listServerTcp = doc.SelectNodes(nodoPrincipal + "/" + nodop + "/"+nodos+"/"+nodot+"/"+nodoc);
+            int intent = 0;
+            bool action = false;
 
-            foreach (XmlNode item in listServerTcp)
+            while (!action)
             {
-                if (item.FirstChild.InnerText == name)
+                try
                 {
-                    return true;
+                    doc.Load(rutaXml);
+                    XmlNodeList listServerTcp = doc.SelectNodes(nodoPrincipal + "/" + nodop + "/"+nodos+"/"+nodot+"/"+nodoc);
+
+                    foreach (XmlNode item in listServerTcp)
+                    {
+                        if (item.FirstChild.InnerText == name)
+                        {
+                            return true;
+                        }
+                    }
+                    action = true;
+                }
+                catch (Exception ex)
+                {
+                    if (intent > 3)
+                    {
+                        action = true;
+                    }
+                    intent++;
+                    Console.WriteLine(ex.Message.ToString());
                 }
             }
             return false;

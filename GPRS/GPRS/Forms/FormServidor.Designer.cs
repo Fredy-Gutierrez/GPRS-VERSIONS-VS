@@ -30,6 +30,9 @@
         {
             this.components = new System.ComponentModel.Container();
             this.txtMensajes = new System.Windows.Forms.RichTextBox();
+            this.Menú = new System.Windows.Forms.ContextMenuStrip(this.components);
+            this.copyItem = new FontAwesome.Sharp.IconMenuItem();
+            this.cleanItem = new FontAwesome.Sharp.IconMenuItem();
             this.label2 = new System.Windows.Forms.Label();
             this.lblUdpClientServer = new System.Windows.Forms.Label();
             this.lblUdpServerServer = new System.Windows.Forms.Label();
@@ -46,9 +49,9 @@
             this.label1 = new System.Windows.Forms.Label();
             this.panel4 = new System.Windows.Forms.Panel();
             this.txtMaxWindows = new System.Windows.Forms.TextBox();
-            this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.pictureInformation = new System.Windows.Forms.PictureBox();
             this.toolTip = new System.Windows.Forms.ToolTip(this.components);
+            this.btnAdd = new FontAwesome.Sharp.IconButton();
             this.switchBtnTcpServerModem = new GPRS.CeLearningToggle();
             this.switchBtnTcpClientModem = new GPRS.CeLearningToggle();
             this.switchBtnUdpServerModem = new GPRS.CeLearningToggle();
@@ -57,6 +60,7 @@
             this.switchBtnTcpClientSock = new GPRS.CeLearningToggle();
             this.switchBtnUdpClientSock = new GPRS.CeLearningToggle();
             this.switchBtnUdpServerSock = new GPRS.CeLearningToggle();
+            this.Menú.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureInformation)).BeginInit();
@@ -69,6 +73,7 @@
             | System.Windows.Forms.AnchorStyles.Right)));
             this.txtMensajes.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(92)))), ((int)(((byte)(89)))), ((int)(((byte)(89)))));
             this.txtMensajes.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.txtMensajes.ContextMenuStrip = this.Menú;
             this.txtMensajes.Font = new System.Drawing.Font("Century Gothic", 11.25F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.txtMensajes.ForeColor = System.Drawing.Color.WhiteSmoke;
             this.txtMensajes.HideSelection = false;
@@ -78,6 +83,37 @@
             this.txtMensajes.Size = new System.Drawing.Size(892, 186);
             this.txtMensajes.TabIndex = 10;
             this.txtMensajes.Text = "";
+            this.txtMensajes.MouseClick += new System.Windows.Forms.MouseEventHandler(this.txtMensajes_MouseClick);
+            // 
+            // Menú
+            // 
+            this.Menú.Items.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.copyItem,
+            this.cleanItem});
+            this.Menú.Name = "Menú";
+            this.Menú.Size = new System.Drawing.Size(118, 48);
+            // 
+            // copyItem
+            // 
+            this.copyItem.IconChar = FontAwesome.Sharp.IconChar.Copy;
+            this.copyItem.IconColor = System.Drawing.Color.Black;
+            this.copyItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.copyItem.IconSize = 16;
+            this.copyItem.Name = "copyItem";
+            this.copyItem.Size = new System.Drawing.Size(117, 22);
+            this.copyItem.Text = "Copiar";
+            this.copyItem.Click += new System.EventHandler(this.copyItem_Click);
+            // 
+            // cleanItem
+            // 
+            this.cleanItem.IconChar = FontAwesome.Sharp.IconChar.TrashRestoreAlt;
+            this.cleanItem.IconColor = System.Drawing.Color.Black;
+            this.cleanItem.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.cleanItem.IconSize = 16;
+            this.cleanItem.Name = "cleanItem";
+            this.cleanItem.Size = new System.Drawing.Size(117, 22);
+            this.cleanItem.Text = "Eliminar";
+            this.cleanItem.Click += new System.EventHandler(this.cleanItem_Click);
             // 
             // label2
             // 
@@ -300,30 +336,6 @@
             this.txtMaxWindows.DoubleClick += new System.EventHandler(this.txtMaxWindows_DoubleClick);
             this.txtMaxWindows.KeyPress += new System.Windows.Forms.KeyPressEventHandler(this.txtMaxWindows_KeyPress);
             // 
-            // btnAdd
-            // 
-            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
-            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(4)))), ((int)(((byte)(181)))), ((int)(((byte)(252)))));
-            this.btnAdd.FlatAppearance.BorderSize = 0;
-            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(225)))));
-            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
-            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
-            this.btnAdd.Flip = FontAwesome.Sharp.FlipOrientation.Normal;
-            this.btnAdd.Font = new System.Drawing.Font("Century Gothic", 9F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.btnAdd.ForeColor = System.Drawing.Color.White;
-            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.Save;
-            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(255)))), ((int)(((byte)(19)))));
-            this.btnAdd.IconSize = 18;
-            this.btnAdd.Location = new System.Drawing.Point(559, 442);
-            this.btnAdd.Name = "btnAdd";
-            this.btnAdd.Rotation = 0D;
-            this.btnAdd.Size = new System.Drawing.Size(91, 32);
-            this.btnAdd.TabIndex = 47;
-            this.btnAdd.Text = "  Guardar";
-            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
-            this.btnAdd.UseVisualStyleBackColor = false;
-            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
-            // 
             // pictureInformation
             // 
             this.pictureInformation.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Right)));
@@ -342,6 +354,29 @@
             this.toolTip.InitialDelay = 500;
             this.toolTip.ReshowDelay = 100;
             this.toolTip.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
+            // 
+            // btnAdd
+            // 
+            this.btnAdd.Anchor = System.Windows.Forms.AnchorStyles.Bottom;
+            this.btnAdd.BackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(122)))), ((int)(((byte)(204)))));
+            this.btnAdd.FlatAppearance.BorderSize = 0;
+            this.btnAdd.FlatAppearance.MouseDownBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(0)))), ((int)(((byte)(134)))), ((int)(((byte)(225)))));
+            this.btnAdd.FlatAppearance.MouseOverBackColor = System.Drawing.Color.FromArgb(((int)(((byte)(75)))), ((int)(((byte)(182)))), ((int)(((byte)(255)))));
+            this.btnAdd.FlatStyle = System.Windows.Forms.FlatStyle.Flat;
+            this.btnAdd.Font = new System.Drawing.Font("Corbel", 11.25F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.btnAdd.ForeColor = System.Drawing.Color.WhiteSmoke;
+            this.btnAdd.IconChar = FontAwesome.Sharp.IconChar.SdCard;
+            this.btnAdd.IconColor = System.Drawing.Color.FromArgb(((int)(((byte)(142)))), ((int)(((byte)(230)))), ((int)(((byte)(255)))));
+            this.btnAdd.IconFont = FontAwesome.Sharp.IconFont.Auto;
+            this.btnAdd.IconSize = 20;
+            this.btnAdd.Location = new System.Drawing.Point(559, 440);
+            this.btnAdd.Name = "btnAdd";
+            this.btnAdd.Size = new System.Drawing.Size(99, 34);
+            this.btnAdd.TabIndex = 47;
+            this.btnAdd.Text = "  Guardar";
+            this.btnAdd.TextImageRelation = System.Windows.Forms.TextImageRelation.ImageBeforeText;
+            this.btnAdd.UseVisualStyleBackColor = false;
+            this.btnAdd.Click += new System.EventHandler(this.btnAdd_Click);
             // 
             // switchBtnTcpServerModem
             // 
@@ -533,6 +568,7 @@
             this.Load += new System.EventHandler(this.FormServidor_Load);
             this.Paint += new System.Windows.Forms.PaintEventHandler(this.FormServidor_Paint);
             this.Resize += new System.EventHandler(this.FormServidor_Resize);
+            this.Menú.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox3)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.pictureInformation)).EndInit();
@@ -560,7 +596,6 @@
         private System.Windows.Forms.Label label1;
         private System.Windows.Forms.Panel panel4;
         private System.Windows.Forms.TextBox txtMaxWindows;
-        private FontAwesome.Sharp.IconButton btnAdd;
         private CeLearningToggle switchBtnUdpServerSock;
         private CeLearningToggle switchBtnUdpClientSock;
         private CeLearningToggle switchBtnTcpClientSock;
@@ -571,5 +606,9 @@
         private CeLearningToggle switchBtnTcpServerModem;
         private System.Windows.Forms.PictureBox pictureInformation;
         private System.Windows.Forms.ToolTip toolTip;
+        private System.Windows.Forms.ContextMenuStrip Menú;
+        private FontAwesome.Sharp.IconMenuItem copyItem;
+        private FontAwesome.Sharp.IconMenuItem cleanItem;
+        private FontAwesome.Sharp.IconButton btnAdd;
     }
 }

@@ -44,4 +44,3 @@ C:\Users\Integra Fredy\source\repos\GPRS\GPRS\obj\Debug\GPRS.csproj.GenerateReso
 C:\Users\Integra Fredy\source\repos\GPRS\GPRS\obj\Debug\GPRS.csproj.CopyComplete
 C:\Users\Integra Fredy\source\repos\GPRS\GPRS\obj\Debug\GPRS.exe
 C:\Users\Integra Fredy\source\repos\GPRS\GPRS\obj\Debug\GPRS.pdb
-C:\Users\Integra Fredy\source\repos\GPRS\GPRS\obj\Debug\GPRS.csprojAssemblyReference.cache
