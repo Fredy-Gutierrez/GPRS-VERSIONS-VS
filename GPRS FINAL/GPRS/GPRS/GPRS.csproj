@@ -1,0 +1,402 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{460EA747-FF7B-48FD-A7F0-5CDD46CA1E8D}</ProjectGuid>
+    <OutputType>WinExe</OutputType>
+    <RootNamespace>GPRS</RootNamespace>
+    <AssemblyName>GPRS</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <IsWebBootstrapper>false</IsWebBootstrapper>
+    <PublishUrl>publish\</PublishUrl>
+    <Install>true</Install>
+    <InstallFrom>Disk</InstallFrom>
+    <UpdateEnabled>false</UpdateEnabled>
+    <UpdateMode>Foreground</UpdateMode>
+    <UpdateInterval>7</UpdateInterval>
+    <UpdateIntervalUnits>Days</UpdateIntervalUnits>
+    <UpdatePeriodically>false</UpdatePeriodically>
+    <UpdateRequired>false</UpdateRequired>
+    <MapFileExtensions>true</MapFileExtensions>
+    <ApplicationRevision>0</ApplicationRevision>
+    <ApplicationVersion>1.0.0.%2a</ApplicationVersion>
+    <UseApplicationTrust>false</UseApplicationTrust>
+    <BootstrapperEnabled>true</BootstrapperEnabled>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup>
+    <ApplicationIcon>Logo.ico</ApplicationIcon>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer, Version=6.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089, processorArchitecture=MSIL">
+      <HintPath>..\packages\EntityFramework.6.2.0\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="FontAwesome.Sharp, Version=5.15.3.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\FontAwesome.Sharp.5.15.3\lib\net472\FontAwesome.Sharp.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic, Version=8.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="Microsoft.VisualBasic.PowerPacks.Vs, Version=10.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\VisualBasic.PowerPacks.Vs.1.0.0\lib\Microsoft.VisualBasic.PowerPacks.Vs.dll</HintPath>
+    </Reference>
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+    <Reference Include="SimpleTCP, Version=1.0.24.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\SimpleTCP.1.0.24\lib\net45\SimpleTCP.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Data.Common, Version=4.1.1.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a, processorArchitecture=MSIL">
+      <HintPath>..\packages\System.Data.Common.4.3.0\lib\net451\System.Data.Common.dll</HintPath>
+      <Private>True</Private>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Windows.Controls.Input.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\System.Windows.Controls.Input.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Windows.Controls.Layout.Toolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\System.Windows.Controls.Layout.Toolkit.dll</HintPath>
+    </Reference>
+    <Reference Include="System.Xaml" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Deployment" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="WindowsBase" />
+    <Reference Include="WPFToolkit, Version=3.5.40128.1, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Infragistics.Themes.MetroDark.Wpf.1.0.0\lib\net40\WPFToolkit.dll</HintPath>
+    </Reference>
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Clases\Models\Connexion.cs" />
+    <Compile Include="Clases\Models\TcpClientMessagesModel.cs" />
+    <Compile Include="Clases\Models\TcpServerMessagesModel.cs" />
+    <Compile Include="Clases\Models\UdpClientMessagesModel.cs" />
+    <Compile Include="Clases\Models\UdpServerMessagesModel.cs" />
+    <Compile Include="Clases\Models\UsersModel.cs" />
+    <Compile Include="Clases\RoundButton.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Clases\RouteList.cs" />
+    <Compile Include="Clases\Xml\Configurations.cs" />
+    <Compile Include="Clases\DriverMaster.cs" />
+    <Compile Include="Clases\Xml\Routing.cs" />
+    <Compile Include="Clases\Seguridad.cs" />
+    <Compile Include="Clases\Session.cs" />
+    <Compile Include="Clases\Tcp.cs" />
+    <Compile Include="Clases\TcpClients.cs" />
+    <Compile Include="Clases\Udp.cs" />
+    <Compile Include="Clases\UdpClients.cs" />
+    <Compile Include="Clases\Xml\SocketsMessages\TcpClientMessages.cs" />
+    <Compile Include="Clases\Xml\SocketsMessages\TcpServerMessages.cs" />
+    <Compile Include="Clases\Xml\SocketsMessages\UdpClientMessages.cs" />
+    <Compile Include="Clases\Xml\SocketsMessages\UdpServerMessages.cs" />
+    <Compile Include="Clases\Xml\UsersXml.cs" />
+    <Compile Include="Clases\Xml\XmlConnection.cs" />
+    <Compile Include="Forms\CeLearningToggle.cs">
+      <SubType>Component</SubType>
+    </Compile>
+    <Compile Include="Forms\ExtenssionMethods.cs" />
+    <Compile Include="Forms\FormCuenta.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormCuenta.Designer.cs">
+      <DependentUpon>FormCuenta.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormConfiguraciones.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormConfiguraciones.Designer.cs">
+      <DependentUpon>FormConfiguraciones.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormUsuarios.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormUsuarios.Designer.cs">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormInicio.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormInicio.Designer.cs">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormLogIn.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormLogIn.Designer.cs">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormPrincipal.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormPrincipal.Designer.cs">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormRuteo.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormRuteo.Designer.cs">
+      <DependentUpon>FormRuteo.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\FormServidor.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\FormServidor.Designer.cs">
+      <DependentUpon>FormServidor.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\Error.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\Error.Designer.cs">
+      <DependentUpon>Error.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\Information.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\Information.Designer.cs">
+      <DependentUpon>Information.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\Alerts.cs" />
+    <Compile Include="Forms\Messages\Success.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\Success.Designer.cs">
+      <DependentUpon>Success.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Messages\Warning.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Messages\Warning.Designer.cs">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemTcpClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemTcpClient.Designer.cs">
+      <DependentUpon>FormModemTcpClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemTcpServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemTcpServer.Designer.cs">
+      <DependentUpon>FormModemTcpServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemUdpClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemUdpClient.Designer.cs">
+      <DependentUpon>FormModemUdpClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemUdpServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormModemUdpServer.Designer.cs">
+      <DependentUpon>FormModemUdpServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketTcpClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketTcpClient.Designer.cs">
+      <DependentUpon>FormSocketTcpClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketTcpServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketTcpServer.Designer.cs">
+      <DependentUpon>FormSocketTcpServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketUdpClient.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketUdpClient.Designer.cs">
+      <DependentUpon>FormSocketUdpClient.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketUdpServer.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="Forms\Sockets\FormSocketUdpServer.Designer.cs">
+      <DependentUpon>FormSocketUdpServer.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Forms\MyRectangle.cs" />
+    <Compile Include="Program.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <EmbeddedResource Include="Forms\FormCuenta.resx">
+      <DependentUpon>FormCuenta.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormConfiguraciones.resx">
+      <DependentUpon>FormConfiguraciones.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormInicio.resx">
+      <DependentUpon>FormInicio.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormLogIn.resx">
+      <DependentUpon>FormLogIn.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormPrincipal.resx">
+      <DependentUpon>FormPrincipal.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormRuteo.resx">
+      <DependentUpon>FormRuteo.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormServidor.resx">
+      <DependentUpon>FormServidor.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\FormUsuarios.resx">
+      <DependentUpon>FormUsuarios.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\Error.resx">
+      <DependentUpon>Error.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\Information.resx">
+      <DependentUpon>Information.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\Success.resx">
+      <DependentUpon>Success.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Messages\Warning.resx">
+      <DependentUpon>Warning.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormModemTcpClient.resx">
+      <DependentUpon>FormModemTcpClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormModemTcpServer.resx">
+      <DependentUpon>FormModemTcpServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormModemUdpClient.resx">
+      <DependentUpon>FormModemUdpClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormModemUdpServer.resx">
+      <DependentUpon>FormModemUdpServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormSocketTcpClient.resx">
+      <DependentUpon>FormSocketTcpClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormSocketTcpServer.resx">
+      <DependentUpon>FormSocketTcpServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormSocketUdpClient.resx">
+      <DependentUpon>FormSocketUdpClient.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Forms\Sockets\FormSocketUdpServer.resx">
+      <DependentUpon>FormSocketUdpServer.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+      <SubType>Designer</SubType>
+    </EmbeddedResource>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Resources.resx</DependentUpon>
+      <DesignTime>True</DesignTime>
+    </Compile>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="Resources\torre-pc.png" />
+    <Content Include="Logo.ico" />
+    <None Include="Resources\comprobado %281%29.png" />
+    <Content Include="Themes\MetroDark\HowToApplyTheme.txt" />
+    <None Include="Resources\Logo Final %281%29.png" />
+    <None Include="Resources\puntero.png" />
+    <None Include="Resources\enrutador %281%29.png" />
+    <None Include="Resources\enrutador.png" />
+    <None Include="Resources\wifi.png" />
+    <None Include="Resources\servidores %282%29.png" />
+    <None Include="Resources\servidores %281%29.png" />
+    <None Include="Resources\servidores.png" />
+    <None Include="Resources\agregar-usuario %283%29.png" />
+    <None Include="Resources\alarma.png" />
+    <None Include="Resources\informacion.png" />
+    <None Include="Resources\cancelar.png" />
+    <None Include="Resources\usuario %282%29.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <BootstrapperPackage Include=".NETFramework,Version=v4.7.2">
+      <Visible>False</Visible>
+      <ProductName>Microsoft .NET Framework 4.7.2 %28x86 y x64%29</ProductName>
+      <Install>true</Install>
+    </BootstrapperPackage>
+    <BootstrapperPackage Include="Microsoft.Net.Framework.3.5.SP1">
+      <Visible>False</Visible>
+      <ProductName>.NET Framework 3.5 SP1</ProductName>
+      <Install>false</Install>
+    </BootstrapperPackage>
+  </ItemGroup>
+  <ItemGroup>
+    <Page Include="Themes\MetroDark\MetroDark.MSControls.Core.Implicit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroDark\MetroDark.MSControls.Toolkit.Implicit.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroDark\Styles.Shared.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroDark\Styles.WPF.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+    <Page Include="Themes\MetroDark\Theme.Colors.xaml">
+      <Generator>MSBuild:Compile</Generator>
+      <SubType>Designer</SubType>
+    </Page>
+  </ItemGroup>
+  <ItemGroup>
+    <Service Include="{508349B6-6B84-4DF5-91F0-309BEEBAD82D}" />
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+</Project>

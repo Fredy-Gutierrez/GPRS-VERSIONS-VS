@@ -1,0 +1,29 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio Version 16
+VisualStudioVersion = 16.0.29905.134
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GPRS", "GPRS\GPRS.csproj", "{460EA747-FF7B-48FD-A7F0-5CDD46CA1E8D}"
+EndProject
+Project("{54435603-DBB4-11D2-8724-00A0C9A8B90C}") = "GPRS_Installer", "GPRS_Installer\GPRS_Installer.vdproj", "{6FA65A97-ADAC-435E-AD5D-5E41893D2251}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|Any CPU = Debug|Any CPU
+		Release|Any CPU = Release|Any CPU
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{460EA747-FF7B-48FD-A7F0-5CDD46CA1E8D}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{460EA747-FF7B-48FD-A7F0-5CDD46CA1E8D}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{460EA747-FF7B-48FD-A7F0-5CDD46CA1E8D}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{460EA747-FF7B-48FD-A7F0-5CDD46CA1E8D}.Release|Any CPU.Build.0 = Release|Any CPU
+		{6FA65A97-ADAC-435E-AD5D-5E41893D2251}.Debug|Any CPU.ActiveCfg = Debug
+		{6FA65A97-ADAC-435E-AD5D-5E41893D2251}.Release|Any CPU.ActiveCfg = Release
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {4D2F1321-791D-4F1E-BA69-004A76965189}
+	EndGlobalSection
+EndGlobal
